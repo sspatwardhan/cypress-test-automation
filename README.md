@@ -27,6 +27,6 @@ npx cypress run --env grep=MUST,qaUserName=<tio_userName>,qaUserPassword=<tio_us
 ## Pre-requisites for target T.cs Account (cypress.env.json)
 - pre-configured tenant => gitHub/bitbucket/gitlab/ADO/BOT/AWS-CodeCommit integrations pre-configured where the target repositories in the specs are present (Please contact Saurabh (@spatwardhan), Tushar (@tlikhar) for more details)
 - Following cloud accounts already configured
-    - AWS: 536274239938, 068347883986
-    - Azure: 9c8988b4-d223-45a9-a7f2-e7b71c7a0ed6
-    - GCP: triple-bird-294722
+    - AWS Account: XXXX, YYYYY
+    - Azure Subscriptions: XXXXXX
+    - GCP Project: XXXXXXX
