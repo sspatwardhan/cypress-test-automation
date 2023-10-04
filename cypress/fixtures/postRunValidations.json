@@ -1,0 +1,798 @@
+{
+  "data": {
+    "filtersAndSearchData": [
+      {
+        "testID": "ValidationTest-0001",
+        "purpose" : "Repositories - Validate repositories filtering and searching",
+        "skipTest": false,
+        "requestURL": "AU_036",
+        "method":"GET",
+        "queryStrings": ["offset=0&limit=15&search=acqa","search=acqa","offset=0&limit=15&projectName=BAT-aws-terraform-&projectName=DND-AWS-&projectName=DND-Azure-&repoURL=https://bitbucket.org/tenb-qa/acqa-repo1-aws-tf12-part1.git"],
+        "expectedKeyAndMinValuePerQS": ["count|5","count|5","count|0"]
+      },
+      {
+        "testID": "ValidationTest-0002",
+        "purpose" : "Validate K8s clusters filtering and searching",
+        "skipTest": false,
+        "requestURL": "AU_037",
+        "method":"POST",
+        "body":{"providers":[],"envs":[]},
+        "queryStrings": ["offset=0&limit=50","offset=0&limit=10","offset=0&limit=10","offset=0&limit=10","offset=0&limit=100","offset=0&limit=50&search=acqa","offset=0&limit=50","offset=0&limit=50","offset=0&limit=50"],
+        "expectedKeyAndMinValuePerQS": ["count|4","count|4","resources|1","policyViolations|5","issues|5","count|1","display|acqa-test-eks-cluster1","display|arti-testclusterforverification","display|revati-test-aks"]
+      },
+      {
+        "testID": "ValidationTest-0003",
+        "purpose" : "Validate K8s clusters filtering and searching",
+        "skipTest": false,
+        "requestURL": "AU_037",
+        "method":"POST",
+        "body":{"providers":["aws"],"envs":[]},
+        "queryStrings": ["offset=0&limit=50","offset=0&limit=50&search=acqa","search=acqa"],
+        "expectedKeyAndMinValuePerQS": ["count|2","count|2","count|2"]
+      },
+      {
+        "testID": "ValidationTest-0004",
+        "purpose" : "Validate pipelines filtering and searching",
+        "skipTest": false,
+        "requestURL": "AU_031",
+        "method":"GET",
+        "queryStrings": ["offset=0&limit=20&search=github","search=github","offset=0&limit=20&search=bitbucket"],
+        "expectedKeyAndMinValuePerQS": ["count|4","count|4","count|0"]
+      },
+      {
+        "testID": "ValidationTest-0005",
+        "purpose" : "Misconfiguration Dashboard -Validate resources filtering and searching",
+        "skipTest": false,
+        "requestURL": "AU_039",
+        "method":"GET",
+        "queryStrings":["hasDrift=true","useBaseline=true&idSearch=Instance","useBaseline=true&idSearch=Instance&cft=536274239938","useBaseline=true&cft=536274239938","useBaseline=true&idSearch=s3&mapped=true","offset=0&type=aws_instance&useBaseline=true&limit=20","&projectName=BAT-aws-terraform-&hasIac=true","&projectName=BAT-aws-terraform-&hasCloud=true"],
+        "expectedKeyAndMinValuePerQS": ["count|10","count|5","criticality|50","count|5","count|0","count|5","count|1","count|1"]
+      },
+      {
+        "testID": "ValidationTest-0006",
+        "purpose" : "Validate reports filtering and searching",
+        "skipTest": false,
+        "requestURL": "AU_040",
+        "method":"GET",
+        "queryStrings": ["offset=0&limit=5&search=Ensure%20logging%20for%20global%20services%20is%20enabled%20for%20AWS%20CloudTrail","offset=0&limit=5&ruleStatus=passed&search=Ensure%20CloudTrail%20is%20enabled%20in%20all%20regions","offset=0&limit=5&provider=aws&cft=536274239938","offset=0&limit=5&ruleStatus=ignored&search=test","offset=0&limit=20&provider=aws&cft=536274239938","offset=0&limit=5"],
+        "expectedKeyAndMinValuePerQS": ["failedResources|1","totalRuleCount|1","filteredRuleCount|10","filteredRuleCount|0","provider|aws","totalResources|10"]
+      },
+      {
+        "testID": "ValidationTest-0007",
+        "purpose" : "Validate misconfiguration page filtering and searching",
+        "skipTest": false,
+        "requestURL": "AU_041",
+        "method":"GET",
+        "queryStrings":["hasDrift=false&hasVDrift=true&useBaseline=true","hasDrift=true","hasDrift=true&useBaseline=true","useBaseline=true&projectName=BAT-aws-terraform-&cft=536274239938&repoURL=https://bitbucket.org/tenb-qa/acqa-repo1-aws-tf12-part1.git","useBaseline=true&insights=blob","useBaseline=true&insights=exposedDb","useBaseline=true&insights=rwIam","useBaseline=true&insights=secGroupExposed",""],
+        "expectedKeyAndMinValuePerQS": ["total|0","total|5","total|5","total|0","total|1","total|5","total|2","total|2","total|10"]
+      },
+      {
+        "testID": "ValidationTest-0008",
+        "purpose" : "Validate misconfiguration page filtering and searching",
+        "skipTest": false,
+        "requestURL": "AU_042",
+        "method":"GET",
+        "queryStrings": ["hasViolation=true","&hasViolation=true&cft=536274239938&hasCloud=true","&hasViolation=true&hasIac=true","hasViolation=true&severity=high","hasViolation=true&severity=medium","asViolation=true&severity=low"],
+        "expectedKeyAndMinValuePerQS": ["cloudViolations|0","cloudViolations|0","iacViolations|0","resourceCount|10","resourceCount|10","resourceCount|10"]
+      },
+      {
+        "testID": "ValidationTest-0009",
+        "purpose" : "Misconfiguration Dashboard -Validate exposed blob stores on misconfiguration page filtering and searching",
+        "skipTest": false,
+        "requestURL": "AU_043",
+        "method":"GET",
+        "queryStrings": ["useBaseline=true&insights=blob","useBaseline=true&insights=secGroupExposed","useBaseline=true&insights=rwIam","useBaseline=true&insights=exposedDb"],
+        "expectedKeyAndMinValuePerQS": ["blob|1","blob|1","blob|1","blob|1"]
+      },
+      {
+        "testID": "ValidationTest-0010",
+        "purpose" : "Validate misconfiguration by categories on misconfiguration page filtering and searching",
+        "skipTest": false,
+        "requestURL": "AU_044",
+        "method":"GET",
+        "queryStrings": ["hasViolation=true&trends=Identity","hasViolation=true&trends=Logging","hasViolation=true&trends=Network","hasViolation=true&trends=Storage","hasViolation=true&trends=Data","&trends=Encryption","hasViolation=true&trends=Other","hasViolation=true"],
+        "expectedKeyAndMinValuePerQS": ["Identity|10","Logging|10","Network|10","Storage|1","Data|10","Encryption|10","Other|10","violations|10"]
+      },
+      {
+        "testID": "ValidationTest-0011",
+        "purpose" : "Misconfiguration Dashboard - Validate filtering across page",
+        "skipTest": false,
+        "requestURL": "AU_045",
+        "method":"GET",
+        "queryStrings": ["","provider=azure&benchmark=GDPR%3A32.1.b%20NIST-800-171%3A3.4.2%20NIST-800-53%3ACM-6b.%20NIST-CSF%3APR.IP-1%20HIPAA%3A164.306(a)(1)","",""],
+        "expectedKeyAndMinValuePerQS": ["name|536274239938","name|9c8988b4-d223-45a9-a7f2-e7b71c7a0ed6","name|gcp","name|AWS-TERRAFORM"]
+      },
+      {
+        "testID": "ValidationTest-0012",
+        "purpose" : "Misconfiguration dashboard - Validate remediate page searching for service tickets",
+        "skipTest": false,
+        "requestURL": "AU_014",
+        "method":"GET",
+        "queryStrings": [""],
+        "expectedKeyAndMinValuePerQS": ["value|1"]
+      },
+      {
+        "testID": "ValidationTest-0013",
+        "purpose" : "Validate jira configuration",
+        "skipTest": false,
+        "requestURL": "AU_007",
+        "method":"GET",
+        "queryStrings": ["offset=0&limit=50&status=open","limit=100","limit=100"],
+        "expectedKeyAndMinValuePerQS": ["count|0","count|1","issueType|Security Issue"]
+      },
+      {
+        "testID": "ValidationTest-0014",
+        "purpose" : "Validate PR entries count on remediation page",
+        "skipTest": false,
+        "requestURL": "AU_015",
+        "method":"GET",
+        "queryStrings": [""],
+        "expectedKeyAndMinValuePerQS": ["value|1"]
+      },
+      {
+        "testID": "ValidationTest-0015",
+        "purpose" : "Validate remediate page filtering for fix PR's ",
+        "skipTest": false,
+        "requestURL": "AU_016",
+        "method":"GET",
+        "queryStrings": ["offset=0&limit=50&projectName=BAT-aws-terraform-","limit=500","offset=0&limit=50&status=All","offset=0&limit=50","offset=0&limit=50"],
+        "expectedKeyAndMinValuePerQS": ["count|0","count|1","count|1","count|1","status|open"]
+      },
+      {
+        "testID": "ValidationTest-0016",
+        "purpose" : "Misconfiguration dashboard - Validate top resource types with misconfigurations",
+        "skipTest": false, 
+        "requestURL": "AU_050",
+        "method":"GET",
+        "queryStrings": ["","",""],
+        "expectedKeyAndMinValuePerQS": ["value|10","iacValue|30","cloudValue|30"]
+      },
+      {
+        "testID": "ValidationTest-0017",
+        "purpose" : "Misconfiguration Dashboard - Validate env api after console login",
+        "skipTest": false,
+        "requestURL": "AU_047",
+        "method":"GET",
+        "queryStrings": ["",""],
+        "expectedKeyAndMinValuePerQS": ["provider|aws","name|AWS-TERRAFORM"]
+      },
+      {
+        "testID": "ValidationTest-0018",
+        "purpose" : "Misconfiguration Dashboard - Validate get total projects",
+        "skipTest": false,
+        "requestURL": "AU_052",
+        "method":"GET",
+        "queryStrings": ["","","&projectName=BAT-aws-terraform-"],
+        "expectedKeyAndMinValuePerQS": ["count|30","project|AWS-TERRAFORM","count|0"]
+      },
+      {
+        "testID": "ValidationTest-0019",
+        "purpose" : "Misconfiguration Dashboard- Validate Cloud Accounts ",
+        "skipTest": false,
+        "requestURL": "AU_003",
+        "method":"GET",
+        "queryStrings": ["","","",""],
+        "expectedKeyAndMinValuePerQS": ["count|1","account|9c8988b4-d223-45a9-a7f2-e7b71c7a0ed6","account|536274239938","account|performance-resources"]
+      },
+      {
+        "testID": "ValidationTest-0020",
+        "purpose" : "Validate policy Severities on misconfiguration dashboard",
+        "skipTest": false,
+        "requestURL": "AU_050",
+        "method":"GET",
+        "queryStrings": [""],
+        "expectedKeyAndMinValuePerQS": ["value|5"]
+      },
+      {
+        "testID": "ValidationTest-0021",
+        "purpose" : "Misconfiguration Dashboard - Validate events count",
+        "skipTest": false,
+        "requestURL": "AU_054",
+        "method":"GET",
+        "queryStrings": ["","","",""],
+        "expectedKeyAndMinValuePerQS": ["count|1","active|0","subject|CLOUD_SCAN","subject|REPO"]
+      },
+      {
+        "testID": "ValidationTest-0022",
+        "purpose" : "Misconfiguration Dashboard - Validate total projects,repos,clouds,cluster and pipelines counts",
+        "skipTest": false,
+        "requestURL": "AU_055",
+        "method":"GET",
+        "queryStrings": ["","","","",""],
+        "expectedKeyAndMinValuePerQS": ["projects|30","repos|20","clouds|5","clusters|5","pipelines|5"]
+      },
+      {
+        "testID": "ValidationTest-0023",
+        "purpose" : "Misconfiguration Dashboard - Validate top failing policies",
+        "skipTest": false,
+        "requestURL": "AU_056",
+        "method":"GET",
+        "queryStrings": ["","",""],
+        "expectedKeyAndMinValuePerQS": ["severity|high","value|5","name|s3Versioning"]
+      },
+      {
+        "testID": "ValidationTest-0024",
+        "purpose" : "Misconfiguration Dashboard - Validate top resource types with misconfigurations",
+        "skipTest": false,
+        "requestURL": "AU_057",
+        "method":"GET",
+        "queryStrings": ["","",""],
+        "expectedKeyAndMinValuePerQS": ["type|aws_iam_policy","type|azurerm_postgresql_configuration","type|google_compute_instance"]
+      },
+      {
+        "testID": "ValidationTest-0025",
+        "purpose" : "Validate SCM integrations status",
+        "skipTest": false,
+        "requestURL": "AU_058",
+        "method":"GET",
+        "queryStrings": ["","","","",""],
+        "expectedKeyAndMinValuePerQS": ["status|AUTHENTICATED","remarks|integration successful","source|microsoft","source|bitbucket","source|gitlab"]
+      },
+      {
+        "testID": "ValidationTest-0026",
+        "purpose" : "Misconfiguration Dashboard - Validate Scan Profile & Status",
+        "skipTest": false,
+        "requestURL": "AU_059",
+        "method":"GET",
+        "queryStrings": ["limit=1000"],
+        "expectedKeyAndMinValuePerQS": ["scanStatus|FINISHED"]
+      },
+      {
+        "testID": "ValidationTest-0027",
+        "purpose" : "Validate Scan Profile & Status",
+        "skipTest": false,
+        "requestURL": "AU_060",
+        "method":"GET",
+        "queryStrings": [""],
+        "expectedKeyAndMinValuePerQS": ["completed|1"]
+      },
+      {
+        "testID": "ValidationTest-0028",
+        "purpose" : "Validate vulnerabilities across TCS",
+        "skipTest": false,
+        "requestURL": "AU_073",
+        "method":"GET",
+        "queryStrings": ["sumByVulnerability=true"],
+        "expectedKeyAndMinValuePerQS": ["total|0"]
+      },
+      {
+        "testID": "ValidationTest-0029",
+        "purpose" : "Validate vulnerabilities across TCS",
+        "skipTest": false,
+        "requestURL": "AU_074",
+        "method":"GET",
+        "queryStrings": ["sumByVulnerability=true"],
+        "expectedKeyAndMinValuePerQS": ["total|0"]
+      },
+      {
+        "testID": "ValidationTest-0030",
+        "purpose" : "Validate all policies present",
+        "skipTest": false,
+        "requestURL": "AU_017",
+        "method":"GET",
+        "queryStrings": ["","",""],
+        "expectedKeyAndMinValuePerQS": ["provider|aws","engineType|terraform","engineType|K8S"]
+      },
+      {
+        "testID": "ValidationTest-0031",
+        "purpose" : "Validate resource type during custom policy creation",
+        "skipTest": false,
+        "requestURL": "AU_023",
+        "method":"GET",
+        "queryStrings": ["",""],
+        "expectedKeyAndMinValuePerQS": ["provider|aws","name|AWS_API_GATEWAY_API_KEY"]
+      },
+      {
+        "testID": "ValidationTest-0032",
+        "purpose" : "Validate alert configuration details",
+        "skipTest": false,
+        "requestURL": "AU_076",
+        "method":"GET",
+        "queryStrings": ["","","","",""],
+        "expectedKeyAndMinValuePerQS": ["provider|aws","source|CloudTrail","severity|High","source|CloudTrail","runtimeAlertName|Security group with public internet ingress"]
+      },
+      {
+        "testID": "ValidationTest-0033",
+        "purpose" : "Validate benchmarks",
+        "skipTest": false,
+        "requestURL": "AU_098",
+        "method":"GET",
+        "queryStrings": [""],
+        "expectedKeyAndMinValuePerQS": ["0|CCM"]
+      },
+      {
+        "testID": "ValidationTest-0034",
+        "purpose" : "Validate global rules violated",
+        "skipTest": false,
+        "requestURL": "AU_028",
+        "method":"GET",
+        "queryStrings": ["offset=0&limit=10","offset=0&limit=50"],
+        "expectedKeyAndMinValuePerQS": ["applicableResourceCount|1","ruleName|cosmosDbWithoutAdvThreatProtection"]
+      },
+      {
+        "testID": "ValidationTest-0035",
+        "purpose" : "Validate Total Available Rules based on filter",
+        "skipTest": false,
+        "requestURL": "AU_077",
+        "method":"GET",
+        "queryStrings": ["","",""],
+        "expectedKeyAndMinValuePerQS": ["TotalAvailableRules|10","name|CIS-K8-AWS-1.3.0-L2","TotalAvailableRules|1200"]
+      },
+      {
+        "testID": "ValidationTest-0036",
+        "purpose" : "Misconfiguration dashboard - Validate global compliance graph",
+        "skipTest": false,
+        "requestURL": "AU_078",
+        "method":"GET",
+        "queryStrings": [""],
+        "expectedKeyAndMinValuePerQS": ["cloud_compliant_resources|10"]
+      },
+      {
+        "testID": "ValidationTest-0037",
+        "purpose" : "Misconfiguration Dashboard - Validate global policy compliance",
+        "skipTest": false,
+        "requestURL": "AU_079",
+        "method":"GET",
+        "queryStrings": ["offset=0&limit=30",""],
+        "expectedKeyAndMinValuePerQS": ["totalResourcesCount|1","ruleDisplay|Ensure advanced threat protection is enabled for Azure CosmosDB Account"]
+      },
+      {
+        "testID": "ValidationTest-0038",
+        "purpose" : "Validate filtering on reports page",
+        "skipTest": false,
+        "requestURL": "AU_097",
+        "method":"GET",
+        "queryStrings": ["benchmark=CIS-1.2&benchmark=CCM&benchmark=CIS-1.3&benchmark=CIS-1.4&benchmark=CIS-1.5&benchmark=CIS-1.6.1&benchmark=CIS-K8-AWS-1.1.0&benchmark=CIS-K8-AZURE-1.1.0&benchmark=CIS-K8-GCP-1.2.0&benchmark=CSCv7&benchmark=CSCv8&benchmark=GDPR&benchmark=HIPAA&benchmark=ISO-27001&benchmark=NIST-800-171&benchmark=NIST-800-53&benchmark=NIST-CSF&benchmark=NSA-CISA-K8S-1.0&benchmark=NY-DFS&benchmark=PCI-DSS&benchmark=SOC2&benchmark=WELL-ARCH&ruleStatus=passed","benchmark=CIS-1.2&benchmark=CCM&benchmark=CIS-1.3&benchmark=CIS-1.4&benchmark=CIS-1.5&benchmark=CIS-1.6.1&benchmark=CIS-K8-AWS-1.1.0&benchmark=CIS-K8-AZURE-1.1.0&benchmark=CIS-K8-GCP-1.2.0&benchmark=CSCv7&benchmark=CSCv8&benchmark=GDPR&benchmark=HIPAA&benchmark=ISO-27001&benchmark=NIST-800-171&benchmark=NIST-800-53&benchmark=NIST-CSF&benchmark=NSA-CISA-K8S-1.0&benchmark=NY-DFS&benchmark=PCI-DSS&benchmark=SOC2&benchmark=WELL-ARCH&ruleStatus=passed&ruleStatus=failed&ruleStatus=ignored&ruleStatus=notassessed","benchmark=CIS-1.2&benchmark=CCM&benchmark=CIS-1.3&benchmark=CIS-1.4&benchmark=CIS-1.5&benchmark=CIS-1.6.1&benchmark=CIS-K8-AWS-1.1.0&benchmark=CIS-K8-AZURE-1.1.0&benchmark=CIS-K8-GCP-1.2.0&benchmark=CSCv7&benchmark=CSCv8&benchmark=GDPR&benchmark=HIPAA&benchmark=ISO-27001&benchmark=NIST-800-171&benchmark=NIST-800-53&benchmark=NIST-CSF&benchmark=NSA-CISA-K8S-1.0&benchmark=NY-DFS&benchmark=PCI-DSS&benchmark=SOC2&benchmark=WELL-ARCH&ruleStatus=passed",
+        "benchmark=CIS-1.2&benchmark=CCM&benchmark=CIS-1.3&benchmark=CIS-1.4&benchmark=CIS-1.5&benchmark=CIS-1.6.1&benchmark=CIS-K8-AWS-1.1.0&benchmark=CIS-K8-AZURE-1.1.0&benchmark=CIS-K8-GCP-1.2.0&benchmark=CSCv7&benchmark=CSCv8&benchmark=GDPR&benchmark=HIPAA&benchmark=ISO-27001&benchmark=NIST-800-171&benchmark=NIST-800-53&benchmark=NIST-CSF&benchmark=NSA-CISA-K8S-1.0&benchmark=NY-DFS&benchmark=PCI-DSS&benchmark=SOC2&benchmark=WELL-ARCH&ruleStatus=ignored","benchmark=CIS-1.2&benchmark=CCM&benchmark=CIS-1.3&benchmark=CIS-1.4&benchmark=CIS-1.5&benchmark=CIS-1.6.1&benchmark=CIS-K8-AWS-1.1.0&benchmark=CIS-K8-AZURE-1.1.0&benchmark=CIS-K8-GCP-1.2.0&benchmark=CSCv7&benchmark=CSCv8&benchmark=GDPR&benchmark=HIPAA&benchmark=ISO-27001&benchmark=NIST-800-171&benchmark=NIST-800-53&benchmark=NIST-CSF&benchmark=NSA-CISA-K8S-1.0&benchmark=NY-DFS&benchmark=PCI-DSS&benchmark=SOC2&benchmark=WELL-ARCH&ruleStatus=failed","benchmark=CIS-1.2&benchmark=CCM&benchmark=CIS-1.3&benchmark=CIS-1.4&benchmark=CIS-1.5&benchmark=CIS-1.6.1&benchmark=CIS-K8-AWS-1.1.0&benchmark=CIS-K8-AZURE-1.1.0&benchmark=CIS-K8-GCP-1.2.0&benchmark=CSCv7&benchmark=CSCv8&benchmark=GDPR&benchmark=HIPAA&benchmark=ISO-27001&benchmark=NIST-800-171&benchmark=NIST-800-53&benchmark=NIST-CSF&benchmark=NSA-CISA-K8S-1.0&benchmark=NY-DFS&benchmark=PCI-DSS&benchmark=SOC2&benchmark=WELL-ARCH&ruleStatus=notassessed",
+        "benchmark=CIS-1.2&benchmark=CCM&benchmark=CIS-1.3&benchmark=CIS-1.4&benchmark=CIS-1.5&benchmark=CIS-1.6.1&benchmark=CIS-K8-AWS-1.1.0&benchmark=CIS-K8-AZURE-1.1.0&benchmark=CIS-K8-GCP-1.2.0&benchmark=CSCv7&benchmark=CSCv8&benchmark=GDPR&benchmark=HIPAA&benchmark=ISO-27001&benchmark=NIST-800-171&benchmark=NIST-800-53&benchmark=NIST-CSF&benchmark=NSA-CISA-K8S-1.0&benchmark=NY-DFS&benchmark=PCI-DSS&benchmark=SOC2&benchmark=WELL-ARCH&provider=k8s","benchmark=CIS-1.2&benchmark=CCM&benchmark=CIS-1.3&benchmark=CIS-1.4&benchmark=CIS-1.5&benchmark=CIS-1.6.1&benchmark=CIS-K8-AWS-1.1.0&benchmark=CIS-K8-AZURE-1.1.0&benchmark=CIS-K8-GCP-1.2.0&benchmark=CSCv7&benchmark=CSCv8&benchmark=GDPR&benchmark=HIPAA&benchmark=ISO-27001&benchmark=NIST-800-171&benchmark=NIST-800-53&benchmark=NIST-CSF&benchmark=NSA-CISA-K8S-1.0&benchmark=NY-DFS&benchmark=PCI-DSS&benchmark=SOC2&benchmark=WELL-ARCH&provider=azure","benchmark=CIS-1.2&benchmark=CCM&benchmark=CIS-1.3&benchmark=CIS-1.4&benchmark=CIS-1.5&benchmark=CIS-1.6.1&benchmark=CIS-K8-AWS-1.1.0&benchmark=CIS-K8-AZURE-1.1.0&benchmark=CIS-K8-GCP-1.2.0&benchmark=CSCv7&benchmark=CSCv8&benchmark=GDPR&benchmark=HIPAA&benchmark=ISO-27001&benchmark=NIST-800-171&benchmark=NIST-800-53&benchmark=NIST-CSF&benchmark=NSA-CISA-K8S-1.0&benchmark=NY-DFS&benchmark=PCI-DSS&benchmark=SOC2&benchmark=WELL-ARCH&provider=aws","benchmark=CIS-1.2&benchmark=CCM&benchmark=CIS-1.3&benchmark=CIS-1.4&benchmark=CIS-1.5&benchmark=CIS-1.6.1&benchmark=CIS-K8-AWS-1.1.0&benchmark=CIS-K8-AZURE-1.1.0&benchmark=CIS-K8-GCP-1.2.0&benchmark=CSCv7&benchmark=CSCv8&benchmark=GDPR&benchmark=HIPAA&benchmark=ISO-27001&benchmark=NIST-800-171&benchmark=NIST-800-53&benchmark=NIST-CSF&benchmark=NSA-CISA-K8S-1.0&benchmark=NY-DFS&benchmark=PCI-DSS&benchmark=SOC2&benchmark=WELL-ARCH&provider=gcp"],
+        "expectedKeyAndMinValuePerQS": ["totalPassedRules|10","totalIgnoredRules|0","totalPassedRules|10","totalIgnoredRules|0","totalFailedRules|10","totalNotApplicableRules|10","totalApplicableRules|10","totalApplicableRules|10","totalApplicableRules|10","totalApplicableRules|10"]
+      },
+      {
+        "testID": "ValidationTest-0039",
+        "purpose" : "Validate filtering on reports page",
+        "skipTest": false,
+        "requestURL": "AU_040",
+        "method":"GET",
+        "queryStrings": ["benchmark=CIS-1.2&benchmark=CCM&benchmark=CIS-1.3&benchmark=CIS-1.4&benchmark=CIS-1.5&benchmark=CIS-1.6.1&benchmark=CIS-K8-AWS-1.1.0&benchmark=CIS-K8-AZURE-1.1.0&benchmark=CIS-K8-GCP-1.2.0&benchmark=CSCv7&benchmark=CSCv8&benchmark=GDPR&benchmark=HIPAA&benchmark=ISO-27001&benchmark=NIST-800-171&benchmark=NIST-800-53&benchmark=NIST-CSF&benchmark=NSA-CISA-K8S-1.0&benchmark=NY-DFS&benchmark=PCI-DSS&benchmark=SOC2&benchmark=WELL-ARCH&offset=0&limit=5&ruleStatus=passed&ruleStatus=failed&ruleStatus=ignored&ruleStatus=notassessed","benchmark=CIS-1.2&benchmark=CCM&benchmark=CIS-1.3&benchmark=CIS-1.4&benchmark=CIS-1.5&benchmark=CIS-1.6.1&benchmark=CIS-K8-AWS-1.1.0&benchmark=CIS-K8-AZURE-1.1.0&benchmark=CIS-K8-GCP-1.2.0&benchmark=CSCv7&benchmark=CSCv8&benchmark=GDPR&benchmark=HIPAA&benchmark=ISO-27001&benchmark=NIST-800-171&benchmark=NIST-800-53&benchmark=NIST-CSF&benchmark=NSA-CISA-K8S-1.0&benchmark=NY-DFS&benchmark=PCI-DSS&benchmark=SOC2&benchmark=WELL-ARCH&offset=0&limit=5&ruleStatus=passed","benchmark=CIS-1.2&benchmark=CCM&benchmark=CIS-1.3&benchmark=CIS-1.4&benchmark=CIS-1.5&benchmark=CIS-1.6.1&benchmark=CIS-K8-AWS-1.1.0&benchmark=CIS-K8-AZURE-1.1.0&benchmark=CIS-K8-GCP-1.2.0&benchmark=CSCv7&benchmark=CSCv8&benchmark=GDPR&benchmark=HIPAA&benchmark=ISO-27001&benchmark=NIST-800-171&benchmark=NIST-800-53&benchmark=NIST-CSF&benchmark=NSA-CISA-K8S-1.0&benchmark=NY-DFS&benchmark=PCI-DSS&benchmark=SOC2&benchmark=WELL-ARCH&offset=0&limit=5&ruleStatus=failed",
+        "benchmark=CIS-1.2&benchmark=CCM&benchmark=CIS-1.3&benchmark=CIS-1.4&benchmark=CIS-1.5&benchmark=CIS-1.6.1&benchmark=CIS-K8-AWS-1.1.0&benchmark=CIS-K8-AZURE-1.1.0&benchmark=CIS-K8-GCP-1.2.0&benchmark=CSCv7&benchmark=CSCv8&benchmark=GDPR&benchmark=HIPAA&benchmark=ISO-27001&benchmark=NIST-800-171&benchmark=NIST-800-53&benchmark=NIST-CSF&benchmark=NSA-CISA-K8S-1.0&benchmark=NY-DFS&benchmark=PCI-DSS&benchmark=SOC2&benchmark=WELL-ARCH&offset=0&limit=5&ruleStatus=notassessed","benchmark=CIS-1.2&benchmark=CCM&benchmark=CIS-1.3&benchmark=CIS-1.4&benchmark=CIS-1.5&benchmark=CIS-1.6.1&benchmark=CIS-K8-AWS-1.1.0&benchmark=CIS-K8-AZURE-1.1.0&benchmark=CIS-K8-GCP-1.2.0&benchmark=CSCv7&benchmark=CSCv8&benchmark=GDPR&benchmark=HIPAA&benchmark=ISO-27001&benchmark=NIST-800-171&benchmark=NIST-800-53&benchmark=NIST-CSF&benchmark=NSA-CISA-K8S-1.0&benchmark=NY-DFS&benchmark=PCI-DSS&benchmark=SOC2&benchmark=WELL-ARCH&offset=0&limit=5&severity=high","benchmark=CIS-1.2&benchmark=CCM&benchmark=CIS-1.3&benchmark=CIS-1.4&benchmark=CIS-1.5&benchmark=CIS-1.6.1&benchmark=CIS-K8-AWS-1.1.0&benchmark=CIS-K8-AZURE-1.1.0&benchmark=CIS-K8-GCP-1.2.0&benchmark=CSCv7&benchmark=CSCv8&benchmark=GDPR&benchmark=HIPAA&benchmark=ISO-27001&benchmark=NIST-800-171&benchmark=NIST-800-53&benchmark=NIST-CSF&benchmark=NSA-CISA-K8S-1.0&benchmark=NY-DFS&benchmark=PCI-DSS&benchmark=SOC2&benchmark=WELL-ARCH&offset=0&limit=5&severity=high",
+        "benchmark=CIS-1.2&benchmark=CCM&benchmark=CIS-1.3&benchmark=CIS-1.4&benchmark=CIS-1.5&benchmark=CIS-1.6.1&benchmark=CIS-K8-AWS-1.1.0&benchmark=CIS-K8-AZURE-1.1.0&benchmark=CIS-K8-GCP-1.2.0&benchmark=CSCv7&benchmark=CSCv8&benchmark=GDPR&benchmark=HIPAA&benchmark=ISO-27001&benchmark=NIST-800-171&benchmark=NIST-800-53&benchmark=NIST-CSF&benchmark=NSA-CISA-K8S-1.0&benchmark=NY-DFS&benchmark=PCI-DSS&benchmark=SOC2&benchmark=WELL-ARCH&offset=0&limit=5&severity=low","benchmark=CIS-1.2&benchmark=CCM&benchmark=CIS-1.3&benchmark=CIS-1.4&benchmark=CIS-1.5&benchmark=CIS-1.6.1&benchmark=CIS-K8-AWS-1.1.0&benchmark=CIS-K8-AZURE-1.1.0&benchmark=CIS-K8-GCP-1.2.0&benchmark=CSCv7&benchmark=CSCv8&benchmark=GDPR&benchmark=HIPAA&benchmark=ISO-27001&benchmark=NIST-800-171&benchmark=NIST-800-53&benchmark=NIST-CSF&benchmark=NSA-CISA-K8S-1.0&benchmark=NY-DFS&benchmark=PCI-DSS&benchmark=SOC2&benchmark=WELL-ARCH&offset=0&limit=5&provider=aws","benchmark=CIS-1.2&benchmark=CCM&benchmark=CIS-1.3&benchmark=CIS-1.4&benchmark=CIS-1.5&benchmark=CIS-1.6.1&benchmark=CIS-K8-AWS-1.1.0&benchmark=CIS-K8-AZURE-1.1.0&benchmark=CIS-K8-GCP-1.2.0&benchmark=CSCv7&benchmark=CSCv8&benchmark=GDPR&benchmark=HIPAA&benchmark=ISO-27001&benchmark=NIST-800-171&benchmark=NIST-800-53&benchmark=NIST-CSF&benchmark=NSA-CISA-K8S-1.0&benchmark=NY-DFS&benchmark=PCI-DSS&benchmark=SOC2&benchmark=WELL-ARCH&offset=0&limit=5&provider=azure","benchmark=CIS-1.2&benchmark=CCM&benchmark=CIS-1.3&benchmark=CIS-1.4&benchmark=CIS-1.5&benchmark=CIS-1.6.1&benchmark=CIS-K8-AWS-1.1.0&benchmark=CIS-K8-AZURE-1.1.0&benchmark=CIS-K8-GCP-1.2.0&benchmark=CSCv7&benchmark=CSCv8&benchmark=GDPR&benchmark=HIPAA&benchmark=ISO-27001&benchmark=NIST-800-171&benchmark=NIST-800-53&benchmark=NIST-CSF&benchmark=NSA-CISA-K8S-1.0&benchmark=NY-DFS&benchmark=PCI-DSS&benchmark=SOC2&benchmark=WELL-ARCH&offset=0&limit=5&provider=gcp",
+        "benchmark=CIS-1.2&benchmark=CCM&benchmark=CIS-1.3&benchmark=CIS-1.4&benchmark=CIS-1.5&benchmark=CIS-1.6.1&benchmark=CIS-K8-AWS-1.1.0&benchmark=CIS-K8-AZURE-1.1.0&benchmark=CIS-K8-GCP-1.2.0&benchmark=CSCv7&benchmark=CSCv8&benchmark=GDPR&benchmark=HIPAA&benchmark=ISO-27001&benchmark=NIST-800-171&benchmark=NIST-800-53&benchmark=NIST-CSF&benchmark=NSA-CISA-K8S-1.0&benchmark=NY-DFS&benchmark=PCI-DSS&benchmark=SOC2&benchmark=WELL-ARCH&offset=0&limit=5&provider=k8s"],
+        "expectedKeyAndMinValuePerQS": ["status|notassessed","status|passed","status|failed","status|notassessed","ruleReferenceId|AC_AWS_0103","severity|high","severity|low","provider|aws","provider|azure","provider|gcp","provider|k8s"]
+      },
+      {
+        "testID": "ValidationTest-0040",
+        "purpose" : "Misconfiguration Dashboard - Validate get repos ",
+        "skipTest": false,
+        "requestURL": "AU_036",
+        "method":"GET",
+        "queryStrings": ["","offset=0&limit=10",""],
+        "expectedKeyAndMinValuePerQS": ["count|5","count|1","repo|https://bitbucket.org/tenb-qa/acqa-repo1-aws-tf12-part1.git"]
+      },
+      {
+        "testID": "ValidationTest-0041",
+        "purpose" : "Validate get cloud accounts ",
+        "skipTest": false,
+        "requestURL": "AU_002",
+        "method":"GET",
+        "queryStrings": ["","",""],
+        "expectedKeyAndMinValuePerQS": ["provider|gcp","provider|aws","provider|azure"]
+      },
+      {
+        "testID": "ValidationTest-0042",
+        "purpose" : "Validate get pipeline summary ",
+        "skipTest": false,
+        "requestURL": "AU_031",
+        "method":"GET",
+        "queryStrings": ["","","","","",""],
+        "expectedKeyAndMinValuePerQS": ["count|5","failedRuns|0","totalRuns|1","repoId|1a8f617a-4d82-4cde-b5da-7106895d756b","repository|https://github.eng.tenable.com/Product/performance-test-resources.git","totalRuns|1"]
+      },
+      {
+        "testID": "ValidationTest-0043",
+        "purpose" : "Validate Custom Policy VPE - Get benchmark - Skipping as the VPE order is never constant",
+        "skipTest": true,
+        "requestURL": "AU_024",
+        "method":"GET",
+        "queryStrings": ["","",""],
+        "expectedKeyAndMinValuePerQS": ["51|HIPAA","50|GDPR","62|SOC2"]
+      },
+      {
+        "testID": "ValidationTest-0044",
+        "purpose" : "Validate Get Rego categories",
+        "skipTest": false,
+        "requestURL": "AU_025",
+        "method":"GET",
+        "queryStrings": ["","",""],
+        "expectedKeyAndMinValuePerQS": ["0|Compliance Validation","2|Data Protection","8|Security Best Practices"]
+      },
+      {
+        "testID": "ValidationTest-0045",
+        "purpose" : "Validate Get Rego severities",
+        "skipTest": false,
+        "requestURL": "AU_026",
+        "method":"GET",
+        "queryStrings": ["","",""],
+        "expectedKeyAndMinValuePerQS": ["0|HIGH","1|LOW","2|MEDIUM"]
+      },
+      {
+        "testID": "ValidationTest-0046",
+        "purpose" : "Validate Vulnerabilities count ",
+        "skipTest": false,
+        "requestURL": "AU_071",
+        "method":"GET",
+        "queryStrings": [""],
+        "expectedKeyAndMinValuePerQS": ["count|0"]
+      },
+      {
+        "testID": "ValidationTest-0047",
+        "purpose" : "Validate global violations count ",
+        "skipTest": false,
+        "requestURL": "AU_110",
+        "method":"GET",
+        "queryStrings": ["",""],
+        "expectedKeyAndMinValuePerQS": ["cloudViolations|20","iacViolations|200"]
+      },
+      {
+        "testID": "ValidationTest-0048",
+        "purpose" : "Validate resources pagination ",
+        "skipTest": false,
+        "requestURL": "AU_111",
+        "method":"GET",
+        "queryStrings": [""],
+        "expectedKeyAndMinValuePerQS": ["count|300"]
+      },
+      {
+        "testID": "ValidationTest-0049",
+        "purpose" : "Validate resources search ",
+        "skipTest": false,
+        "requestURL": "AU_109",
+        "method":"GET",
+        "queryStrings": [""],
+        "expectedKeyAndMinValuePerQS": ["0|IAM-12"]
+      },
+      {
+        "testID": "ValidationTest-0050",
+        "purpose" : "Validate resources types ",
+        "skipTest": false,
+        "requestURL": "AU_112",
+        "method":"GET",
+        "queryStrings": ["","","",""],
+        "expectedKeyAndMinValuePerQS": ["type|aws_security_group_rule","count|50","type|kubernetes_deployment","count|5"]
+      },
+      {
+        "testID": "ValidationTest-0051",
+        "purpose" : "Validate resources summary stats - SKIPPING due to APE-15776",
+        "skipTest": true,
+        "requestURL": "AU_113",
+        "method":"GET",
+        "queryStrings": ["",""],
+        "expectedKeyAndMinValuePerQS": ["cloudResourcesAdded|500","total|2000"]
+      },
+      {
+        "testID": "ValidationTest-0052",
+        "purpose" : "Validate global resources dashboard count",
+        "skipTest": false,
+        "requestURL": "AU_114",
+        "method":"GET",
+        "queryStrings": ["",""],
+        "expectedKeyAndMinValuePerQS": ["cloudViolations|3000","cloudResources|7000"]
+      },
+      {
+        "testID": "ValidationTest-0053",
+        "purpose" : "Validate users and policies count related to resources",
+        "skipTest": false, 
+        "requestURL": "AU_115",
+        "method":"GET",
+        "queryStrings": ["",""],
+        "expectedKeyAndMinValuePerQS": ["users|1","policies|1000"]
+      },
+      {
+        "testID": "ValidationTest-0054",
+        "purpose" : "Validate Resource Distribution types",
+        "skipTest": false,
+        "requestURL": "AU_116",
+        "method":"GET",
+        "queryStrings": ["",""],
+        "expectedKeyAndMinValuePerQS": ["name|Cloud","name|IaC"]
+      },
+      {
+        "testID": "ValidationTest-0055",
+        "purpose" : "Container dashboard - Validate Public and Private clusters count",
+        "skipTest": false,
+        "requestURL": "AU_141",
+        "method":"GET",
+        "queryStrings": ["",""],
+        "expectedKeyAndMinValuePerQS": ["publicClusters|1","privateClusters|1"]
+      },
+      {
+        "testID": "ValidationTest-0056",
+        "purpose" : "Container dashboard - Validate total container registries",
+        "skipTest": false,
+        "requestURL": "NAU_014",
+        "method":"POST",
+        "body":{"filter":{"and":[{"property":"origin","operator":"eq","value":["CONSEC_IMAGE"]},{"property":"container_image.registry","operator":"exists"}]},"template":"group","next":null,"parameters":{"group_by":["container_image.registry"],"stats":["count","first(container_image.registry)"],"sort":[{"property":"count","order":"desc"}]}},
+        "queryStrings": ["","",""],
+        "expectedKeyAndMinValuePerQS": ["value|docker.io","value|harbor-registry.service.build.aws.tenablesecurity.com","value|nexus.cloud.aws.tenablesecurity.com:8083"]
+      },
+      {
+        "testID": "ValidationTest-0057",
+        "purpose" : "Container dashboard - Validate total container images with critical vulnerabilities",
+        "skipTest": false,
+        "requestURL": "NAU_014",
+        "method":"POST",
+        "body":{"filter":{"and":[{"property":"origin","operator":"eq","value":["CONSEC_IMAGE"]},{"property":"severity","operator":"eq","value":["4"]}]},"template":"group","next":null,"parameters":{"group_by":["asset.name"],"stats":["count"],"sort":[{"property":"count","order":"desc"}]}},
+        "queryStrings": ["",""],
+        "expectedKeyAndMinValuePerQS": ["value|docker.io/rajabade01/glassfish:4.1-jdk8","value|docker.io/library/centos:centos8.1.1911"]
+      },
+      {
+        "testID": "ValidationTest-0058",
+        "purpose" : "Container dashboard - Validate top 5 images by VPR score",
+        "skipTest": false,
+        "requestURL": "NAU_014",
+        "method":"POST",
+        "body":{"filter":{"and":[{"property":"origin","operator":"eq","value":["CONSEC_IMAGE"]},{"property":"container_image.registry","operator":"exists"},{"property":"container_image.image_url","operator":"exists"}]},"template":"group","next":null,"parameters":{"limit":5,"group_by":["asset.id"],"stats":["count","max(definition.vpr.score)"],"sort":[{"property":"max(definition.vpr.score)","order":"desc"},{"property":"count","order":"desc"}]}},
+        "queryStrings": ["","","","",""],
+        "expectedKeyAndMinValuePerQS": ["value|f5e786db-58db-5e89-967c-b2860817bb72","value|54f683c2-4a5f-5f24-adc5-af5b5e2df2f9", "value|17986252-ca54-5ea5-b5eb-fede0dc54158", "value|e3ddce24-1f87-5313-8f76-fb742d4cdcbf", "value|a3e234a8-8353-5a08-ac67-e5e088913b0f"]
+      },
+      {
+        "testID": "ValidationTest-0059",
+        "purpose" : "Container dashboard - Validate top 5 images by vulnerability",
+        "skipTest": false,
+        "requestURL": "NAU_014",
+        "method":"POST",
+        "body":{"filter":{"and":[{"property":"origin","operator":"eq","value":["CONSEC_IMAGE"]},{"property":"container_image.registry","operator":"exists"}]},"template":"group","next":null,"parameters":{"limit":5,"group_by":["asset.id"],"stats":["count","max(severity)","first(asset.id)"],"sort":[{"property":"max(severity)","order":"desc"},{"property":"count","order":"desc"}]}},
+        "queryStrings": ["","","","",""],
+        "expectedKeyAndMinValuePerQS": ["value|f5e786db-58db-5e89-967c-b2860817bb72","value|54f683c2-4a5f-5f24-adc5-af5b5e2df2f9", "value|17986252-ca54-5ea5-b5eb-fede0dc54158", "value|e3ddce24-1f87-5313-8f76-fb742d4cdcbf", "value|a3e234a8-8353-5a08-ac67-e5e088913b0f"]
+      },
+      {
+        "testID": "ValidationTest-0060",
+        "purpose" : "Container dashboard - Validate total number of images on container dashboard",
+        "skipTest": false,
+        "requestURL": "NAU_015",
+        "method":"POST",
+        "body":{"filter":{"and":[{"property":"types","operator":"eq","value":["container_image"]}]},"next":null,"limit":1,"sort":[{"last_observed":"desc"}]},
+        "queryStrings": [""],
+        "expectedKeyAndMinValuePerQS": ["total|5"]
+      },
+      {
+        "testID": "ValidationTest-0061",
+        "purpose" : "Container dashboard - Validate kubernetis namespaces",
+        "skipTest": false,
+        "requestURL": "AU_041",
+        "method":"GET",
+        "queryStrings":["type=kubernetes_namespace&hasCloud=true","type=kubernetes_namespace&hasCloud=true"],
+        "expectedKeyAndMinValuePerQS": ["type|kubernetes_namespace", "count|0"]
+      },
+      {
+        "testID": "ValidationTest-0062",
+        "purpose" : "Container dashboard - Validate kubernetis deployments",
+        "skipTest": false,
+        "requestURL": "AU_041",
+        "method":"GET",
+        "queryStrings":["type=kubernetes_deployment&hasCloud=true","type=kubernetes_deployment&hasCloud=true"],
+        "expectedKeyAndMinValuePerQS": ["type|kubernetes_deployment", "count|0"]
+      },
+      {
+        "testID": "ValidationTest-0063",
+        "purpose" : "Container dashboard - Validate kubernetis services",
+        "skipTest": false,
+        "requestURL": "AU_041",
+        "method":"GET",
+        "queryStrings":["type=kubernetes_service&hasCloud=true","type=kubernetes_service&hasCloud=true"],
+        "expectedKeyAndMinValuePerQS": ["type|kubernetes_service", "count|0"]
+      },
+      {
+        "testID": "ValidationTest-0064",
+        "purpose" : "Container dashboard - Validate kubernetis pods",
+        "skipTest": false,
+        "requestURL": "AU_041",
+        "method":"GET",
+        "queryStrings":["type=kubernetes_pod&hasCloud=true","type=kubernetes_pod&hasCloud=true"],
+        "expectedKeyAndMinValuePerQS": ["type|kubernetes_pod", "count|0"]
+      },
+      {
+        "testID": "ValidationTest-0065",
+        "purpose" : "Container dashboard - Validate kubernetis jobs",
+        "skipTest": false,
+        "requestURL": "AU_041",
+        "method":"GET",
+        "queryStrings":["type=kubernetes_job&hasCloud=true","type=kubernetes_job&hasCloud=true"],
+        "expectedKeyAndMinValuePerQS": ["type|kubernetes_job", "count|0"]
+      },
+      {
+        "testID": "ValidationTest-0066",
+        "purpose" : "Container dashboard - Validate Misconfiguration summary",
+        "skipTest": false,
+        "requestURL": "AU_142",
+        "method":"GET",
+        "queryStrings": ["","",""],
+        "expectedKeyAndMinValuePerQS": ["high|0", "medium|0", "low|0"]
+      },
+      {
+        "testID": "ValidationTest-0067",
+        "purpose" : "Misconfiguration dashboard - Validate repository status",
+        "skipTest": false,
+        "requestURL": "AU_035",
+        "method":"GET",
+        "queryStrings": ["","",""],
+        "expectedKeyAndMinValuePerQS": ["url|https://github.eng.tenable.com/Product/performance-test-resources.git","provider|aws","eventSource|terraform"]
+      },
+      {
+        "testID": "ValidationTest-0068",
+        "purpose" : "Misconfiguration dashboard - Validate alerts count",
+        "skipTest": false,
+        "requestURL": "AU_123",
+        "method":"GET",
+        "queryStrings": [""],
+        "expectedKeyAndMinValuePerQS": ["all|0"]
+      },
+      {
+        "testID": "ValidationTest-0069",
+        "purpose" : "Misconfiguration dashboard - Validate misconfigurations by categories count",
+        "skipTest": false,
+        "requestURL": "AU_122",
+        "method":"GET",
+        "queryStrings": ["","",""],
+        "expectedKeyAndMinValuePerQS": ["Data Protection|30","violations|200","Logging and Monitoring|30"]
+      },
+      {
+        "testID": "ValidationTest-0070",
+        "purpose" : "Vulnerabilities dashboard - Validate top 5 host with critical and high vulnerabilities",
+        "skipTest": false,
+        "requestURL": "NAU_014",
+        "method":"POST",
+        "body":{"filter":{"and":[{"property":"severity","operator":"eq","value":[4]},{"property":"state","operator":"eq","value":["ACTIVE","RESURFACED","NEW"]},{"property":"origin","operator":"eq","value":["CONSEC_HOST_SNAPSHOT","CONSEC_IMAGE"]}]},"template":"group","next":null,"parameters":{"group_by":"definition.family","limit":5,"stats":["count","values(definition.id)","dist(definition.id)"],"sort":[{"property":"count","order":"desc"}]}},
+        "queryStrings": ["",""],
+        "expectedKeyAndMinValuePerQS": ["value|CentOS Local Security Checks","value|Debian Local Security Checks"]
+      },
+      {
+        "testID": "ValidationTest-0071",
+        "purpose" : "Vulnerabilities dashboard - Validate Vulnerabilities accessible from 0.0.0.0/0 - SKIPPING because staging has known assetCore issue",
+        "skipTest": true,
+        "requestURL": "AU_131",
+        "method":"GET",
+        "queryStrings": ["","","","",""],
+        "expectedKeyAndMinValuePerQS": ["vulnerabilityCount|500","critical|30","high|180","low|15","medium|225"]
+      },
+      {
+        "testID": "ValidationTest-0072",
+        "purpose" : "Vulnerabilities dashboard - Validate top 5 host vulnerabilities by impacted resources - SKIPPING because staging has known assetCore issue",
+        "skipTest": true,
+        "requestURL": "NAU_014",
+        "method":"POST",
+        "body":{"filter":{"and":[{"property":"severity","operator":"eq","value":[3,4]},{"property":"origin","operator":"eq","value":["CONSEC_HOST_SNAPSHOT"]}]},"template":"group","next":null,"parameters":{"group_by":"definition.family","limit":5,"stats":["first(definition.family)","count","values(origin)","dist(definition.id)"],"sort":[{"property":"count","order":"desc"}]}},
+        "queryStrings": ["","","","",""],
+        "expectedKeyAndMinValuePerQS":["value|Ubuntu Local Security Checks","value|Amazon Linux Local Security Checks","value|Debian Local Security Checks","value|CentOS Local Security Checks","value|Red Hat Local Security Checks"]
+      },
+      {
+        "testID": "ValidationTest-0073",
+        "purpose" : "Vulnerabilities dashboard - Validate field value of images by VPR range",
+        "skipTest": false,
+        "requestURL": "NAU_014",
+        "method":"POST",
+        "body":{"filter":{"and":[{"property":"severity","operator":"eq","value":[1,2,3,4]},{"property":"state","operator":"eq","value":["ACTIVE","RESURFACED","NEW"]},{"property":"origin","operator":"eq","value":["CONSEC_HOST_SNAPSHOT","CONSEC_IMAGE"]}]},"template":"group","next":null,"parameters":{"group_by":["resource_type","vpr_range"],"stats":["dist(definition.id)","first(asset_cloud_resource.cloud)"],"sort":[{"property":"dist(definition.id)","order":"desc"}]}},
+        "queryStrings": [""],
+        "expectedKeyAndMinValuePerQS":["field|asset_cloud_resource.resource_type"]
+      },
+      {
+        "testID": "ValidationTest-0074",
+        "purpose": "Resources Page - Validate misconfigurations by categories count",
+        "skipTest": false,
+        "requestURL": "AU_004",
+        "method": "POST",
+        "queryStrings": ["","",""],
+        "body": {"statuses": []},
+        "expectedKeyAndMinValuePerQS": ["accountID|performance-resources","provider|azure","status|Discovered"]
+      },
+      {
+        "testID": "ValidationTest-0075",
+        "purpose": "Resource page- Validate resource with drift",
+        "skipTest": false,
+        "requestURL": "AU_041",
+        "method": "GET",
+        "queryStrings": ["useBaseline=true","useBaseline=true","useBaseline=true"],
+        "expectedKeyAndMinValuePerQS": ["total|6000","failingPolicies|3","type|aws_accessanalyzer_analyzer"]
+      },
+      {
+        "testID": "ValidationTest-0076",
+        "purpose": "Reports page - Validate chart",
+        "skipTest": false,
+        "requestURL": "AU_080",
+        "method": "GET",
+        "queryStrings": ["","","","","",""],
+        "expectedKeyAndMinValuePerQS": ["totalIgnoredRules|0","totalRules|1000","totalFailedRules|100","totalApplicableRules|500","totalNotApplicableRules|150","totalPassedRules|400"]
+       },
+      {
+        "testID": "ValidationTest-0077",
+        "purpose": "Reports page - Validate compliance",
+        "skipTest": false,
+        "requestURL": "AU_040",
+        "method": "GET",
+        "queryStrings": ["offset=0&limit=5","offset=0&limit=5","offset=0&limit=5"],
+         "expectedKeyAndMinValuePerQS": ["rule|orphanIamGroup","ruleReferenceId|AC_AWS_0438","ruleDisplay|Ensure that there are no orphan in AWS IAM groups"]
+       },
+      {
+        "testID": "ValidationTest-0078",
+        "purpose": "Reports page - Validate bot status",
+        "skipTest": false,
+        "requestURL": "AU_104",
+        "method": "GET",
+        "queryStrings": ["",""],
+        "expectedKeyAndMinValuePerQS": ["name|New bot name","description|new bot description"]
+      },
+      {
+        "testID": "ValidationTest-0079",
+        "purpose": "Reports page - Validate github repo",
+        "skipTest": false,
+        "requestURL": "AU_125",
+        "method": "GET",
+        "queryStrings": ["","",""],
+        "expectedKeyAndMinValuePerQS": [ "url|https://github.com/tenb-qa/acqa-repo1-aws-tf12-part1.git","type|Github","owner|tenb-qa"]
+      },
+      {
+        "testID": "ValidationTest-0080",
+        "purpose": "Reports page - Validate bitbucket repo",
+        "skipTest": false,
+        "requestURL": "AU_126",
+        "method": "GET",
+        "queryStrings": ["",""],
+        "expectedKeyAndMinValuePerQS": ["type|Bitbucket","url|https: //bitbucket.org/accurics/acqa-repo1-aws-tf12-part1.git"]
+      },
+      {
+        "testID": "ValidationTest-0081",
+        "purpose": "Reports page - Validate gitlab repo",
+        "skipTest": false,
+        "requestURL": "AU_127",
+        "method": "GET",
+        "queryStrings": ["",""],
+        "expectedKeyAndMinValuePerQS": ["type|Gitlab","url|https://gitlab.com/tenb-qa/acqa-repo1-aws-tf12-part1.git"]
+      },
+      {
+        "testID": "ValidationTest-0082",
+        "purpose": "Reports page - Validate microsoft repo",
+        "skipTest": false,
+        "requestURL": "AU_128",
+        "method": "GET",
+        "queryStrings": ["",""],
+        "expectedKeyAndMinValuePerQS": ["type|Microsoft","url|https://tcs-qe-org1@dev.azure.com/tcs-qe-org1/test-project1/_git/acqa-repo1-aws-tf12-part1"]
+      },
+      {
+        "testID": "ValidationTest-0083",
+        "purpose": "Reports page - Validate awscodecommit repo",
+        "skipTest": false,
+        "requestURL": "AU_129",
+        "method": "GET",
+        "queryStrings": ["",""],
+        "expectedKeyAndMinValuePerQS": ["type|awscodecommit","url|codecommit::ca-central-1://acqa-repo14-aws-quick-deploy-with-tfstate"]
+      },
+      {
+        "testID": "ValidationTest-0084",
+        "purpose": "Integration page - Validate jira settings",
+        "skipTest": false,
+        "requestURL": "AU_013",
+        "method": "GET",
+        "queryStrings": ["","",""],
+        "expectedKeyAndMinValuePerQS": ["name|tcs-use-me-to-test","key|TUMTT","displayName|Saurabh Patwardhan"]
+      },
+      {
+        "testID": "ValidationTest-0085",
+        "purpose": "Alerts page - Validate alert filters - SKIPPING because returns array. Validation not yet supported",
+        "skipTest": true,
+        "requestURL": "AU_051",
+        "method": "POST",
+        "body":{"subjects": ["CLOUD_VIOLATION","IAC_VIOLATION","CLOUDTRAIL"]},
+        "queryStrings": [""],
+        "expectedKeyAndMinValuePerQS": [""]
+      },
+      {
+        "testID": "ValidationTest-0086",
+        "purpose": "Alerts page - Validate rtm events",
+        "skipTest": false,
+        "requestURL": "AU_124",
+        "method": "POST",
+        "body":{"search":"","projects": [],"resourceTypes": [],"subjects": [],"actions": ["VIOLATION_ADDED","RUNTIME_EVENT_BASED_ALERT"]},
+        "queryStrings": ["limit=50&offset=0","limit=50&offset=0","limit=50&offset=0","limit=50&offset=0"],
+        "expectedKeyAndMinValuePerQS": ["itemCount|1000","subject|CLOUD_VIOLATION","action|VIOLATION_ADDED","itemCount|1000"]
+      }
+    ]
+  }
+}

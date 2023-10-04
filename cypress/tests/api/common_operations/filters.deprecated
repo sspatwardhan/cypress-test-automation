@@ -1,0 +1,517 @@
+import { getComplianceCategoryDetails } from "../../../requests/compliance";
+import { getProjectDetails, getFilteredViolations, updateEnv, createCloudScanProfile, doCloudScanThroughProfile, waitForCloudScanToFinish, getK8sClusters, doIaCScan, getCloudScanStatus, getGlobalFilters } from "../../../requests/projects";
+import { onboardReposThroughProject, getReposInPaginatedForm, verifyfilteredResources, waitForRepoStatusReady, getRepoStatsByID, getGlobalResourcesDataWithTypes } from "../../../requests/repositoriesAndResources";
+import { generateRandomNumber, getSpecBasedNamePrefix, initAPISpecRoutine } from "../../../support/utils";
+
+const name = getSpecBasedNamePrefix();
+const store = {
+    envName: `${name + Date.now()}`
+};
+
+let queryString = "";
+let customQueryString = "";
+let awsAccountID = "536274239938";
+
+describe('Common Operations', () => {
+    before(() => initAPISpecRoutine('before'))
+    after(() => initAPISpecRoutine('after'))
+
+    /**--------------------------------------------------------
+       * Added by: ysahu
+       * Test Management ID:
+      ---------------------------------------------------------*/
+    it('MUST - Validate the filters at Misconfiguration page', () => {
+        let filters = '&hasViolation=true';
+        onboardReposThroughProject({
+            envs: [{ name: store.envName + ' Misconfiguration_Filter_Validator', provider: "aws", botIds: [] }],
+            repos: [
+                { provider: "aws", url: `https://bitbucket.org/ac10qa-org1/${Cypress.env("bitbucketBATRepo1aws")}.git`, name: `${Cypress.env("bitbucketBATRepo1aws")}.git-${store.envName.toLowerCase()}`, engineType: "terraform", config: [{ key: "TERRAFORM_VERSION", value: Cypress.env("tf_version_for_aws_repos") }, { key: "TERRASCAN", value: "false" }], folderPath: "/", autoRemediate: "none", source: `ac10qa-org1/${Cypress.env("bitbucketBATRepo1aws")}` }]
+        })
+        cy.get('@envDetails').then((response) => {
+            store.envID = response[0];
+        })
+        // AWS - Connecting AWS cloud account to a project
+        .then(() => {
+            cy.request(updateEnv(
+                {
+                    "id": store.envID, "cloudAccountID": { [Cypress.env('cloudAccountIDs').aws_536274239938]: { vpcId: Cypress.env("awsVPCID"), region: Cypress.env("awsRegion") } }
+                }
+            )).then(response => {
+                expect(response.status).to.eq(204)
+            })
+        })
+        // AWS - Triggering Cloud Scan
+        .then(() => {
+            cy.request(createCloudScanProfile(store.envID, { is_default: false, name: store.envName, options: { resource_types: Cypress.env("awsCloudResourcesToBeScannedWithProfile"), "vm_assess_opts": [] } }))
+                .then(response => {
+                    store.csProfileID = response.body.profile_id
+                }).then(runCloudScan => {
+                    // Run cloud scan
+                    cy.request(doCloudScanThroughProfile(store.envID, store.csProfileID)).then(response => {
+                        expect(response.status).to.eq(202)
+                        waitForCloudScanToFinish(store.envID, store.envName)
+                    })
+                    cy.request(getCloudScanStatus(store.envID)).then((csResponse)=>{
+                        expect(csResponse.body[0].cloud_scan_summary.scan_status).to.be.oneOf(["Successful","Completed with errors"])
+                        })
+                })
+        })
+        .then(() => {
+            getProjectDetails(store.envID)
+            cy.get('@projDetails').then((res) => {
+                store.totalViolationCount = res.policyViolations
+                store.iacViolations = res.policyViolationsIac;
+                store.cloudViolations = res.policyViolationsCloud;
+            })
+        })
+        .then(() => {
+            cy.request(getFilteredViolations(store.envID, filters)).then((res) => {
+                expect(res.status).to.eq(200)
+                expect(res.body.types.length).to.eq(store.totalViolationCount)
+            })
+        })
+        // Using different Filters
+        .then(() => {
+            filters = `&hasViolation=true&cft=${awsAccountID}&hasCloud=true`;
+            cy.request(getFilteredViolations(store.envID, filters)).then((res) => {
+                expect(res.status).to.eq(200)
+                expect(res.body.types.length).to.eq(store.cloudViolations)
+            })
+        })
+        .then(() => {
+            filters = '&hasViolation=true&hasIac=true';
+            cy.request(getFilteredViolations(store.envID, filters)).then((res) => {
+                expect(res.status).to.eq(200)
+                expect(res.body.types.length).to.eq(store.iacViolations)
+            })
+        })
+        .then(validatePopularGlobalFilters => {
+            cy.request(getGlobalFilters()).then((resp) => {
+                expect(resp.status).to.eq(200)
+                expect(resp.body.accounts.length).to.greaterThan(0)
+                expect(resp.body.environments.length).to.greaterThan(0)
+                expect(resp.body.iacEngins.length).to.greaterThan(0)
+                expect(resp.body.iacStatus.length).to.greaterThan(0)
+                expect(resp.body.providers.length).to.greaterThan(0)
+                expect(resp.body.repositories.length).to.greaterThan(0)
+                expect(resp.body.iacStatus.length).to.greaterThan(0)
+            })
+        })
+    })
+
+    /**--------------------------------------------------------
+       * Added by: ysahu
+       * Test Management ID:
+      ---------------------------------------------------------*/
+    it('MUST - Validate filters at repositories tab of Home -> Project and Connections page', () => {
+        onboardReposThroughProject({
+            envs: [{ name: store.envName + ' Home_Page_Repo_Filter_Validator', provider: "aws", botIds: [] }],
+            repos: [
+                // onboarding multiple repos for filter validation
+                { provider: "aws", url: `https://bitbucket.org/ac10qa-org1/${Cypress.env("bitbucketBATRepo1aws")}.git`, name: `${Cypress.env("bitbucketBATRepo1aws")}.git-${store.envName.toLowerCase()}`, engineType: "terraform", config: [{ key: "TERRAFORM_VERSION", value: Cypress.env("tf_version_for_aws_repos") }, { key: "TERRASCAN", value: "false" }], folderPath: "/", autoRemediate: "none", source: `ac10qa-org1/${Cypress.env("bitbucketBATRepo1aws")}` },
+                { provider: "aws", url: `https://bitbucket.org/ac10qa-org1/${Cypress.env("bitbucketBATRepo2aws")}.git`, name: `${Cypress.env("bitbucketBATRepo2aws")}.git-${store.envName.toLowerCase()}`, engineType: "terraform", config: [{ key: "TERRAFORM_VERSION", value: Cypress.env("tf_version_for_aws_repos") }, { key: "TERRASCAN", value: "false" }], folderPath: "/", autoRemediate: "none", source: `ac10qa-org1/${Cypress.env("bitbucketBATRepo1aws")}` },
+                { provider: "aws", url: `https://bitbucket.org/ac10qa-org1/acqa-repo1-aws-tf12-part1-no-name-tags.git`, name: `acqa-repo1-aws-tf12-part1-no-name-tags.git-${store.envName.toLowerCase()}`, engineType: "terraform", config: [{ key: "TERRAFORM_VERSION", value: Cypress.env("tf_version_for_aws_repos") }, { key: "TERRASCAN", value: "false" }], folderPath: "/", autoRemediate: "none", source: 'ac10qa-org1/acqa-repo1-aws-tf12-part1-no-name-tags' }
+            ]
+        })
+        cy.get('@envDetails').then((response) => {
+            store.envID = response[0];
+            store.repoCount = response[1].length
+        })
+            .then(() => {
+                let filters = `?offset=0&limit=10&environmentId=${store.envID}`;
+                cy.request(getReposInPaginatedForm(filters)).then((res) => {
+                    expect(res.status).to.eq(200)
+                    expect(store.repoCount).to.eq(res.body.repos.length)
+                })
+            })
+    })
+
+    /**--------------------------------------------------------
+        * Added by: rthareja
+        * Test Management ID: 
+    ---------------------------------------------------------*/
+    it('MUST - Validate project and repository filter on resources page', () => {
+        onboardReposThroughProject({
+            envs: [{ name: store.envName + "RepoForFilteringResources", provider: "aws", botIds: [] }],
+            repos: [
+                {
+                    provider: "aws", url: `https://bitbucket.org/ac10qa-org1/${Cypress.env("bitbucketBATRepo1aws")}.git`,
+                    name: `${Cypress.env("bitbucketBATRepo1aws")}.git-${store.envName.toLowerCase()}`,
+                    engineType: "terraform", config: [{
+                        key: "TERRAFORM_VERSION",
+                        value: Cypress.env("tf_version_for_aws_repos")
+                    },
+                    { key: "TERRASCAN", value: "false" }], folderPath: "/",
+                    autoRemediate: "none", source: `ac10qa-org1/${Cypress.env("bitbucketBATRepo1aws")}`
+                }]
+        })
+
+        cy.get('@envDetails').then((response) => {
+            store.envID = response[0]
+            store.repoIDs = response[1]
+        }).then(() => {
+        // Assosicate Cloud Account with this Project
+            cy.request(updateEnv({
+                "id": store.envID,
+                "cloudAccountID": { [Cypress.env('cloudAccountIDs').aws_536274239938]: { 
+                    vpcId: Cypress.env("awsVPCID"), 
+                    region: Cypress.env("awsRegion") 
+                } }
+            })).then(response => {
+                expect(response.status).to.eq(204)
+            })
+        }).then(() => {
+        // Trigger IAC Scan and wait until it finishes
+            cy.request(doIaCScan(store.envID)).then(response => {
+                expect(response.status).to.eq(202)
+            }).then(waitForReposToBeScanned => {
+                waitForRepoStatusReady(store.repoIDs[0])
+            })
+        }).then(() => {
+            // Verify project Scan
+            cy.request(getRepoStatsByID(store.repoIDs[0])).then(response => {
+                expect(response.body.scans).to.be.above(0)
+            })
+        }).then(() => {
+            // Run Cloud Scan and wait until it finishes
+            cy.request(createCloudScanProfile(store.envID, {is_default:false,name: store.envName,options:{resource_types: Cypress.env("awsCloudResourcesToBeScannedWithProfile"),"vm_assess_opts":[]}}))
+            .then(response => {
+              store.csProfileID = response.body.profile_id
+            }).then(runCloudScan => {
+                // Run cloud scan
+                cy.request(doCloudScanThroughProfile(store.envID, store.csProfileID)).then(response => {
+                expect(response.status).to.eq(202)
+                waitForCloudScanToFinish(store.envID, store.envName)
+              })
+            })
+        }).then(getResourcesDataForAParticularEnv => {
+            queryString = 'useBaseline=true';
+            customQueryString = `environmentId=${store.envID}`;
+            verifyfilteredResources(queryString, customQueryString);
+            cy.get('@globalResourcesData').then(response => {
+                expect(response.resourcesDataFromUI.environmentId).to.eq(store.envID)
+            })
+        }).then(getResourcesDataForAParticularRepo => {
+            queryString = 'useBaseline=true';
+            customQueryString = `repoId=${store.repoIDs[0]}`;
+            verifyfilteredResources(queryString, customQueryString);
+            cy.get('@globalResourcesData').then(response => {
+                expect(response.resourcesDataFromUI.iacRepoId).to.eq(store.repoIDs[0]);
+                expect(response.resourcesDataFromUI.iacName).not.to.be.undefined;
+                expect(response.resourcesDataFromUI.globalIacId).not.to.be.undefined;
+                expect(response.resourcesDataFromUI.iacId).not.to.be.undefined;
+            })
+        })
+    })
+
+    /**--------------------------------------------------------
+        * Added by: rthareja
+        * Test Management ID: 
+    ---------------------------------------------------------*/
+    it('MUST - Validate cloud account filter on resources page', () => {
+        queryString = 'useBaseline=true';
+        customQueryString = `cft=${awsAccountID}`;
+        verifyfilteredResources(queryString, customQueryString)
+        cy.get('@globalResourcesData').then(response => {
+        expect(response.resourcesDataFromUI.cftAccount).to.eq(awsAccountID)
+        })
+    })
+
+    /**--------------------------------------------------------
+        * Added by: rthareja
+        * Test Management ID: 
+    ---------------------------------------------------------*/
+    it('MUST - Validate k8s clusters filter on resources page', () => {
+        // Gets all the K8 Clusters present in the tenant, choose any random cluster, store its clusterId and validate the Filtered Resources
+        let queryString = `offset=0&limit=10`
+        cy.request(getK8sClusters(queryString)).then((response) => {
+            expect(response.status).to.eq(200)
+            const clusterArray = response.body.clusters;
+            let randomNumberGenerated = generateRandomNumber(clusterArray.length);
+            store.clusterId = clusterArray[randomNumberGenerated].cluster;
+        }).then(getResourcesDataForAParticularCluster => {
+            queryString = 'useBaseline=true';
+            customQueryString = `clusterId=${store.clusterId}`;
+            verifyfilteredResources(queryString, customQueryString);
+            cy.get('@globalResourcesData').then(response => {
+                expect(response.resourcesDataFromUI.clusterID).to.eq(store.clusterId)
+            })
+        })
+    })
+
+    /**--------------------------------------------------------
+        * Added by: rthareja
+        * Test Management ID: 
+    ---------------------------------------------------------*/
+    it('MUST - Validate source type filter on resources page', () => {
+        // For Validating IAC Resources in the tenant
+        queryString = 'useBaseline=true';
+        customQueryString = `hasIac=true`;
+        verifyfilteredResources(queryString, customQueryString);
+        cy.get('@globalResourcesData').then(response => {
+            expect(response.resourcesDataFromUI.globalIacId).not.to.be.undefined;
+            expect(response.resourcesDataFromUI.iacId).not.to.be.undefined;
+            expect(response.resourcesDataFromUI.iacRepoId).not.to.be.undefined;
+            expect(response.resourcesDataFromUI.iacSourceBlobURL).not.to.be.undefined;
+        }).then(validateCloudResources => {
+            queryString = 'useBaseline=true';
+            customQueryString = `hasCloud=true`;
+            verifyfilteredResources(queryString, customQueryString);
+            cy.get('@globalResourcesData').then(response => {
+                expect(response.resourcesDataFromUI.globalCloudId).not.to.be.undefined;
+                expect(response.resourcesDataFromUI.cloudAccountID).not.to.be.undefined;
+                expect(response.resourcesDataFromUI.cftAccount).not.to.be.undefined;
+                expect(response.resourcesDataFromUI.cloudId).not.to.be.undefined;
+            })
+        }).then(validateMappedResources => {
+            queryString = 'useBaseline=true';
+            customQueryString = 'mapped=true';
+            verifyfilteredResources(queryString, customQueryString);
+            cy.get('@globalResourcesData').then(response => {
+                expect(response.resourcesDataFromUI.globalCloudId).not.to.be.undefined;
+                expect(response.resourcesDataFromUI.cloudAccountID).not.to.be.undefined;
+                expect(response.resourcesDataFromUI.cftAccount).not.to.be.undefined;
+                expect(response.resourcesDataFromUI.cloudId).not.to.be.undefined;
+                expect(response.resourcesDataFromUI.globalIacId).not.to.be.undefined;
+                expect(response.resourcesDataFromUI.iacId).not.to.be.undefined;
+                expect(response.resourcesDataFromUI.iacRepoId).not.to.be.undefined;
+                expect(response.resourcesDataFromUI.iacSourceBlobURL).not.to.be.undefined;
+            })
+        })
+    })
+
+    /**--------------------------------------------------------
+        * Added by: rthareja
+        * Test Management ID: 
+    ---------------------------------------------------------*/
+    it('MUST - Validate compliance state filter on resources page', () => {
+        // For Validating Violations in the tenant
+        queryString = 'useBaseline=true';
+        customQueryString = `hasViolation=true`;
+        verifyfilteredResources(queryString, customQueryString);
+        cy.get('@globalResourcesData').then(response => {
+            expect(response.resourcesDataFromUI.violations.length).not.to.eq(0);
+            expect(response.serverResponse.violations).not.to.eq(0);
+        })
+    }) 
+
+    /**--------------------------------------------------------
+        * Added by: rthareja
+        * Test Management ID: 
+    ---------------------------------------------------------*/
+    it('MUST - Validate both project and cloud account filter on resources page', () => {
+        queryString = 'useBaseline=true';
+        customQueryString = `environmentId=${store.envID}&cft=${awsAccountID}`;
+        verifyfilteredResources(queryString, customQueryString);
+        cy.get('@globalResourcesData').then(response => {
+            expect(response.resourcesDataFromUI.environmentId).to.eq(store.envID)
+            expect(response.resourcesDataFromUI.cftAccount).to.eq(awsAccountID);
+            expect(response.resourcesDataFromUI.cloudAccountID).to.eq(Cypress.env('cloudAccountIDs').aws_536274239938)
+        })
+    })
+
+    /**--------------------------------------------------------
+        * Added by: rthareja
+        * Test Management ID: 
+    ---------------------------------------------------------*/
+    it('MUST - validate both project and repository filter on resources page', () => {
+        queryString = 'useBaseline=true';
+        customQueryString = `environmentId=${store.envID}&repoId=${store.repoIDs[0]}`;
+        verifyfilteredResources(queryString, customQueryString);
+        cy.get('@globalResourcesData').then(response => {
+            expect(response.resourcesDataFromUI.environmentId).to.eq(store.envID)
+            expect(response.resourcesDataFromUI.iacRepoId).to.eq(store.repoIDs[0])
+            expect(response.resourcesDataFromUI.iacSourcePath).not.to.be.undefined;
+        })
+    })
+    /**--------------------------------------------------------
+        * Added by: rthareja
+        * Test Management ID: 
+    ---------------------------------------------------------*/
+    it('MUST - Validate IAC resources present in project', () => {
+        queryString = 'useBaseline=true';
+        customQueryString = `environmentId=${store.envID}&hasIac=true`;
+        verifyfilteredResources(queryString, customQueryString);
+        cy.get('@globalResourcesData').then(response => {
+            expect(response.resourcesDataFromUI.environmentId).to.eq(store.envID);
+            expect(response.resourcesDataFromUI.globalIacId).not.to.be.undefined;
+            expect(response.resourcesDataFromUI.iacId).not.to.be.undefined;
+            expect(response.resourcesDataFromUI.iacRepoId).not.to.be.undefined;
+            expect(response.resourcesDataFromUI.iacSourceBlobURL).not.to.be.undefined;
+        })
+    })
+
+    /**--------------------------------------------------------
+        * Added by: rthareja
+        * Test Management ID: 
+    ---------------------------------------------------------*/
+    it('MUST - Validate cloud resources present in the project', () => {
+        queryString = 'useBaseline=true';
+        customQueryString = `environmentId=${store.envID}&cft={awsAccountID}&hasCloud=true`;
+        verifyfilteredResources(queryString, customQueryString);
+        cy.get('@globalResourcesData').then(response => {
+            expect(response.resourcesDataFromUI.cftAccount).to.eq(awsAccountID);
+            expect(response.resourcesDataFromUI.globalCloudId).not.to.be.undefined;
+            expect(response.resourcesDataFromUI.cloudAccountID).not.to.be.undefined;
+            expect(response.resourcesDataFromUI.cloudId).not.to.be.undefined;
+        })
+    })
+
+    /**--------------------------------------------------------
+        * Added by: rthareja
+        * Test Management ID: 
+    ---------------------------------------------------------*/
+    it('MUST - Validate mapped resources present in the project', () => {
+        queryString = 'useBaseline=true';
+        customQueryString = `environmentId=${store.envID}&mapped=true`;
+        verifyfilteredResources(queryString, customQueryString);
+        cy.get('@globalResourcesData').then(response => {
+            expect(response.resourcesDataFromUI.cftAccount).to.eq(awsAccountID);
+            expect(response.resourcesDataFromUI.environmentId).to.eq(store.envID);
+            expect(response.resourcesDataFromUI.globalCloudId).not.to.be.undefined;
+            expect(response.resourcesDataFromUI.cloudAccountID).not.to.be.undefined;
+            expect(response.resourcesDataFromUI.cloudId).not.to.be.undefined;
+            expect(response.resourcesDataFromUI.globalIacId).not.to.be.undefined;
+            expect(response.resourcesDataFromUI.iacId).not.to.be.undefined;
+            expect(response.resourcesDataFromUI.iacRepoId).not.to.be.undefined;
+            expect(response.resourcesDataFromUI.iacSourceBlobURL).not.to.be.undefined;
+        })
+    })
+
+    /**--------------------------------------------------------
+        * Added by: rthareja
+        * Test Management ID: 
+    ---------------------------------------------------------*/
+    it('MUST - Validate IAC sourced resources with that of the cloud account', () => {
+        queryString = 'useBaseline=true';
+        customQueryString = `cft=${awsAccountID}&hasIac=true`
+        verifyfilteredResources(queryString, customQueryString);
+        cy.get('@globalResourcesData').then(response => {
+            expect(response.resourcesDataFromUI.cftAccount).to.eq(awsAccountID);
+            expect(response.resourcesDataFromUI.globalIacId).not.to.be.undefined;
+            expect(response.resourcesDataFromUI.iacId).not.to.be.undefined;
+            expect(response.resourcesDataFromUI.iacRepoId).not.to.be.undefined;
+            expect(response.resourcesDataFromUI.iacSourceBlobURL).not.to.be.undefined;
+        })
+    })
+
+    /**--------------------------------------------------------
+        * Added by: rthareja
+        * Test Management ID: 
+    ---------------------------------------------------------*/
+    it('MUST - Validate cloud sourced resources with that of the cloud account', () => {
+        queryString = 'useBaseline=true';
+        customQueryString = `cft=${awsAccountID}&hasCloud=true`;
+        verifyfilteredResources(queryString, customQueryString)
+        cy.get('@globalResourcesData').then(response => {
+            expect(response.resourcesDataFromUI.cftAccount).to.eq(awsAccountID);
+            expect(response.resourcesDataFromUI.globalCloudId).not.to.be.undefined;
+            expect(response.resourcesDataFromUI.cloudAccountID).not.to.be.undefined;
+            expect(response.resourcesDataFromUI.cloudId).not.to.be.undefined;
+        })
+    })
+
+    /**--------------------------------------------------------
+        * Added by: rthareja
+        * Test Management ID: 
+    ---------------------------------------------------------*/
+    it('MUST - Validate IAC sourced resources with that of the repository',() => {
+        queryString = 'useBaseline=true';
+        customQueryString = `repoId=${store.repoIDs[0]}&hasIac=true`;
+        verifyfilteredResources(queryString, customQueryString);
+        cy.get('@globalResourcesData').then(response => {
+            expect(response.resourcesDataFromUI.iacRepoId).to.eq(store.repoIDs[0])
+            expect(response.resourcesDataFromUI.globalIacId).not.to.be.undefined;
+            expect(response.resourcesDataFromUI.iacId).not.to.be.undefined;
+            expect(response.resourcesDataFromUI.iacRepoId).not.to.be.undefined;
+            expect(response.resourcesDataFromUI.iacSourceBlobURL).not.to.be.undefined;
+        })
+    })
+
+    /**--------------------------------------------------------
+        * Added by: rthareja
+        * Test Management ID: 
+    ---------------------------------------------------------*/
+    it('MUST - Validate failing policies count of security group resource type in both resources page and reports page',() => {
+        queryString = `useBaseline=true&limit=20&offset=0&type=aws_security_group&environmentId=${store.envID}`;
+        cy.request(getGlobalResourcesDataWithTypes(queryString)).then(response => {
+            store.failingResourcesCountFromResourcesPage = response.body.types[0].failingPolicies
+        }).then(getFailingResourceCountFromReportsPage => {
+            queryString = `environmentId=${store.envID}&provider=aws&ruleStatus=failed`
+            cy.request(getComplianceCategoryDetails(queryString)).then(response => {
+                let categoryDataMapArray = Object.values(response.body["categoryDataMap"]);
+                let categoryDataMapArrayLength = categoryDataMapArray.length;
+                let failingPoliciesCountFromReportsPage = 0;
+                for(let i=0;i<categoryDataMapArrayLength;i++){
+                    const categoryRulesArray = categoryDataMapArray[i]["categoryRules"];
+                    const categoryRulesArrayLength = categoryRulesArray.length;
+                    for(let j=0;j<categoryRulesArrayLength;j++){
+                        const resTypesArray = categoryRulesArray[j].resTypes;
+                        if(resTypesArray.includes("Security Group")){
+                            failingPoliciesCountFromReportsPage++;
+                        }
+                    }
+                }
+                expect(failingPoliciesCountFromReportsPage).to.eq(store.failingResourcesCountFromResourcesPage);
+            })
+        })
+    })
+
+    /**--------------------------------------------------------
+        * Added by: rthareja
+        * Test Management ID: 
+    ---------------------------------------------------------*/
+    it('MUST - Validate failing policies count of instance resource type in both resources page and reports age',() => {
+        queryString = `useBaseline=true&limit=20&offset=0&type=aws_instance&environmentId=${store.envID}`;
+        cy.request(getGlobalResourcesDataWithTypes(queryString)).then(response => {
+            store.failingResourcesCountFromResourcesPage = response.body.types[0].failingPolicies
+        }).then(getFailingPoliciesCountFromReportsPage => {
+            queryString = `environmentId=${store.envID}&provider=aws&ruleStatus=failed`
+            cy.request(getComplianceCategoryDetails(queryString)).then(response => {
+                let categoryDataMapArray = Object.values(response.body["categoryDataMap"]);
+                let categoryDataMapArrayLength = categoryDataMapArray.length;
+                let failingPoliciesCountFromReportsPage = 0;
+                for(let i=0;i<categoryDataMapArrayLength;i++){
+                    const categoryRulesArray = categoryDataMapArray[i]["categoryRules"];
+                    const categoryRulesArrayLength = categoryRulesArray.length;
+                    for(let j=0;j<categoryRulesArrayLength;j++){
+                        const resTypesArray = categoryRulesArray[j].resTypes;
+                        if(resTypesArray.includes("Instance")){
+                            failingPoliciesCountFromReportsPage++;
+                        }
+                    }
+                }
+                expect(failingPoliciesCountFromReportsPage).to.eq(store.failingResourcesCountFromResourcesPage);
+            })
+        })
+    })
+
+    /**--------------------------------------------------------
+        * Added by: rthareja
+        * Test Management ID: 
+    ---------------------------------------------------------*/
+    it('MUST - Validate misConfigurations counts from both findings page and reports page ',() => {
+        cy.request(getFilteredViolations(store.envID,"&hasViolations=true")).then(response => {
+            store.failingResourceCount = response.body.resourceCount;
+            store.misconfigurationsCount = response.body.types.length;
+        }).then(getFailingPoliciesCountFromReportsPage => {
+            queryString = `environmentId=${store.envID}&provider=aws&ruleStatus=failed`
+            cy.request(getComplianceCategoryDetails(queryString)).then(response => {
+                let categoryDataMapArray = Object.values(response.body["categoryDataMap"]);
+                let categoryDataMapArrayLength = categoryDataMapArray.length;
+                let failingPoliciesCountFromReportsPage = 0;
+                let failingResourcesCountFromReportsPage = 0;
+                for(let i=0;i<categoryDataMapArrayLength;i++){
+                    const categoryRulesArray = categoryDataMapArray[i]["categoryRules"];
+                    const categoryRulesArrayLength = categoryRulesArray.length;
+                    for(let j=0;j<categoryRulesArrayLength;j++){
+                        failingResourcesCountFromReportsPage += categoryRulesArray[j].failed;
+                    }
+                    failingPoliciesCountFromReportsPage += categoryRulesArray.length;
+                }
+                expect(failingPoliciesCountFromReportsPage).to.eq(store.misconfigurationsCount)
+                expect(failingResourcesCountFromReportsPage).to.eq(store.failingResourceCount)
+            })  
+        })
+    })
+})

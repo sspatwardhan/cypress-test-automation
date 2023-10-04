@@ -1,0 +1,14 @@
+{
+  "baseUrl": "http://localhost:8080",
+  "env": {
+    "captchaEnabled":false,
+    "qaUserName": "spatwardhan+optimus1@tenable.com",
+    "qaUserPassword": "Acqa@321",
+    "apiToken":"1f619151-9ce8-4e55-a044-103f72f90972",
+    "botID":"<use_actual_value>",
+    "botHost":"<use_actual_value>",
+    "botFEPort":9022,
+    "botBEPort":9020
+    
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "baseUrl": "https://qa-milestone.cloud.aws.tenablesecurity.com/cns",
+  "env": {
+    "captchaEnabled":false,
+    "botID":"3f057a24-5fb2-4e7d-91ce-9f2ff17c7c55",
+    "botHost":"http://10.254.130.74",
+    "botFEPort":8000,
+    "botBEPort":8000
+  }
+}

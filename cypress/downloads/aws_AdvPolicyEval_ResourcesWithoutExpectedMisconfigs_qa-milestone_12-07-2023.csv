@@ -1,0 +1,24 @@
+res_type,resource_name,misconfig,misconfig_description
+aws_iam_virtual_mfa_device,None reports this misconfig,noHardwareMfa,couldn't find rule
+aws_iam_group,None reports this misconfig,orphanIamGroup,Ensure that there are no orphan in AWS IAM groups
+aws_vpc,None reports this misconfig,vpcFlowLogsNotEnabled,couldn't find rule
+aws_securityhub_account,None reports this misconfig,enableSecurityhub,couldn't find rule
+aws_mq_broker,None reports this misconfig,awsMqCmkUsed,Ensure customer owned KMS key is used for encrypting AWS MQ Brokers
+aws_instance,None reports this misconfig,instanceWithNoVpc,Ensure virtual private cloud (VPC) is configured for AWS EC2 instances
+aws_iam_user_policy,None reports this misconfig,userWithPassNotContainMfaActive,Ensure multi-factor authentication (MFA) is enabled for all IAM users that have a console password
+aws_iam_policy,None reports this misconfig,emptyForAllValues,Ensure there is no IAM policy with a condition element having ForAllValues Condition Operator with empty key-value pair
+aws_ecr_repository,None reports this misconfig,ecrNoSecurePolicyAttached,Ensure IAM policy is attached to Amazon Elastic Container Registry (Amazon ECR) repository
+aws_iam_user,None reports this misconfig,iamUserWithMulitpleAccessKey,couldn't find rule
+aws_launch_configuration,None reports this misconfig,hardCodedKey,Ensure there are no hard coded keys used in base64 encoded value of AWS Launch Configuration
+aws_autoscaling_attachment,None reports this misconfig,loadBalancerHealthCheckUse,Ensure load balancer health checks are used for AWS Auto Scaling Groups
+aws_api_gateway_stage,None reports this misconfig,apiGatewayWebAclAssociation,Ensure AWS WAF ACL is associated with AWS API Gateway Stage
+aws_s3_bucket,None reports this misconfig,noS3BucketSseRulesKmsBased,Ensure at-rest server side encryption (SSE) is enabled using AWS KMS for AWS S3 Buckets
+aws_ecrpublic_repository_policy,None reports this misconfig,ercPublicRepoIsTooPermissive,Ensure Full Access (AmazonElasticContainerRegistryPublicFullAccess) is not applied to Amazon Elastic Container Registry (ECR) Public repository
+aws_account,None reports this misconfig,cloudTrailExists,Ensure CloudTrail is enabled in all regions
+aws_iam_access_key,None reports this misconfig,noAccessKeyForRootAccount,couldn't find rule
+aws_nat_gateway,None reports this misconfig,natGwPrivateSubnetCheck,Ensure private subnets are not used to deploy AWS NAT Gateways
+aws_iam_role_policy_attachment,None reports this misconfig,iamSupportRoleForIncident,couldn't find rule
+aws_s3_bucket_policy,None reports this misconfig,allowActionsFromAllPrincipals,Ensure 'allow all actions from all principals' is disabled for AWS S3 Buckets
+aws_cloudtrail,None reports this misconfig,awsCloudWatchLogGrpApiCheck,couldn't find rule
+aws_lambda_function,None reports this misconfig,lambdaUrlAuthEnabled,Ensure AuthType is set to 'AWS_IAM' for AWS Lambda function URLs
+aws_security_group,None reports this misconfig,port3389OpenToInternet,Ensure no security groups allow ingress from 0.0.0.0/0 to remote server administration ports

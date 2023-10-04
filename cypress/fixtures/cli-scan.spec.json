@@ -1,0 +1,34 @@
+{
+  "data": {
+    "THIS SPEC IS PURELY USED FOR DATA GENERATION": "MAKE SURE ALL THE REPOS ARE PUBLIC",
+    "allIaCRepos": {
+      "AWS_ACCESS_KEY_ID": "ASIAQ3MA62DVXURBFJHQ",
+      "AWS_SECRET_ACCESS_KEY": "VLGUUiNbgTrQ6vMvm6lf0Tn9F94n8V+uEsd70U0y",
+      "repos": [
+        {
+          "url": "https://github.com/AC10QA-ORG1/acqa-repo1-aws-tf12-part1-no-name-tags.git",
+          "name": "acqa-repo1-aws-tf12-part1-no-name-tags",
+          "enforcing_projectId": "c6dd2bb4-7c31-464b-91f8-a081c4a7c6be",
+          "engineType": "terraform"
+        },
+        {
+          "url": "https://github.com/bridgecrewio/terragoat.git",
+          "name": "terragoat",
+          "enforcing_projectId": "c6dd2bb4-7c31-464b-91f8-a081c4a7c6be",
+          "engineType": "terraform"
+        },
+        {
+          "url": "https://github.com/AC10QA-ORG1/acqa-repo6-aws-cft.git",
+          "name": "acqa-repo6-aws-cft",
+          "enforcing_projectId": "c6dd2bb4-7c31-464b-91f8-a081c4a7c6be",
+          "engineType": "cft"
+        }
+      ],
+      "skipTest": false,
+      "skipValidations": true,
+      "expectationIs": "greaterThan",
+      "expectedPolicyFailures": 5,
+      "expectedResources": 6
+    }
+  }
+}

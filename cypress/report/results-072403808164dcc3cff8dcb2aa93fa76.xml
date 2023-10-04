@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="109.637" tests="4" failures="0">
+  <testsuite name="Root Suite" timestamp="2023-04-05T13:54:10" tests="0" file="cypress/tests/api/zen/azure-supported-resource-type-validation.spec.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Policies validation" timestamp="2023-04-05T13:54:10" tests="4" time="109.624" failures="0">
+    <testcase name="Policies validation Azure - Create list of all TF equivalent resources to be validated" time="27.743" classname="Azure - Create list of all TF equivalent resources to be validated">
+    </testcase>
+    <testcase name="Policies validation Azure - Create project, associate repos and cloud accounts to it" time="4.549" classname="Azure - Create project, associate repos and cloud accounts to it">
+    </testcase>
+    <testcase name="Policies validation Azure - Run cloud scan and go on pouring discovered resources in project" time="43.196" classname="Azure - Run cloud scan and go on pouring discovered resources in project">
+    </testcase>
+    <testcase name="Policies validation Azure - Validate" time="34.076" classname="Azure - Validate">
+    </testcase>
+  </testsuite>
+</testsuites>

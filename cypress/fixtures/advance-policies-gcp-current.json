@@ -1,0 +1,239 @@
+[
+    {
+        "ruleName": "gcpUnsecureNodeMetadata",
+        "applicableResourceTypes": [
+            "google_container_cluster",
+            "google_container_node_pool"
+        ],
+        "main-resource": "google_container_node_pool"
+    },
+    {
+        "ruleName": "publicDbAppEngineDataStore",
+        "applicableResourceTypes": [
+            "google_app_engine_application",
+            "google_app_engine_firewall_rule"
+        ],
+        "main-resource": "google_app_engine_application"
+    },
+    {
+        "ruleName": "publicDbAppEngineFireStore",
+        "applicableResourceTypes": [
+            "google_app_engine_application",
+            "google_app_engine_firewall_rule"
+        ],
+        "main-resource": "google_app_engine_application"
+    },
+    {
+        "ruleName": "publicDbAppEngineCompatStore",
+        "applicableResourceTypes": [
+            "google_app_engine_application",
+            "google_app_engine_firewall_rule"
+        ],
+        "main-resource": "google_app_engine_application"
+    },
+    {
+        "ruleName": "privateGoogleAccessEnabled",
+        "applicableResourceTypes": [
+            "google_access",
+            "google_compute_subnetwork"
+        ],
+        "main-resource": "google_compute_subnetwork"
+    },
+    {
+        "ruleName": "projectWideSshKeysUsed",
+        "applicableResourceTypes": [
+            "google_compute_instance",
+            "google_compute_project_metadata"
+        ],
+        "main-resource": "google_compute_instance"
+    },
+    {
+        "ruleName": "osLoginEnabled",
+        "applicableResourceTypes": [
+            "google_compute_instance",
+            "google_compute_project_metadata"
+        ],
+        "main-resource": "google_compute_instance"
+    },
+    {
+        "ruleName": "serialPortEnabled",
+        "applicableResourceTypes": [
+            "google_compute_instance",
+            "google_compute_project_metadata"
+        ],
+        "main-resource": "google_compute_instance"
+    },
+    {
+        "ruleName": "mfaEnabled",
+        "applicableResourceTypes": [
+            "google_compute_instance",
+            "google_compute_project_metadata"
+        ],
+        "main-resource": "google_compute_instance"
+    },
+    {
+        "ruleName": "rolesImpersonateServiceAccOrganization",
+        "applicableResourceTypes": [
+            "google_organization_iam_binding",
+            "google_organization_iam_member"
+        ],
+        "main-resource": "google_organization_iam_binding"
+    },
+    {
+        "ruleName": "defaultServiceAccOrganization",
+        "applicableResourceTypes": [
+            "google_organization_iam_binding",
+            "google_organization_iam_member"
+        ],
+        "main-resource": "google_organization_iam_binding"
+    },
+    {
+        "ruleName": "sinkAllLogsConfiguredCheck",
+        "applicableResourceTypes": [
+            "google_folder",
+            "google_logging_folder_sink",
+            "google_logging_project_sink",
+            "google_project"
+        ],
+        "main-resource": "google_folder"
+    },
+    {
+        "ruleName": "alphaClusterDisabled",
+        "applicableResourceTypes": [
+            "google_container_cluster",
+            "kubernetes_alpha"
+        ],
+        "main-resource": "google_container_cluster"
+    },
+    {
+        "ruleName": "gkeDefaultServiceAccUsed",
+        "applicableResourceTypes": [
+            "google_container_cluster",
+            "kubernetes_cluster"
+        ],
+        "main-resource": "google_container_cluster"
+    },
+    {
+        "ruleName": "noProjectOwnership",
+        "applicableResourceTypes": [
+            "google_logging_metric",
+            "google_project"
+        ],
+        "main-resource": "google_logging_metric"
+    },
+    {
+        "ruleName": "noAuditConfigMetric",
+        "applicableResourceTypes": [
+            "google_logging_metric",
+            "google_project"
+        ],
+        "main-resource": "google_logging_metric"
+    },
+    {
+        "ruleName": "noCloudStorageIAMAlert",
+        "applicableResourceTypes": [
+            "google_logging_metric",
+            "google_project"
+        ],
+        "main-resource": "google_logging_metric"
+    },
+    {
+        "ruleName": "noCustomRoleAlert",
+        "applicableResourceTypes": [
+            "google_logging_metric",
+            "google_project"
+        ],
+        "main-resource": "google_logging_metric"
+    },
+    {
+        "ruleName": "noFirewallAlert",
+        "applicableResourceTypes": [
+            "google_logging_metric",
+            "google_project"
+        ],
+        "main-resource": "google_logging_metric"
+    },
+    {
+        "ruleName": "noNetworkAlert",
+        "applicableResourceTypes": [
+            "google_logging_metric",
+            "google_project"
+        ],
+        "main-resource": "google_logging_metric"
+    },
+    {
+        "ruleName": "noRouteAlert",
+        "applicableResourceTypes": [
+            "google_logging_metric",
+            "google_project"
+        ],
+        "main-resource": "google_logging_metric"
+    },
+    {
+        "ruleName": "noSQLAlert",
+        "applicableResourceTypes": [
+            "google_logging_metric",
+            "google_project"
+        ],
+        "main-resource": "google_logging_metric"
+    },
+    {
+        "ruleName": "rolesImpersonateServiceAccFolder",
+        "applicableResourceTypes": [
+            "google_folder_iam_binding",
+            "google_folder_iam_member"
+        ],
+        "main-resource": "google_folder_iam_binding"
+    },
+    {
+        "ruleName": "defaultServiceAccFolder",
+        "applicableResourceTypes": [
+            "google_folder_iam_binding",
+            "google_folder_iam_member"
+        ],
+        "main-resource": "google_folder_iam_binding"
+    },
+    {
+        "ruleName": "sshCertBindingCheck",
+        "applicableResourceTypes": [
+            "google_project_iam_binding",
+            "google_project_service"
+        ],
+        "main-resource": "google_project_service"
+    },
+    {
+        "ruleName": "checkSinkBuketsLockingEnabled",
+        "applicableResourceTypes": [
+            "google_logging_project_sink",
+            "google_storage_bucket"
+        ],
+        "main-resource": "google_storage_bucket"
+    },
+    {
+        "ruleName": "kmsKeyRingAnonAccess",
+        "applicableResourceTypes": [
+            "google_kms_crypto_key",
+            "google_kms_crypto_key_iam_policy"
+        ],
+        "main-resource": "google_kms_crypto_key"
+    },
+    {
+        "ruleName": "gcpIamUserGrantCheck",
+        "applicableResourceTypes": [
+            "google_project_iam_binding",
+            "google_project_iam_member",
+            "google_storage_bucket_iam_binding",
+            "google_storage_bucket_iam_member"
+        ],
+        "main-resource": "google_project_iam_binding"
+    },
+    {
+        "ruleName": "noSeperationOfRoles",
+        "applicableResourceTypes": [
+            "google_project_iam_binding",
+            "google_project_iam_member",
+            "google_project_iam_policy"
+        ],
+        "main-resource": "google_project_iam_binding"
+    }
+]

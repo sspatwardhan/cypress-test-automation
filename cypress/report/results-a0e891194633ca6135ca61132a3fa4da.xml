@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="341.641" tests="4" failures="0">
+  <testsuite name="Root Suite" timestamp="2023-04-05T13:48:27" tests="0" file="cypress/tests/api/zen/aws-supported-resource-type-validation.spec.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Policies validation" timestamp="2023-04-05T13:48:27" tests="4" time="341.628" failures="0">
+    <testcase name="Policies validation AWS - Create list of all TF equivalent resources to be validated" time="31.038" classname="AWS - Create list of all TF equivalent resources to be validated">
+    </testcase>
+    <testcase name="Policies validation AWS - Create project, associate repos and clod account to it" time="4.893" classname="AWS - Create project, associate repos and clod account to it">
+    </testcase>
+    <testcase name="Policies validation AWS - Run cloud scan and go on pouring discovered resources in project" time="249.349" classname="AWS - Run cloud scan and go on pouring discovered resources in project">
+    </testcase>
+    <testcase name="Policies validation AWS - Validate" time="56.288" classname="AWS - Validate">
+    </testcase>
+  </testsuite>
+</testsuites>

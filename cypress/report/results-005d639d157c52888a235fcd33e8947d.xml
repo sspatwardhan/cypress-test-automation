@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="112.115" tests="21" failures="2" skipped="6">
+  <testsuite name="Root Suite" timestamp="2023-02-23T13:13:09" tests="0" file="cypress/tests/api/core_operations/aws-terraform.spec.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Core Operations - AWS - Terraform" timestamp="2023-02-23T13:13:09" tests="21" time="112.091" failures="2">
+    <testcase name="Core Operations - AWS - Terraform DEMO - MUST - AWS - Verify it gives appropriate error while trying to add existing cloud account" time="9.043" classname="DEMO - MUST - AWS - Verify it gives appropriate error while trying to add existing cloud account">
+    </testcase>
+    <testcase name="Core Operations - AWS - Terraform DEMO - MUST - AWS - Onboard bitbucket repositories to a project" time="4.191" classname="DEMO - MUST - AWS - Onboard bitbucket repositories to a project">
+    </testcase>
+    <testcase name="Core Operations - AWS - Terraform DEMO - MUST - AWS - Connect AWS cloud account to a project" time="0.401" classname="DEMO - MUST - AWS - Connect AWS cloud account to a project">
+    </testcase>
+    <testcase name="Core Operations - AWS - Terraform DEMO - MUST - AWS - Trigger IaC Scan" time="17.463" classname="DEMO - MUST - AWS - Trigger IaC Scan">
+    </testcase>
+    <testcase name="Core Operations - AWS - Terraform DEMO - MUST - AWS - Verify project scan considers all associated repos" time="0.638" classname="DEMO - MUST - AWS - Verify project scan considers all associated repos">
+    </testcase>
+    <testcase name="Core Operations - AWS - Terraform DEMO - MUST - AWS - Verify compliant status policies" time="3.836" classname="DEMO - MUST - AWS - Verify compliant status policies">
+    </testcase>
+    <testcase name="Core Operations - AWS - Terraform DEMO - MUST - AWS - validate discovered resources" time="12.018" classname="DEMO - MUST - AWS - validate discovered resources">
+    </testcase>
+    <testcase name="Core Operations - AWS - Terraform DEMO - MUST - AWS - Run cloud scan and wait until it finishes" time="0.000" classname="DEMO - MUST - AWS - Run cloud scan and wait until it finishes">
+      <failure message="Cannot read properties of undefined (reading &apos;cloud_scan_summary&apos;)" type="TypeError"><![CDATA[TypeError: Cannot read properties of undefined (reading 'cloud_scan_summary')
+    at Context.eval (webpack:///./cypress/requests/env.js:254:79)]]></failure>
+    </testcase>
+    <testcase name="Core Operations - AWS - Terraform DEMO - MUST - AWS - Validate Violations" time="17.418" classname="DEMO - MUST - AWS - Validate Violations">
+    </testcase>
+    <testcase name="Core Operations - AWS - Terraform DEMO - MUST - AWS - Validate Drifts" time="0.000" classname="DEMO - MUST - AWS - Validate Drifts">
+      <failure message="expected 0 to be above 0" type="AssertionError"><![CDATA[AssertionError: expected 0 to be above 0
+    at Context.eval (webpack:///./cypress/requests/env.js:446:51)
+
+      + expected - actual
+
+]]></failure>
+    </testcase>
+    <testcase name="Core Operations - AWS - Terraform DEMO - MUST - AWS - Create BitBucket PR with reviewer" time="5.557" classname="DEMO - MUST - AWS - Create BitBucket PR with reviewer">
+    </testcase>
+    <testcase name="Core Operations - AWS - Terraform DEMO - MUST - AWS - Create Github PR with reviewer (HACKY: creating Github PR through Bitbucket IaC env)" time="5.014" classname="DEMO - MUST - AWS - Create Github PR with reviewer (HACKY: creating Github PR through Bitbucket IaC env)">
+    </testcase>
+    <testcase name="Core Operations - AWS - Terraform AWS - DEMO - MUST - Create ADO PR without reviewer (HACKY: creating ADO PR through Bitbucket IaC env)" time="6.293" classname="AWS - DEMO - MUST - Create ADO PR without reviewer (HACKY: creating ADO PR through Bitbucket IaC env)">
+    </testcase>
+    <testcase name="Core Operations - AWS - Terraform MUST - AWS - Validate k8s cluster counts " time="0.367" classname="MUST - AWS - Validate k8s cluster counts ">
+    </testcase>
+    <testcase name="Core Operations - AWS - Terraform MUST - Check if Global Repos are paginated" time="1.340" classname="MUST - Check if Global Repos are paginated">
+    </testcase>
+  </testsuite>
+</testsuites>

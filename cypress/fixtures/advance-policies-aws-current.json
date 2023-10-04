@@ -1,0 +1,2565 @@
+[
+    {
+        "ruleName": "noHardwareMfa",
+        "applicableResourceTypes": [
+            "aws_iam_account_summary",
+            "aws_iam_virtual_mfa_device"
+        ],
+        "main-resource": "aws_iam_virtual_mfa_device"
+    },
+    {
+        "ruleName": "noHardwareMfacis15",
+        "applicableResourceTypes": [
+            "aws_iam_account_summary",
+            "aws_iam_virtual_mfa_device"
+        ],
+        "main-resource": "aws_iam_virtual_mfa_device"
+    },
+    {
+        "ruleName": "enableAccessAnalizercis15",
+        "applicableResourceTypes": [
+            "aws_accessanalyzer_analyzer",
+            "aws_organizations_account"
+        ],
+        "main-resource": "aws_iam_access_analizer"
+    },
+    {
+        "ruleName": "orphanIamGroup",
+        "applicableResourceTypes": [
+            "aws_iam_group",
+            "aws_iam_group_membership"
+        ],
+        "main-resource": "aws_iam_group"
+    },
+    {
+        "ruleName": "vpcFlowLogsNotEnabled",
+        "applicableResourceTypes": [
+            "aws_flow_log",
+            "aws_s3_bucket",
+            "aws_s3_bucket_policy",
+            "aws_vpc"
+        ],
+        "main-resource": "aws_vpc"
+    },
+    {
+        "ruleName": "vpcFlowLogsNotEnabledcis15",
+        "applicableResourceTypes": [
+            "aws_flow_log",
+            "aws_s3_bucket",
+            "aws_s3_bucket_policy",
+            "aws_vpc"
+        ],
+        "main-resource": "aws_vpc"
+    },
+    {
+        "ruleName": "defaultVpcExist",
+        "applicableResourceTypes": [
+            "aws_default_vpc",
+            "aws_default_vpc_exists"
+        ],
+        "main-resource": "aws_vpc"
+    },
+    {
+        "ruleName": "enableSecurityhub",
+        "applicableResourceTypes": [
+            "aws_organizations_account",
+            "aws_securityhub_account"
+        ],
+        "main-resource": "aws_securityhub_account"
+    },
+    {
+        "ruleName": "awsMqCmkUsed",
+        "applicableResourceTypes": [
+            "aws_mq_broker",
+            "aws_owned_key"
+        ],
+        "main-resource": "aws_mq_broker"
+    },
+    {
+        "ruleName": "ebsSnapshot",
+        "applicableResourceTypes": [
+            "aws_ebs_snapshot",
+            "aws_ebs_volume"
+        ],
+        "main-resource": "aws_ebs_volume"
+    },
+    {
+        "ruleName": "efsWithoutBackupPolicy",
+        "applicableResourceTypes": [
+            "aws_efs_backup_policy",
+            "aws_efs_file_system"
+        ],
+        "main-resource": "aws_efs_file_system"
+    },
+    {
+        "ruleName": "ensureSameAccess",
+        "applicableResourceTypes": [
+            "aws_db_instance",
+            "aws_rds_cluster_instance"
+        ],
+        "main-resource": "aws_rds_cluster_instance"
+    },
+    {
+        "ruleName": "instanceWithNoVpc",
+        "applicableResourceTypes": [
+            "aws_instance",
+            "aws_vpc"
+        ],
+        "main-resource": "aws_instance"
+    },
+    {
+        "ruleName": "userWithPassNotContainMfaActive",
+        "applicableResourceTypes": [
+            "aws_iam_user",
+            "aws_iam_user_policy",
+            "aws_iam_virtual_mfa_device"
+        ],
+        "main-resource": "aws_iam_user_policy"
+    },
+    {
+        "ruleName": "iamUserInlinePolicy",
+        "applicableResourceTypes": [
+            "aws_iam_user",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_user_policy"
+    },
+    {
+        "ruleName": "ecrRepoIsPublic",
+        "applicableResourceTypes": [
+            "aws_ecr_repository",
+            "aws_ecr_repository_policy"
+        ],
+        "main-resource": "aws_ecr_repository_policy"
+    },
+    {
+        "ruleName": "ecrRepoIsTooPermissive",
+        "applicableResourceTypes": [
+            "aws_ecr_repository",
+            "aws_ecr_repository_policy"
+        ],
+        "main-resource": "aws_ecr_repository_policy"
+    },
+    {
+        "ruleName": "iamPolicyWithFullAdminControl",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_group_policy_attachment",
+            "aws_iam_policy",
+            "aws_iam_policy_arn_without_admin_access",
+            "aws_iam_role",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy",
+            "aws_policy_action"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "passRoleNotResourceUsed",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "notActionNotResource",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "NotActionAllResource",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "noAction",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "noCondition",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "noResource",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "emptySid",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "ipAddressNotCidr",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "ipAddressPrivateSubset",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "notIpAddressPrivateSubset",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "emptyForAllValues",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "emptyForAnyValue",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "emptyIfExists",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "redundantActions",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "wildCardCheck",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "awsIamMissingArnFieldError",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "awsIamMissingRegionFieldError",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "awsIamIncorrectJsonCombinationError",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "awsIamUnsupportedSidError",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "awsIamEmptyPrincipalError",
+        "applicableResourceTypes": [
+            "aws_api_gateway_rest_api_policy",
+            "aws_backup_vault_policy",
+            "aws_ecr_repository_policy",
+            "aws_efs_file_system_policy",
+            "aws_glue_resource_policy",
+            "aws_iam_role_policy",
+            "aws_media_store_container_policy",
+            "aws_s3_bucket_policy",
+            "aws_secretsmanager_secret_policy",
+            "aws_ses_identity_policy",
+            "aws_sns_topic_policy",
+            "aws_sqs_queue_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "awsIamGlobalConditionKey",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "awsIamRedundantResources",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "iamPolicyInvalidArnPrefix",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "iamPolicyInvalidArnServiceCase",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "iamPolicyWrongArnAccount",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "iamPolicyConditionKeyFormat",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "awsIamPolicySlrWithNotResource",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "iamSlrPolicyWildCardActionNotResource",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "awsIamSlRNotActionNotResource",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "awsSlrCreateWildCardResource",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "awsIamWildCardActionResource",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "awsSlrIamWildCardNotActionResource",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "iamPolicyWithInvalidOperator",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "iamPolicyWithInvalidGlobalCondition",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "iamPolicyWithInvalidPartition",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "iamPolicyWithInvalidRegion",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "iamPolicyWithMultipleBooleanValues",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "iamPolicyWithInvalidElement",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "iammisMatchTypeIPaddress",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "iamExccedPolicy",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "iamMissingVersion",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "iamTypeMismatchBoll",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "iamWithoutLike",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "iamTypeMismatchString",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "iamTypeMisMatchNumber",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "iamPolicyWithInvalidKmsDecryptAction",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "actionStarForAllResources",
+        "applicableResourceTypes": [
+            "aws_iam_group_policy",
+            "aws_iam_policy",
+            "aws_iam_role_policy",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_policy"
+    },
+    {
+        "ruleName": "ecrNoSecurePolicyAttached",
+        "applicableResourceTypes": [
+            "aws_ecr_repository",
+            "aws_ecr_repository_policy"
+        ],
+        "main-resource": "aws_ecr_repository"
+    },
+    {
+        "ruleName": "iamUserWithMulitpleAccessKey",
+        "applicableResourceTypes": [
+            "aws_iam_access_key",
+            "aws_iam_user"
+        ],
+        "main-resource": "aws_iam_user"
+    },
+    {
+        "ruleName": "iamUserWithMulitpleAccessKeycis15",
+        "applicableResourceTypes": [
+            "aws_iam_access_key",
+            "aws_iam_user"
+        ],
+        "main-resource": "aws_iam_user"
+    },
+    {
+        "ruleName": "userNoPolicyAttachment",
+        "applicableResourceTypes": [
+            "aws_iam_policy_attachment",
+            "aws_iam_user",
+            "aws_iam_user_policy_attachment",
+            "aws_iam_user_policy"
+        ],
+        "main-resource": "aws_iam_user"
+    },
+    {
+        "ruleName": "hardCodedKey",
+        "applicableResourceTypes": [
+            "aws_instance",
+            "aws_launch_configuration"
+        ],
+        "main-resource": "aws_launch_configuration"
+    },
+    {
+        "ruleName": "hardCodedUrl",
+        "applicableResourceTypes": [
+            "aws_instance",
+            "aws_launch_configuration"
+        ],
+        "main-resource": "aws_launch_configuration"
+    },
+    {
+        "ruleName": "hardCodedShellScript",
+        "applicableResourceTypes": [
+            "aws_instance",
+            "aws_launch_configuration"
+        ],
+        "main-resource": "aws_launch_configuration"
+    },
+    {
+        "ruleName": "loadBalancerHealthCheckUse",
+        "applicableResourceTypes": [
+            "aws_autoscaling_attachment",
+            "aws_autoscaling_group"
+        ],
+        "main-resource": "aws_autoscaling_attachment"
+    },
+    {
+        "ruleName": "apiGatewayWebAclAssociation",
+        "applicableResourceTypes": [
+            "aws_no_waf_web_acl_association",
+            "aws_wafregional_web_acl_association"
+        ],
+        "main-resource": "aws_api_gateway_stage"
+    },
+    {
+        "ruleName": "noS3BucketSseRulesKmsBased",
+        "applicableResourceTypes": [
+            "aws_s3_bucket",
+            "aws_s3_bucket_server_side_encryption_configuration"
+        ],
+        "main-resource": "aws_s3_bucket"
+    },
+    {
+        "ruleName": "noS3BucketSseRulesDefaultAwsKey",
+        "applicableResourceTypes": [
+            "aws_s3_bucket",
+            "aws_s3_bucket_server_side_encryption_configuration"
+        ],
+        "main-resource": "aws_s3_bucket"
+    },
+    {
+        "ruleName": "s3BucketSseRulesWithKmsNull",
+        "applicableResourceTypes": [
+            "aws_s3_bucket",
+            "aws_s3_bucket_server_side_encryption_configuration"
+        ],
+        "main-resource": "aws_s3_bucket"
+    },
+    {
+        "ruleName": "s3BucketSseRulesWithKmsNullcis15",
+        "applicableResourceTypes": [
+            "aws_s3_bucket",
+            "aws_s3_bucket_server_side_encryption_configuration"
+        ],
+        "main-resource": "aws_s3_bucket"
+    },
+    {
+        "ruleName": "s3Versioning",
+        "applicableResourceTypes": [
+            "aws_s3_bucket",
+            "aws_s3_bucket_versioning"
+        ],
+        "main-resource": "aws_s3_bucket"
+    },
+    {
+        "ruleName": "s3VersioningMfaFalse",
+        "applicableResourceTypes": [
+            "aws_s3_bucket",
+            "aws_s3_bucket_versioning"
+        ],
+        "main-resource": "aws_s3_bucket"
+    },
+    {
+        "ruleName": "s3EnforceUserACL",
+        "applicableResourceTypes": [
+            "aws_s3_bucket",
+            "aws_s3_bucket_policy"
+        ],
+        "main-resource": "aws_s3_bucket"
+    },
+    {
+        "ruleName": "cloudTrailLogBucketPublic",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_s3_bucket",
+            "aws_s3_bucket_acl",
+            "aws_s3_bucket_policy"
+        ],
+        "main-resource": "aws_s3_bucket"
+    },
+    {
+        "ruleName": "objectLevelLoggingWriteCheck",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_s3_bucket"
+        ],
+        "main-resource": "aws_s3_bucket"
+    },
+    {
+        "ruleName": "objectLevelLoggingReadCheck",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_s3_bucket"
+        ],
+        "main-resource": "aws_s3_bucket"
+    },
+    {
+        "ruleName": "s3BucketAccessLoggingEnabled",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_s3_bucket",
+            "aws_s3_bucket_logging"
+        ],
+        "main-resource": "aws_s3_bucket"
+    },
+    {
+        "ruleName": "s3BucketAccessLoggingEnabledcis15",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_s3_bucket",
+            "aws_s3_bucket_logging"
+        ],
+        "main-resource": "aws_s3_bucket"
+    },
+    {
+        "ruleName": "allUsersReadAccess",
+        "applicableResourceTypes": [
+            "aws_s3_bucket",
+            "aws_s3_bucket_acl"
+        ],
+        "main-resource": "aws_s3_bucket"
+    },
+    {
+        "ruleName": "authUsersReadAccess",
+        "applicableResourceTypes": [
+            "aws_s3_bucket",
+            "aws_s3_bucket_acl"
+        ],
+        "main-resource": "aws_s3_bucket"
+    },
+    {
+        "ruleName": "allUsersWriteAccess",
+        "applicableResourceTypes": [
+            "aws_s3_bucket",
+            "aws_s3_bucket_acl"
+        ],
+        "main-resource": "aws_s3_bucket"
+    },
+    {
+        "ruleName": "s3VersioningMfaFalsecis15",
+        "applicableResourceTypes": [
+            "aws_s3_bucket",
+            "aws_s3_bucket_versioning"
+        ],
+        "main-resource": "aws_s3_bucket"
+    },
+    {
+        "ruleName": "ercPublicRepoIsTooPermissive",
+        "applicableResourceTypes": [
+            "aws_ecrpublic_repository",
+            "aws_ecrpublic_repository_policy"
+        ],
+        "main-resource": "aws_ecrpublic_repository_policy"
+    },
+    {
+        "ruleName": "cloudTrailExists",
+        "applicableResourceTypes": [
+            "aws_account",
+            "aws_cloudtrail"
+        ],
+        "main-resource": "aws_account"
+    },
+    {
+        "ruleName": "kmsCmkNotUsed",
+        "applicableResourceTypes": [
+            "aws_storagegateway_nfs_file_share",
+            "aws_storagegateway_smb_file_share"
+        ],
+        "main-resource": "aws_storagegateway_nfs_file_share"
+    },
+    {
+        "ruleName": "route53LoggingDisabled",
+        "applicableResourceTypes": [
+            "aws_route53_query_log",
+            "aws_route53_zone"
+        ],
+        "main-resource": "aws_route53_query_log"
+    },
+    {
+        "ruleName": "noAccessKeyForRootAccount",
+        "applicableResourceTypes": [
+            "aws_iam_access_key",
+            "aws_iam_account_summary"
+        ],
+        "main-resource": "aws_iam_access_key"
+    },
+    {
+        "ruleName": "noAccessKeyForRootAccountcis15",
+        "applicableResourceTypes": [
+            "aws_iam_access_key",
+            "aws_iam_account_summary"
+        ],
+        "main-resource": "aws_iam_access_key"
+    },
+    {
+        "ruleName": "natGwPrivateSubnetCheck",
+        "applicableResourceTypes": [
+            "aws_nat_gateway",
+            "aws_route",
+            "aws_route_table",
+            "aws_route_table_association"
+        ],
+        "main-resource": "aws_nat_gateway"
+    },
+    {
+        "ruleName": "natGwMultiAzCheck",
+        "applicableResourceTypes": [
+            "aws_nat_gateway",
+            "aws_subnet"
+        ],
+        "main-resource": "aws_nat_gateway"
+    },
+    {
+        "ruleName": "iamSupportRoleForIncident",
+        "applicableResourceTypes": [
+            "aws_iam_role",
+            "aws_iam_role_policy_attachment"
+        ],
+        "main-resource": "aws_iam_role_policy_attachment"
+    },
+    {
+        "ruleName": "iamSupportRoleForIncidentcis15",
+        "applicableResourceTypes": [
+            "aws_iam_role",
+            "aws_iam_role_policy_attachment"
+        ],
+        "main-resource": "aws_iam_role_policy_attachment"
+    },
+    {
+        "ruleName": "allowActionsFromAllPrincipals",
+        "applicableResourceTypes": [
+            "aws_s3_bucket",
+            "aws_s3_bucket_policy"
+        ],
+        "main-resource": "aws_s3_bucket_policy"
+    },
+    {
+        "ruleName": "allowDeleteActionFromAllPrncpls",
+        "applicableResourceTypes": [
+            "aws_s3_bucket",
+            "aws_s3_bucket_policy"
+        ],
+        "main-resource": "aws_s3_bucket_policy"
+    },
+    {
+        "ruleName": "allowGetActionFromAllPrncpls",
+        "applicableResourceTypes": [
+            "aws_s3_bucket",
+            "aws_s3_bucket_policy"
+        ],
+        "main-resource": "aws_s3_bucket_policy"
+    },
+    {
+        "ruleName": "allowListActionFromAllPrncpls",
+        "applicableResourceTypes": [
+            "aws_s3_bucket",
+            "aws_s3_bucket_policy"
+        ],
+        "main-resource": "aws_s3_bucket_policy"
+    },
+    {
+        "ruleName": "allowPutActionFromAllPrncpls",
+        "applicableResourceTypes": [
+            "aws_s3_bucket",
+            "aws_s3_bucket_policy"
+        ],
+        "main-resource": "aws_s3_bucket_policy"
+    },
+    {
+        "ruleName": "allowRestoreActionFromAllPrncpls",
+        "applicableResourceTypes": [
+            "aws_s3_bucket",
+            "aws_s3_bucket_policy"
+        ],
+        "main-resource": "aws_s3_bucket_policy"
+    },
+    {
+        "ruleName": "allowReadACPActionFromAllPrncpls",
+        "applicableResourceTypes": [
+            "aws_s3_bucket",
+            "aws_s3_bucket_policy"
+        ],
+        "main-resource": "aws_s3_bucket_policy"
+    },
+    {
+        "ruleName": "allowWriteACPActionFromAllPrncpls",
+        "applicableResourceTypes": [
+            "aws_s3_bucket",
+            "aws_s3_bucket_policy"
+        ],
+        "main-resource": "aws_s3_bucket_policy"
+    },
+    {
+        "ruleName": "storageNotEncrypted",
+        "applicableResourceTypes": [
+            "aws_db_instance",
+            "aws_rds_cluster"
+        ],
+        "main-resource": "aws_rds_cluster"
+    },
+    {
+        "ruleName": "awsCloudWatchLogGrpApiCheck",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_cloudwatch_log_metric_filter"
+        ],
+        "main-resource": "aws_cloudtrail"
+    },
+    {
+        "ruleName": "awsCloudWatchLogGrpApiCheckcis15",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_cloudwatch_log_metric_filter"
+        ],
+        "main-resource": "aws_cloudtrail"
+    },
+    {
+        "ruleName": "awsCloudWatchLogGrpMfaCheck",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_cloudwatch_log_metric_filter"
+        ],
+        "main-resource": "aws_cloudtrail"
+    },
+    {
+        "ruleName": "awsCloudWatchLogGrpRootAccCheck",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_cloudwatch_log_metric_filter"
+        ],
+        "main-resource": "aws_cloudtrail"
+    },
+    {
+        "ruleName": "awsCloudWatchLogGrpRootAccCheckcis15",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_cloudwatch_log_metric_filter"
+        ],
+        "main-resource": "aws_cloudtrail"
+    },
+    {
+        "ruleName": "awsCloudWatchLogGrpIamPolicyCheck",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_cloudwatch_log_metric_filter"
+        ],
+        "main-resource": "aws_cloudtrail"
+    },
+    {
+        "ruleName": "awsCloudWatchLogGrpCloudTrailCheck",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_cloudwatch_log_metric_filter"
+        ],
+        "main-resource": "aws_cloudtrail"
+    },
+    {
+        "ruleName": "awsCloudWatchLogGrpAuthFailureCheck",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_cloudwatch_log_metric_filter"
+        ],
+        "main-resource": "aws_cloudtrail"
+    },
+    {
+        "ruleName": "awsCloudWatchLogGrpAuthFailureCheckcis15",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_cloudwatch_log_metric_filter"
+        ],
+        "main-resource": "aws_cloudtrail"
+    },
+    {
+        "ruleName": "awsCloudWatchLogGrpCmkDeletionCheck",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_cloudwatch_log_metric_filter"
+        ],
+        "main-resource": "aws_cloudtrail"
+    },
+    {
+        "ruleName": "awsCloudWatchLogGrpS3BucketPolicyCheck",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_cloudwatch_log_metric_filter"
+        ],
+        "main-resource": "aws_cloudtrail"
+    },
+    {
+        "ruleName": "awsCloudWatchLogGrpConfigCheck",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_cloudwatch_log_metric_filter"
+        ],
+        "main-resource": "aws_cloudtrail"
+    },
+    {
+        "ruleName": "awsCloudWatchLogSecGrpCheck",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_cloudwatch_log_metric_filter"
+        ],
+        "main-resource": "aws_cloudtrail"
+    },
+    {
+        "ruleName": "awsCloudWatchLogNaclCheck",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_cloudwatch_log_metric_filter"
+        ],
+        "main-resource": "aws_cloudtrail"
+    },
+    {
+        "ruleName": "awsCloudWatchLogNetGatewayCheck",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_cloudwatch_log_metric_filter"
+        ],
+        "main-resource": "aws_cloudtrail"
+    },
+    {
+        "ruleName": "awsCloudWatchLogRouteTableCheck",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_cloudwatch_log_metric_filter"
+        ],
+        "main-resource": "aws_cloudtrail"
+    },
+    {
+        "ruleName": "awsCloudWatchLogVpcCheck",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_cloudwatch_log_metric_filter"
+        ],
+        "main-resource": "aws_cloudtrail"
+    },
+    {
+        "ruleName": "awsCloudWatchLogOrgChangeCheck",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_cloudwatch_log_metric_filter"
+        ],
+        "main-resource": "aws_cloudtrail"
+    },
+    {
+        "ruleName": "awsCloudWatchLogGrpNatGwCheck",
+        "applicableResourceTypes": [
+            "aws_cloudtrail",
+            "aws_cloudwatch_log_metric_filter"
+        ],
+        "main-resource": "aws_cloudtrail"
+    },
+    {
+        "ruleName": "lambdaConcurrencyExecutionLimitEnabled",
+        "applicableResourceTypes": [
+            "aws_lambda_alias",
+            "aws_lambda_function",
+            "aws_lambda_provisioned_concurrency_config"
+        ],
+        "main-resource": "aws_lambda_function"
+    },
+    {
+        "ruleName": "lambdaUrlAuthEnabled",
+        "applicableResourceTypes": [
+            "aws_lambda_function",
+            "aws_lambda_function_url",
+            "aws_lambda_permission"
+        ],
+        "main-resource": "aws_lambda_function"
+    },
+    {
+        "ruleName": "port22OpenToInternet",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port80OpenToInternet",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port443OpenToInternet",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port3389OpenToInternet",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "unrestrictedIngressAccess",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port9200AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port9300AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port4506AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port3020AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port61621AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port7001AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port9000AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port8000AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port8080AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port636AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port1434AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port1434UdpAlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port135AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port1433AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port11214AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port11215AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port11214UdpAlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port11215UdpAlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port27018AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port3306AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port137AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port137UdpAlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port138AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port138UdpAlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port139AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port139UdpAlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port2484AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port2484UdpAlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port5432AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port5432UdpAlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port3000AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port8140AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port161UdpAlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port2382AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port2383AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port4505AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port1521AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port23AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port25AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port445AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port27017AlbNetworkPortSecurity",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "portWideOpenToPublic",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "unknownPortOpenToInternet",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port4505AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port4506AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port3020AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port61621AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port7001AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port9000AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port8000AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port8080AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port636AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port1434AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port1434UdpAlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port135AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port1433AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port11214AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port11215AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port11214UdpAlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port11215UdpAlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port27018AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port3306AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port137AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port137UdpAlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port138AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port138UdpAlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port139AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port139UdpAlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port2484AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port2484UdpAlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port5432AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port5432UdpAlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port3000AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port8140AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port161UdpAlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port2382AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port2383AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port1521AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port23AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port25AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port445AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port27017AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port9200AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port9300AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "port22AlbNetworkPortSecurityPublicScope",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort22ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort80ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort443ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort3389ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort9200ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort4506ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort61621ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort8080ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort1434ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort1434ExposedToprivateU",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort135ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort1433ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort11214ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort11215ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort11214ExposedToprivateU",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort11215ExposedToprivateU",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort3306ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort3020ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort7001ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort9000ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort8000ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort636ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort27018ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort137ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort137ExposedToprivateU",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort138ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort138ExposedToprivateU",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort139ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort139ExposedToprivateU",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort2484ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort2484ExposedToprivateU",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort5432ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort5432ExposedToprivateU",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort3000ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort8140ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort161ExposedToprivateU",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort2382ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort2383ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort1521ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort23ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort25ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort445ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort27017ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort9300ExposedToprivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort9042ExposedToInternet",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort9042ExposedToPublic",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort9042ExposedToPrivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort7000ExposedToInternet",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort7000ExposedToPublic",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort7000ExposedToPrivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort7199ExposedToInternet",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort7199ExposedToPublic",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort7199ExposedToPrivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort61620ExposedToInternet",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort61620ExposedToPublic",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort61620ExposedToPrivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort8888ExposedToInternet",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort8888ExposedToPublic",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort8888ExposedToPrivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort9160ExposedToInternet",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort9160ExposedToPublic",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort9160ExposedToPrivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort389ExposedToInternet",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort389ExposedToPublic",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort389ExposedToPrivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort389ExposedToInternetU",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort389ExposedToPublicU",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort389ExposedToPrivateU",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort11211ExposedToInternet",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort11211ExposedToPublic",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort11211ExposedToPrivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort11211ExposedToInternetU",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort11211ExposedToPublicU",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort11211ExposedToPrivateU",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort2483ExposedToInternet",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort2483ExposedToPublic",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort2483ExposedToPrivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort2483ExposedToInternetU",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort2483ExposedToPublicU",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort2483ExposedToPrivateU",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort6379ExposedToInternet",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort6379ExposedToPublic",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "networkPort6379ExposedToPrivate",
+        "applicableResourceTypes": [
+            "aws_security_group",
+            "aws_security_group_rule"
+        ],
+        "main-resource": "aws_security_group"
+    },
+    {
+        "ruleName": "efsIsPublic",
+        "applicableResourceTypes": [
+            "aws_efs_file_system",
+            "aws_efs_file_system_policy"
+        ],
+        "main-resource": "aws_efs_file_system_policy"
+    },
+    {
+        "ruleName": "efsIsTooPermissive",
+        "applicableResourceTypes": [
+            "aws_efs_file_system",
+            "aws_efs_file_system_policy"
+        ],
+        "main-resource": "aws_efs_file_system_policy"
+    }
+]

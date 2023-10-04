@@ -1,0 +1,314 @@
+import { getCountOfGlobalResourcesInsights, getMisconfigurationsByCategories, getFilteredViolations, getAllFailingPoliciesFromDashboard, getTopResourceMisconfigurations } from "../../../requests/projects";
+import { getCountOfPrsFromDashboard, getCountOfPrsFromRemediatePage, getCountOfServiceTicketsFromDashboard, getCountOfServiceTicketsFromRemediatePage } from "../../../requests/jira";
+import { getGlobalResourcesData, getGlobalResourcesDataWithTypes } from "../../../requests/repositoriesAndResources";
+import { getSpecBasedNamePrefix, initAPISpecRoutine } from "../../../support/utils";
+
+const name = getSpecBasedNamePrefix();
+const store = {
+    envName: `${name + Date.now()}`,
+    topResource: [],
+    topResourceMisconfigurationCount: []
+};
+
+let queryString = "";
+
+describe('Common Operations', () => {
+    before(() => initAPISpecRoutine('before'))
+    after(() => initAPISpecRoutine('after'))
+
+    /**--------------------------------------------------------
+        * Added by: rthareja
+        * Test Management ID: 
+    ---------------------------------------------------------*/
+    it('MUST - Cross verify whether count of exposed blob insights returned by dashboard matches with total resources returned from Resources Page by applying respective filters', () => {
+        cy.request(getCountOfGlobalResourcesInsights()).then(response => {
+            store.countOfInsights = response.body;
+        }).then(validateCountOfBlobInsightsFromResourcesPage => {
+            queryString = `useBaseline=true&insights=blob`
+            cy.request(getGlobalResourcesDataWithTypes(queryString)).then(response => {
+                expect(response.body.total).to.eq(store.countOfInsights.blob)
+            })
+        })
+    })
+
+    /**--------------------------------------------------------
+        * Added by: rthareja
+        * Test Management ID: 
+    ---------------------------------------------------------*/
+    it('MUST - Cross verify whether count of exposed security groups returned by dashboard matches with total resources returned from Resources Page by applying respective filters', () => {
+        queryString = `useBaseline=true&insights=secGroupExposed`
+        cy.request(getGlobalResourcesDataWithTypes(queryString)).then(response => {
+            expect(response.body.total).to.eq(store.countOfInsights.secGroupExposed)
+        })
+    })
+
+    /**--------------------------------------------------------
+        * Added by: rthareja
+        * Test Management ID: 
+    ---------------------------------------------------------*/
+    it('MUST - Cross verify whether count of read/write IAM roles returned by dashboard matches with total resources returned from Resources Page by applying respective filters', () => {
+        queryString = `useBaseline=true&insights=rwIam`
+        cy.request(getGlobalResourcesDataWithTypes(queryString)).then(response => {
+            expect(response.body.total).to.eq(store.countOfInsights.rwIam)
+        })
+    })
+
+    /**--------------------------------------------------------
+        * Added by: rthareja
+        * Test Management ID: 
+    ---------------------------------------------------------*/
+    it('MUST - Cross verify whether count of exposed databases returned by dashboard matches with total resources returned from Resources Page by applying respective filters', () => {
+        queryString = `useBaseline=true&insights=exposedDb`
+        cy.request(getGlobalResourcesDataWithTypes(queryString)).then(response => {
+            expect(response.body.total).to.eq(store.countOfInsights.exposedDb)
+        })
+    })
+
+    /**--------------------------------------------------------
+       * Added by: ysahu
+       * Test Management ID:
+      ---------------------------------------------------------*/
+    it('MUST - Validate the respective Drill Down Endpoints of Misconfiguration Dashboard at Home Page', () => {
+        let filters = '';
+        cy.request(getMisconfigurationsByCategories()).then((res) => {
+            store.data = res.body.Data;
+            store.encryption = res.body.Encryption;
+            store.identity = res.body.Identity;
+            store.logging = res.body.Logging;
+            store.network = res.body.Network;
+            store.other = res.body.Other;
+            store.storage = res.body.Storage;
+            store.violations = res.body.violations;
+        })
+            .then(() => {
+                filters = 'hasViolation=true&trends=Identity';
+                if (store.identity !== undefined) {
+                    cy.request(getFilteredViolations(null, filters)).then((res) => {
+                        expect(res.status).to.eq(200);
+                        expect(res.body.types.length).to.eq(store.identity);
+                    })
+                }
+            })
+            .then(() => {
+                filters = 'hasViolation=true&trends=Logging';
+                if (store.logging !== undefined) {
+                    cy.request(getFilteredViolations(null, filters)).then((res) => {
+                        expect(res.status).to.eq(200);
+                        expect(res.body.types.length).to.eq(store.logging);
+                    })
+                }
+
+            })
+            .then(() => {
+                filters = 'hasViolation=true&trends=Network';
+                if (store.network !== undefined) {
+                    cy.request(getFilteredViolations(null, filters)).then((res) => {
+                        expect(res.status).to.eq(200);
+                        expect(res.body.types.length).to.eq(store.network);
+                    })
+                }
+            })
+            .then(() => {
+                filters = 'hasViolation=true&trends=Storage';
+                if (store.storage !== undefined) {
+                    cy.request(getFilteredViolations(null, filters)).then((res) => {
+                        expect(res.status).to.eq(200);
+                        expect(res.body.types.length).to.eq(store.storage);
+                    })
+                }
+            })
+            .then(() => {
+                filters = 'hasViolation=true&trends=Data';
+                if (store.data !== undefined) {
+                    cy.request(getFilteredViolations(null, filters)).then((res) => {
+                        expect(res.status).to.eq(200);
+                        expect(res.body.types.length).to.eq(store.data);
+                    })
+                }
+            })
+            .then(() => {
+                filters = '&trends=Encryption';
+                if (store.encryption !== undefined) {
+                    cy.request(getFilteredViolations(null, filters)).then((res) => {
+                        expect(res.status).to.eq(200);
+                        expect(res.body.types.length).to.eq(store.encryption);
+                    })
+                }
+            })
+            .then(() => {
+                filters = 'hasViolation=true&trends=Other';
+                if (store.other !== undefined) {
+                    cy.request(getFilteredViolations(null, filters)).then((res) => {
+                        expect(res.status).to.eq(200);
+                        expect(res.body.types.length).to.eq(store.other);
+                    })
+                }
+            })
+            .then(() => {
+                filters = 'hasViolation=true';
+                if (store.violations !== undefined) {
+                    cy.request(getFilteredViolations(null, filters)).then((res) => {
+                        expect(res.status).to.eq(200);
+                        expect(res.body.types.length).to.eq(store.violations);
+                    })
+                }
+            })
+    })
+
+    /**--------------------------------------------------------
+       * Added by: rthareja
+       * Test Management ID:
+      ---------------------------------------------------------*/
+    it('MUST - Cross verify count of service tickets returned by dashboard matches with total number of service tickets returned from Remediate Page', () => {
+        cy.request(getCountOfServiceTicketsFromDashboard()).then(response => {
+            const jiraPrioritiesObject = response.body.jiraPriorities;
+            store.countOfServiceTickets = Object.values(jiraPrioritiesObject)[0].value;
+        }).then(validateCountOfServiceTicketsFromRemediatePage => {
+            cy.request(getCountOfServiceTicketsFromRemediatePage()).then(response => {
+                expect(response.body.count).to.eq(store.countOfServiceTickets)
+            })
+        })
+    })
+
+    /**--------------------------------------------------------
+       * Added by: rthareja
+       * Test Management ID:
+      ---------------------------------------------------------*/
+    it('MUST - Cross verify count of Fix PR\'s returned by dashboard matches with total number of fix PR\'s returned from Remediate Page', () => {
+        cy.request(getCountOfPrsFromDashboard()).then(response => {
+            const prStatusesObject = response.body.prStatuses;
+            let count = 0;
+            for (let key in prStatusesObject) {
+                count += prStatusesObject[key].value;
+            }
+            store.countOfPrsFromDashboard = count;
+        }).then(validateCountOfPrsFromRemediatePage => {
+            cy.request(getCountOfPrsFromRemediatePage()).then(response => {
+                expect(response.body.count).to.eq(store.countOfPrsFromDashboard)
+            })
+        })
+    })
+
+    /**--------------------------------------------------------
+       * Added by: rthareja
+       * Test Management ID:
+    ---------------------------------------------------------*/
+    it('MUST - Cross verify count of all misconfigurations returned by dashboard matches with total number of misconfigurations returned from Misconfigurations page', () => {
+        cy.request(getAllFailingPoliciesFromDashboard()).then(response => {
+            const policySeveritiesObject = response.body.policySeverities;
+            store.policySeveritiesObject = policySeveritiesObject;
+            let countOfAllFailingPoliciesFromDashboard = 0;
+            for (let key in policySeveritiesObject) {
+                countOfAllFailingPoliciesFromDashboard += policySeveritiesObject[key].value;
+            }
+            store.countOfAllFailingPoliciesFromDashboard = countOfAllFailingPoliciesFromDashboard;
+        }).then(validateCountOfTotalMisconfigurationsFromFindingsPage => {
+            queryString = 'hasViolation=true';
+            cy.request(getFilteredViolations(undefined, queryString)).then(response => {
+                expect(store.countOfAllFailingPoliciesFromDashboard).to.eq(response.body.types.length)
+            })
+        })
+    })
+
+    /**--------------------------------------------------------
+       * Added by: rthareja
+       * Test Management ID:
+    ---------------------------------------------------------*/
+    it('MUST - Cross verify count of high misconfigurations returned by dashboard matches with high severity misconfigurations returned from Misconfigurations page', () => {
+        store.countOfHighSeverityFailingPoliciesFromDashboard = store.policySeveritiesObject.high.value;
+        queryString = 'hasViolation=true&severity=high';
+        cy.request(getFilteredViolations(undefined, queryString)).then(response => {
+            expect(store.countOfHighSeverityFailingPoliciesFromDashboard).to.eq(response.body.types.length)
+        })
+    })
+
+    /**--------------------------------------------------------
+       * Added by: rthareja
+       * Test Management ID:
+    ---------------------------------------------------------*/
+    it('MUST - Cross verify count of medium misconfigurations returned by dashboard matches with medium severity misconfigurations returned from Misconfigurations page', () => {
+        store.countOfMediumSeverityFailingPoliciesFromDashboard = store.policySeveritiesObject.medium.value;
+        queryString = 'hasViolation=true&severity=medium';
+        cy.request(getFilteredViolations(undefined, queryString)).then(response => {
+            expect(store.countOfMediumSeverityFailingPoliciesFromDashboard).to.eq(response.body.types.length)
+        })
+    })
+
+    /**--------------------------------------------------------
+       * Added by: rthareja
+       * Test Management ID:
+    ---------------------------------------------------------*/
+    it('MUST - Cross verify count of low misconfigurations returned by dashboard matches with low severity misconfigurations returned from Misconfigurations page', () => {
+        store.countOfLowSeverityFailingPoliciesFromDashboard = store.policySeveritiesObject.low.value;
+        queryString = 'hasViolation=true&severity=low';
+        cy.request(getFilteredViolations(undefined, queryString)).then(response => {
+            expect(store.countOfLowSeverityFailingPoliciesFromDashboard).to.eq(response.body.types.length)
+        })
+    })
+
+    /**--------------------------------------------------------
+       * Added by: rthareja
+       * Test Management ID:
+    ---------------------------------------------------------*/
+    it('MUST - Cross verify count of cloud drifts returned by dashboard matches with cloud sourced resources returned from Resources Page', () => {
+        queryString = 'hasVDrift=true'
+        cy.request(getGlobalResourcesData(queryString)).then(response => {
+            store.countOfCloudDriftsFromDashboard = response.body.count;
+        }).then(validateCountOfCloudDriftsFromResourcesPage => {
+            queryString = 'hasDrift=false&hasVDrift=true&useBaseline=true';
+            cy.request(getGlobalResourcesDataWithTypes(queryString)).then(response => {
+                expect(response.body.total).to.eq(store.countOfCloudDriftsFromDashboard);
+            })
+        })
+    })
+
+    /**--------------------------------------------------------
+       * Added by: rthareja
+       * Test Management ID:
+    ---------------------------------------------------------*/
+    it('MUST - Cross verify count of iac drifts returned by dashboard matches with iac sourced resources returned from Resources Page', () => {
+        queryString = 'hasDrift=true'
+        cy.request(getGlobalResourcesData(queryString)).then(response => {
+            store.countOfIACDriftsFromDashboard = response.body.count;
+        }).then(validateCountOfCloudDriftsFromResourcesPage => {
+            queryString = 'hasDrift=true&useBaseline=true';
+            cy.request(getGlobalResourcesDataWithTypes(queryString)).then(response => {
+                expect(response.body.total).to.eq(store.countOfIACDriftsFromDashboard);
+            })
+        })
+    })
+
+    /**--------------------------------------------------------
+   * Added by: ysahu
+   * Test Management ID:
+  ---------------------------------------------------------*/
+    it('MUST - Verify count of Top Resource Type Misconfigurations at Home Page DashBoard', () => {
+        let filters;
+        cy.request(getTopResourceMisconfigurations()).then((res) => {
+            expect(res.status).to.eq(200);
+            expect(res.body?.failingTypes?.length).to.above(0);
+              store.topResource.push(res.body?.failingTypes[0]?.type, res.body?.failingTypes[1]?.type);
+              store.topResourceMisconfigurationCount.push(res.body?.failingTypes?.[0].value, res.body?.failingTypes?.[1].value);
+        })
+            .then(() => {
+                filters = `useBaseline=true&idSearch=${store.topResource[0]}`
+                cy.request(getGlobalResourcesDataWithTypes(filters)).then((res) => {
+                    expect(res.status).to.eq(200);
+                    expect(res.body.types[0].violations).to.eq(Number(store.topResourceMisconfigurationCount[0]));
+                })
+            })
+            .then(() => {
+                filters = `useBaseline=true&idSearch=${store.topResource[1]}`
+                cy.request(getGlobalResourcesDataWithTypes(filters)).then((res) => {
+                    expect(res.status).to.eq(200);
+                    expect(res.body.types[0].violations).to.eq(Number(store.topResourceMisconfigurationCount[1]));
+                })
+            })
+    })
+
+
+
+
+
+
+})

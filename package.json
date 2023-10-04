@@ -1,0 +1,23 @@
+{
+  "name": "build-acceptance-api-tests-cypress",
+  "version": "1.0.0",
+  "description": "Cypress API test framework for Accurics API",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "cypress open --env configFile=devenv",
+    "cleaninstall": "rm -rf node_modules package-lock.json && npm cache clean --force; npm prune; npm init; npm i --save"
+  },
+  "author": "Spat",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^12.3.0",
+    "cypress-grep": "^2.13.1",
+    "cypress-junit-reporter": "^1.3.1",
+    "cypress-tags": "^0.3.0",
+    "cypress-wait-until": "^1.7.2",
+    "decompress": "^4.2.1",
+    "fs": "^0.0.2",
+    "fs-extra": "latest",
+    "neat-csv": "^5.2.0"
+  }
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="94.269" tests="2" failures="0">
+  <testsuite name="Root Suite" timestamp="2023-05-09T03:14:21" tests="0" file="cypress/tests/api/zen/supported-resource-type-validation-aws.spec.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="AWS - Supported resource resource types validation" timestamp="2023-05-09T03:14:21" tests="2" time="94.262" failures="0">
+    <testcase name="AWS - Supported resource resource types validation AWS - Create list of all TF equivalent resources to be validated" time="24.213" classname="AWS - Create list of all TF equivalent resources to be validated">
+    </testcase>
+    <testcase name="AWS - Supported resource resource types validation AWS - Validate" time="70.011" classname="AWS - Validate">
+    </testcase>
+  </testsuite>
+</testsuites>

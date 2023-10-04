@@ -1,0 +1,99 @@
+{
+    "data": {
+        "allIaCRepos":[
+            {
+                "envs": [{"name": "BAT-webhook-validation-github",
+                        "provider": "aws", "botIds": []
+                    }
+                ],
+                "repos": [
+                    {
+                        "provider": "aws",
+                        "url": "https://github.com/tenb-qa/acqa-repo15-aws-webhook-tester1.git",
+                        "name": "repo1",
+                        "engineType": "terraform",
+                        "config": [
+                            { "key": "TERRAFORM_VERSION","value": "0.12" },
+                            { "key": "TERRASCAN","value": "true" }
+                        ],
+                        "folderPath": "/", "autoRemediate": "none", "source": "tenb-qa/acqa-repo15-aws-webhook-tester1", "webhook": true
+                    },
+                    {
+                        "provider": "aws",
+                        "url": "https://github.com/tenb-qa/acqa-repo15-aws-webhook-tester2.git",
+                        "name": "repo2",
+                        "engineType": "terraform",
+                        "config": [
+                            { "key": "TERRAFORM_VERSION","value": "0.12" },
+                            { "key": "TERRASCAN","value": "true" }
+                        ],
+                        "folderPath": "/", "autoRemediate": "none", "source": "tenb-qa/acqa-repo15-aws-webhook-tester2", "webhook": true
+                    }
+                ],
+                "skipTest":false
+            },
+            {
+                "envs": [{"name": "BAT-webhook-validation-bitbucket",
+                        "provider": "aws", "botIds": []
+                    }
+                ],
+                "repos": [
+                    {
+                        "provider": "aws",
+                        "url": "https://bitbucket.org/tenb-qa/acqa-repo15-aws-webhook-tester1.git",
+                        "name": "repo1",
+                        "engineType": "terraform",
+                        "config": [
+                            { "key": "TERRAFORM_VERSION","value": "0.12" },
+                            { "key": "TERRASCAN","value": "true" }
+                        ],
+                        "folderPath": "/", "autoRemediate": "none", "source": "tenb-qa/acqa-repo15-aws-webhook-tester1.git", "webhook": true
+                    },
+                    {
+                        "provider": "aws",
+                        "url": "https://bitbucket.org/tenb-qa/acqa-repo15-aws-webhook-tester2.git",
+                        "name": "repo2",
+                        "engineType": "terraform",
+                        "config": [
+                            { "key": "TERRAFORM_VERSION","value": "0.12" },
+                            { "key": "TERRASCAN","value": "true" }
+                        ],
+                        "folderPath": "/", "autoRemediate": "none", "source": "tenb-qa/acqa-repo15-aws-webhook-tester2.git", "webhook": true
+                    }
+                ],
+                "skipTest":false
+            },
+            {
+                "envs": [{"name": "BAT-webhook-validation-ADO",
+                        "provider": "aws", "botIds": []
+                    }
+                ],
+                "repos": [
+                    {
+                        "provider": "aws",
+                        "url": "https://tcs-qe-org1@dev.azure.com/tcs-qe-org1/test-project1/_git/acqa-repo15-aws-webhook-tester1",
+                        "name": "acqa-repo15-aws-webhook-tester1.git_ADO",
+                        "engineType": "terraform",
+                        "config": [
+                            { "key": "TERRAFORM_VERSION","value": "0.12" },
+                            { "key": "TERRASCAN","value": "true" }
+                        ],
+                        "folderPath": "/", "autoRemediate": "none", "source": "tcs-qe-org1/acqa-repo15-aws-webhook-tester1.git", "webhook": true
+                    },
+                    {
+                        "provider": "aws",
+                        "url": "https://tcs-qe-org1@dev.azure.com/tcs-qe-org1/test-project1/_git/acqa-repo15-aws-webhook-tester2",
+                        "name": "acqa-repo15-aws-webhook-tester2.git_ADO",
+                        "engineType": "terraform",
+                        "config": [
+                            { "key": "TERRAFORM_VERSION","value": "0.12" },
+                            { "key": "TERRASCAN","value": "true" }
+                        ],
+                        "folderPath": "/", "autoRemediate": "none", "source": "tcs-qe-org1/acqa-repo15-aws-webhook-tester2.git", "webhook": true
+                    }
+                ],
+                "skipTest":false
+            }
+        ]
+    }
+}

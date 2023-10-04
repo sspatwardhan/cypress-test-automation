@@ -1,0 +1,28 @@
+{
+  "data": {
+    "THIS SPEC IS PURELY USED FOR DATA GENERATION": "MAKE SURE ALL THE REPOS ARE PUBLIC",
+    "allIaCRepos": {
+      "AWS_ACCESS_KEY_ID": "ASIAQ3MA62DVRHWNONOB",
+      "AWS_SECRET_ACCESS_KEY": "T+tsmU/LLC9DUY8RnUsOILk8IdJDLFGTZjJ2l37/",
+      "repos": [
+        {
+          "url": "https://github.com/AC10QA-ORG1/acqa-repo1-aws-tf12-part1-no-name-tags.git",
+          "name": "acqa-repo1-aws-tf12-part1-no-name-tags",
+          "enforcing_projectId": "c6dd2bb4-7c31-464b-91f8-a081c4a7c6be",
+          "engineType": "terraform"
+        },
+        {
+          "url": "https://github.com/AC10QA-ORG1/acqa-repo1-aws-tf12-part1-no-name-tags.git",
+          "name": "acqa-repo1-aws-tf12-part1-no-name-tags",
+          "enforcing_projectId": "c6dd2bb4-7c31-464b-91f8-a081c4a7c6be",
+          "engineType": "terraform"
+        }
+      ],
+      "skipTest": false,
+      "skipValidations": true,
+      "expectationIs": "greaterThan",
+      "expectedPolicyFailures": 5,
+      "expectedResources": 6
+    }
+  }
+}

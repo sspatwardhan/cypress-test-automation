@@ -1,0 +1,1777 @@
+[
+    {
+        "ruleName": "enableDiagnostics",
+        "applicableResourceTypes": [
+            "azurerm_linux_virtual_machine",
+            "azurerm_virtual_machine",
+            "azurerm_windows_virtual_machine"
+        ],
+        "main-resource": "azurerm_virtual_machine"
+    },
+    {
+        "ruleName": "ensureNoCustomScript",
+        "applicableResourceTypes": [
+            "azurerm_virtual_machine",
+            "azurerm_virtual_machine_extension"
+        ],
+        "main-resource": "azurerm_virtual_machine"
+    },
+    {
+        "ruleName": "ensureAdditionalSecurityContactExist_1_5_0",
+        "applicableResourceTypes": [
+            "azurerm_security_center_contact",
+            "azurerm_security_center_subscription_pricing"
+        ],
+        "main-resource": "azurerm_global"
+    },
+    {
+        "ruleName": "auditLoggingContainerAccess",
+        "applicableResourceTypes": [
+            "azurerm_monitor_log_profile",
+            "azurerm_storage_account",
+            "azurerm_storage_container"
+        ],
+        "main-resource": "azurerm_storage_container"
+    },
+    {
+        "ruleName": "mySqlServerADAdminConfig",
+        "applicableResourceTypes": [
+            "azurerm_mysql_active_directory_administrator",
+            "azurerm_mysql_server",
+            "azurerm_resource_group"
+        ],
+        "main-resource": "azurerm_mysql_server"
+    },
+    {
+        "ruleName": "ensureLinuxNoCustomScript",
+        "applicableResourceTypes": [
+            "azurerm_linux_virtual_machine",
+            "azurerm_virtual_machine_extension"
+        ],
+        "main-resource": "azurerm_linux_virtual_machine"
+    },
+    {
+        "ruleName": "linuxVmBackupDisabled",
+        "applicableResourceTypes": [
+            "azurerm_backup_policy_vm",
+            "azurerm_backup_protected_vm",
+            "azurerm_linux_virtual_machine",
+            "azurerm_recovery_services_vault"
+        ],
+        "main-resource": "azurerm_linux_virtual_machine"
+    },
+    {
+        "ruleName": "linuxVmPublicIpLinked",
+        "applicableResourceTypes": [
+            "azurerm_linux_virtual_machine",
+            "azurerm_network_interface"
+        ],
+        "main-resource": "azurerm_linux_virtual_machine"
+    },
+    {
+        "ruleName": "keyVaultAuditLoggingEnabled",
+        "applicableResourceTypes": [
+            "azurerm_key_vault",
+            "azurerm_monitor_diagnostic_setting"
+        ],
+        "main-resource": "azurerm_key_vault"
+    },
+    {
+        "ruleName": "keyVaultAuditLoggingEnabled1_5_0",
+        "applicableResourceTypes": [
+            "azurerm_key_vault",
+            "azurerm_monitor_diagnostic_setting"
+        ],
+        "main-resource": "azurerm_key_vault"
+    },
+    {
+        "ruleName": "keyVaultNotInUse",
+        "applicableResourceTypes": [
+            "azurerm_key_vault",
+            "azurerm_key_vault_certificate",
+            "azurerm_key_vault_key",
+            "azurerm_key_vault_secret"
+        ],
+        "main-resource": "azurerm_key_vault"
+    },
+    {
+        "ruleName": "resourceGroupLock",
+        "applicableResourceTypes": [
+            "azurerm_management_lock",
+            "azurerm_resource_group"
+        ],
+        "main-resource": "azurerm_resource_group"
+    },
+    {
+        "ruleName": "ipForwardingDisabled",
+        "applicableResourceTypes": [
+            "azurerm_network_interface",
+            "azurerm_virtual_machine_scale_set"
+        ],
+        "main-resource": "azurerm_network_interface"
+    },
+    {
+        "ruleName": "storageAccountCheckNetworkDefaultRule",
+        "applicableResourceTypes": [
+            "azurerm_storage_account",
+            "azurerm_storage_account_network_rules"
+        ],
+        "main-resource": "azurerm_storage_account"
+    },
+    {
+        "ruleName": "storageAccountTrustedMicrosoftServicesEnabled",
+        "applicableResourceTypes": [
+            "azurerm_storage_account",
+            "azurerm_storage_account_network_rules"
+        ],
+        "main-resource": "azurerm_storage_account"
+    },
+    {
+        "ruleName": "storageAccountTrustedMicrosoftServicesEnabled1_5_0",
+        "applicableResourceTypes": [
+            "azurerm_storage_account",
+            "azurerm_storage_account_network_rules"
+        ],
+        "main-resource": "azurerm_storage_account"
+    },
+    {
+        "ruleName": "storageAccountWithNoCMKEncryption",
+        "applicableResourceTypes": [
+            "azurerm_monitor_log_profile",
+            "azurerm_storage_account",
+            "azurerm_storage_encryption_scope"
+        ],
+        "main-resource": "azurerm_storage_account"
+    },
+    {
+        "ruleName": "storageAccountWithNoCMKEncryption1_5_0",
+        "applicableResourceTypes": [
+            "azurerm_monitor_log_profile",
+            "azurerm_storage_account",
+            "azurerm_storage_encryption_scope"
+        ],
+        "main-resource": "azurerm_storage_account"
+    },
+    {
+        "ruleName": "storageAccNoCMK",
+        "applicableResourceTypes": [
+            "azurerm_storage_account",
+            "azurerm_storage_encryption_scope"
+        ],
+        "main-resource": "azurerm_storage_account"
+    },
+    {
+        "ruleName": "linuxScaleSetBasicAuthEnabled",
+        "applicableResourceTypes": [
+            "azurerm_linux_virtual_machine",
+            "azurerm_linux_virtual_machine_scale_set",
+            "azurerm_virtual_machine"
+        ],
+        "main-resource": "azurerm_linux_virtual_machine_scale_set"
+    },
+    {
+        "ruleName": "encryptAtHostDisabledVmss",
+        "applicableResourceTypes": [
+            "azurerm_linux_virtual_machine",
+            "azurerm_linux_virtual_machine_scale_set"
+        ],
+        "main-resource": "azurerm_linux_virtual_machine_scale_set"
+    },
+    {
+        "ruleName": "diagnosticCheckLinuxVMSet",
+        "applicableResourceTypes": [
+            "azurerm_linux_virtual_machine_scale_set",
+            "azurerm_virtual_machine_scale_set_extension"
+        ],
+        "main-resource": "azurerm_linux_virtual_machine_scale_set"
+    },
+    {
+        "ruleName": "ensureAntiMalwareEnabled",
+        "applicableResourceTypes": [
+            "azurerm_linux_virtual_machine_scale_set",
+            "azurerm_virtual_machine_scale_set_extension",
+            "azurerm_virtual_machine_scale_set_extensions",
+            "azurerm_windows_virtual_machine_scale_set"
+        ],
+        "main-resource": "azurerm_linux_virtual_machine_scale_set"
+    },
+    {
+        "ruleName": "encryptionLinuxCheck",
+        "applicableResourceTypes": [
+            "azurerm_linux_virtual_machine",
+            "azurerm_linux_virtual_machine_scale_set"
+        ],
+        "main-resource": "azurerm_linux_virtual_machine_scale_set"
+    },
+    {
+        "ruleName": "sqlServerADAdminConfigured",
+        "applicableResourceTypes": [
+            "azurerm_sql_active_directory_administrator",
+            "azurerm_mssql_server"
+        ],
+        "main-resource": "azurerm_mssql_server"
+    },
+    {
+        "ruleName": "sqlServerADAdminConfigured1_5_0",
+        "applicableResourceTypes": [
+            "azurerm_sql_active_directory_administrator",
+            "azurerm_mssql_server"
+        ],
+        "main-resource": "azurerm_mssql_server"
+    },
+    {
+        "ruleName": "sqlServerPredictableAccount",
+        "applicableResourceTypes": [
+            "azurerm_mssql_server",
+            "azurerm_mysql_server",
+            "azurerm_postgresql_server",
+            "azurerm_mssql_server"
+        ],
+        "main-resource": "azurerm_mssql_server"
+    },
+    {
+        "ruleName": "sqlServerAuditingEnabled",
+        "applicableResourceTypes": [
+            "azurerm_mssql_server",
+            "azurerm_storage_account"
+        ],
+        "main-resource": "azurerm_mssql_server"
+    },
+    {
+        "ruleName": "sqlAuditingRetention",
+        "applicableResourceTypes": [
+            "azurerm_mssql_server",
+            "azurerm_storage_account"
+        ],
+        "main-resource": "azurerm_mssql_server"
+    },
+    {
+        "ruleName": "sqlServerWithoutFirewall",
+        "applicableResourceTypes": [
+            "azurerm_sql_firewall_rule",
+            "azurerm_mssql_server"
+        ],
+        "main-resource": "azurerm_mssql_server"
+    },
+    {
+        "ruleName": "noCrossAccountAcessSqlServer",
+        "applicableResourceTypes": [
+            "azurerm_sql_firewall_rule",
+            "azurerm_mssql_server"
+        ],
+        "main-resource": "azurerm_mssql_server"
+    },
+    {
+        "ruleName": "noVAConfigured",
+        "applicableResourceTypes": [
+            "azurerm_mssql_server_security_alert_policy",
+            "azurerm_mssql_server_vulnerability_assessment",
+            "azurerm_mssql_server"
+        ],
+        "main-resource": "azurerm_mssql_server"
+    },
+    {
+        "ruleName": "vaSettingWithoutPeriodicScan",
+        "applicableResourceTypes": [
+            "azurerm_mssql_server_security_alert_policy",
+            "azurerm_mssql_server_vulnerability_assessment",
+            "azurerm_mssql_server"
+        ],
+        "main-resource": "azurerm_mssql_server"
+    },
+    {
+        "ruleName": "vaSettingWithoutPeriodicScan1_5_0",
+        "applicableResourceTypes": [
+            "azurerm_mssql_server_security_alert_policy",
+            "azurerm_mssql_server_vulnerability_assessment",
+            "azurerm_mssql_server"
+        ],
+        "main-resource": "azurerm_mssql_server"
+    },
+    {
+        "ruleName": "vaWithoutEmails",
+        "applicableResourceTypes": [
+            "azurerm_mssql_server_security_alert_policy",
+            "azurerm_mssql_server_vulnerability_assessment",
+            "azurerm_mssql_server"
+        ],
+        "main-resource": "azurerm_mssql_server"
+    },
+    {
+        "ruleName": "vaWithoutEmails1_5_0",
+        "applicableResourceTypes": [
+            "azurerm_mssql_server_security_alert_policy",
+            "azurerm_mssql_server_vulnerability_assessment",
+            "azurerm_mssql_server"
+        ],
+        "main-resource": "azurerm_mssql_server"
+    },
+    {
+        "ruleName": "vaWithoutEmailToAdmins",
+        "applicableResourceTypes": [
+            "azurerm_mssql_server_security_alert_policy",
+            "azurerm_mssql_server_vulnerability_assessment",
+            "azurerm_mssql_server"
+        ],
+        "main-resource": "azurerm_mssql_server"
+    },
+    {
+        "ruleName": "vaWithoutEmailToAdmins1_5_0",
+        "applicableResourceTypes": [
+            "azurerm_mssql_server_security_alert_policy",
+            "azurerm_mssql_server_vulnerability_assessment",
+            "azurerm_mssql_server"
+        ],
+        "main-resource": "azurerm_mssql_server"
+    },
+    {
+        "ruleName": "ensureNSG",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_virtual_machine_scale_set"
+        ],
+        "main-resource": "azurerm_virtual_machine_scale_set"
+    },
+    {
+        "ruleName": "checkAuditEnabled",
+        "applicableResourceTypes": [
+            "azurerm_mssql_database",
+            "azurerm_storage_account"
+        ],
+        "main-resource": "azurerm_mssql_database"
+    },
+    {
+        "ruleName": "noCrossAccountAccessRedis",
+        "applicableResourceTypes": [
+            "azurerm_redis_cache",
+            "azurerm_redis_firewall_rule"
+        ],
+        "main-resource": "azurerm_redis_cache"
+    },
+    {
+        "ruleName": "mssqlServerAuditingEnabled",
+        "applicableResourceTypes": [
+            "azurerm_mssql_server",
+            "azurerm_storage_account"
+        ],
+        "main-resource": "azurerm_mssql_server"
+    },
+    {
+        "ruleName": "mssqlAuditingRetention",
+        "applicableResourceTypes": [
+            "azurerm_mssql_server",
+            "azurerm_storage_account"
+        ],
+        "main-resource": "azurerm_mssql_server"
+    },
+    {
+        "ruleName": "noTdeEnabled",
+        "applicableResourceTypes": [
+            "azurerm_mssql_server",
+            "azurerm_mssql_server_transparent_data_encryption"
+        ],
+        "main-resource": "azurerm_mssql_server"
+    },
+    {
+        "ruleName": "noCMKForTransparentEncryption",
+        "applicableResourceTypes": [
+            "azurerm_mssql_server",
+            "azurerm_mssql_server_transparent_data_encryption"
+        ],
+        "main-resource": "azurerm_mssql_server"
+    },
+    {
+        "ruleName": "noCMKForTransparentEncryption1_5_0",
+        "applicableResourceTypes": [
+            "azurerm_mssql_server",
+            "azurerm_mssql_server_transparent_data_encryption"
+        ],
+        "main-resource": "azurerm_mssql_server"
+    },
+    {
+        "ruleName": "mssqlWithoutFirewall",
+        "applicableResourceTypes": [
+            "azurerm_mssql_firewall_rule",
+            "azurerm_mssql_server"
+        ],
+        "main-resource": "azurerm_mssql_server"
+    },
+    {
+        "ruleName": "latestKubernetesVersionUsed",
+        "applicableResourceTypes": [
+            "azurerm_kubernetes_cluster",
+            "kubernetes_version"
+        ],
+        "main-resource": "azurerm_kubernetes_cluster"
+    },
+    {
+        "ruleName": "ensureCustomDomains",
+        "applicableResourceTypes": [
+            "azurerm_app_service",
+            "azurerm_app_service_custom_hostname_binding"
+        ],
+        "main-resource": "azurerm_app_service"
+    },
+    {
+        "ruleName": "iotHubSharedAccessEnabled",
+        "applicableResourceTypes": [
+            "azurerm_iothub",
+            "azurerm_iothub_shared_access_policy"
+        ],
+        "main-resource": "azurerm_iothub"
+    },
+    {
+        "ruleName": "noCreatePolicyAssignment",
+        "applicableResourceTypes": [
+            "azurerm_monitor_activity_log_alert",
+            "azurerm_resource_group"
+        ],
+        "main-resource": "azurerm_monitor_activity_log_alert"
+    },
+    {
+        "ruleName": "noDeletePolicyAssignment",
+        "applicableResourceTypes": [
+            "azurerm_monitor_activity_log_alert",
+            "azurerm_resource_group"
+        ],
+        "main-resource": "azurerm_monitor_activity_log_alert"
+    },
+    {
+        "ruleName": "noCreateNSGAlert",
+        "applicableResourceTypes": [
+            "azurerm_monitor_activity_log_alert",
+            "azurerm_resource_group"
+        ],
+        "main-resource": "azurerm_monitor_activity_log_alert"
+    },
+    {
+        "ruleName": "noDeleteNSGAlert",
+        "applicableResourceTypes": [
+            "azurerm_monitor_activity_log_alert",
+            "azurerm_resource_group"
+        ],
+        "main-resource": "azurerm_monitor_activity_log_alert"
+    },
+    {
+        "ruleName": "noDeleteNSGRuleAlert",
+        "applicableResourceTypes": [
+            "azurerm_monitor_activity_log_alert",
+            "azurerm_resource_group"
+        ],
+        "main-resource": "azurerm_monitor_activity_log_alert"
+    },
+    {
+        "ruleName": "noCreateSecSolAlert",
+        "applicableResourceTypes": [
+            "azurerm_monitor_activity_log_alert",
+            "azurerm_resource_group"
+        ],
+        "main-resource": "azurerm_monitor_activity_log_alert"
+    },
+    {
+        "ruleName": "noDeleteSecSolAlert",
+        "applicableResourceTypes": [
+            "azurerm_monitor_activity_log_alert",
+            "azurerm_resource_group"
+        ],
+        "main-resource": "azurerm_monitor_activity_log_alert"
+    },
+    {
+        "ruleName": "noSqlFirewallAlert",
+        "applicableResourceTypes": [
+            "azurerm_monitor_activity_log_alert",
+            "azurerm_resource_group"
+        ],
+        "main-resource": "azurerm_monitor_activity_log_alert"
+    },
+    {
+        "ruleName": "noSqlFirewallAlert1_5_0",
+        "applicableResourceTypes": [
+            "azurerm_monitor_activity_log_alert",
+            "azurerm_resource_group"
+        ],
+        "main-resource": "azurerm_monitor_activity_log_alert"
+    },
+    {
+        "ruleName": "noSqlFirewallAlertDelete1_5_0",
+        "applicableResourceTypes": [
+            "azurerm_monitor_activity_log_alert",
+            "azurerm_resource_group"
+        ],
+        "main-resource": "azurerm_monitor_activity_log_alert"
+    },
+    {
+        "ruleName": "noDeletePublicIp1_5_0",
+        "applicableResourceTypes": [
+            "azurerm_monitor_activity_log_alert",
+            "azurerm_resource_group"
+        ],
+        "main-resource": "azurerm_monitor_activity_log_alert"
+    },
+    {
+        "ruleName": "createPublicIp1_5_0",
+        "applicableResourceTypes": [
+            "azurerm_monitor_activity_log_alert",
+            "azurerm_resource_group"
+        ],
+        "main-resource": "azurerm_monitor_activity_log_alert"
+    },
+    {
+        "ruleName": "encryptAtHostDisabled",
+        "applicableResourceTypes": [
+            "azurerm_windows_virtual_machine",
+            "azurerm_windows_virtual_machine_scale_set"
+        ],
+        "main-resource": "azurerm_windows_virtual_machine_scale_set"
+    },
+    {
+        "ruleName": "encryptionCheck",
+        "applicableResourceTypes": [
+            "azurerm_windows_virtual_machine",
+            "azurerm_windows_virtual_machine_scale_set"
+        ],
+        "main-resource": "azurerm_windows_virtual_machine_scale_set"
+    },
+    {
+        "ruleName": "diagnosticCheckWindowsVMSet",
+        "applicableResourceTypes": [
+            "azurerm_virtual_machine_scale_set_extension",
+            "azurerm_windows_virtual_machine_scale_set"
+        ],
+        "main-resource": "azurerm_windows_virtual_machine_scale_set"
+    },
+    {
+        "ruleName": "networkPortAllExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort3389ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort3389ExposedToInternetAz1_5_0",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort22ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort22ExposedToInternetAz1_5_0",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort22ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort22ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort3020ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort3020ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort3020ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort7001ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort7001ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort7001ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort61621ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort61621ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort61621ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort53ExposedToInternetUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort53ExposedToPublicUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort53ExposedToPrivateUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort9000ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort9000ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort9000ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort8000ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort8000ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort8000ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort8080ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort8080ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort8080ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort636ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort636ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort636ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort1434ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort1434ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort1434ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort1434ExposedToInternetUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort1434ExposedToPublicUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort1434ExposedToPrivateUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort135ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort135ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort135ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort1433ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort1433ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort1433ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort11214ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort11214ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort11214ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort11215ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort11215ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort11215ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort11214ExposedToInternetUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort11214ExposedToPublicUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort11214ExposedToPrivateUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort11215ExposedToInternetUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort11215ExposedToPublicUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort11215ExposedToPrivateUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort445ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort445ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort445ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort27018ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort27018ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort27018ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort3306ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort3306ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort3306ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort137ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort137ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort137ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort137ExposedToInternetUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort137ExposedToPublicUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort137ExposedToPrivateUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort138ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort138ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort138ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort138ExposedToInternetUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort138ExposedToPublicUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort138ExposedToPrivateUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort139ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort139ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort139ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort139ExposedToInternetUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort139ExposedToPublicUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort139ExposedToPrivateUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort2484ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort2484ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort2484ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort2484ExposedToInternetUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort2484ExposedToPublicUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort2484ExposedToPrivateUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort110ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort110ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort110ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort5432ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort5432ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort5432ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort5432ExposedToInternetUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort5432ExposedToPublicUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort5432ExposedToPrivateUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort3000ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort3000ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort3000ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort8140ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort8140ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort8140ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort25ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort25ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort25ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort161ExposedToInternetUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort161ExposedToPublicUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort161ExposedToPrivateUAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort2382ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort2382ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort2382ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort2383ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort2383ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort2383ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort4505ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort4505ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort4505ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort4506ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort4506ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort4506ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort23ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort23ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort23ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort5500ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort5500ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort5500ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort5900ExposedToInternetAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort5900ExposedToPublicAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort5900ExposedToPrivateAz",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "udpServiceOpenToInternet",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "udpServiceOpenToInternet1_5_0",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "networkPort80ExposedToPrivateAz1_5_0",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_network_security_rule"
+        ],
+        "main-resource": "azurerm_network_security_rule"
+    },
+    {
+        "ruleName": "iotHubDpsSharedAccessEnabled",
+        "applicableResourceTypes": [
+            "azurerm_iothub_dps",
+            "azurerm_iothub_dps_shared_access_policy"
+        ],
+        "main-resource": "azurerm_iothub_dps"
+    },
+    {
+        "ruleName": "cosmosDbWithoutAdvThreatProtection",
+        "applicableResourceTypes": [
+            "azurerm_advanced_threat_protection",
+            "azurerm_cosmos_db",
+            "azurerm_cosmosdb_account"
+        ],
+        "main-resource": "azurerm_cosmosdb_account"
+    },
+    {
+        "ruleName": "ensureWinNoCustomScript",
+        "applicableResourceTypes": [
+            "azurerm_virtual_machine_extension",
+            "azurerm_windows_virtual_machine"
+        ],
+        "main-resource": "azurerm_windows_virtual_machine"
+    },
+    {
+        "ruleName": "windowsVmBackupDisabled",
+        "applicableResourceTypes": [
+            "azurerm_backup_policy_vm",
+            "azurerm_backup_protected_vm",
+            "azurerm_recovery_services_vault",
+            "azurerm_windows_virtual_machine"
+        ],
+        "main-resource": "azurerm_windows_virtual_machine"
+    },
+    {
+        "ruleName": "windowsVmPublicIpLinked",
+        "applicableResourceTypes": [
+            "azurerm_network_interface",
+            "azurerm_windows_virtual_machine"
+        ],
+        "main-resource": "azurerm_windows_virtual_machine"
+    },
+    {
+        "ruleName": "securityCenterAppServiceTest",
+        "applicableResourceTypes": [
+            "azurerm_resource_group",
+            "azurerm_security_center_subscription_pricing"
+        ],
+        "main-resource": "azurerm_security_center_subscription_pricing"
+    },
+    {
+        "ruleName": "securityCenterSqlServersTest",
+        "applicableResourceTypes": [
+            "azurerm_resource_group",
+            "azurerm_security_center_subscription_pricing"
+        ],
+        "main-resource": "azurerm_security_center_subscription_pricing"
+    },
+    {
+        "ruleName": "securityCenterSqlVMTest",
+        "applicableResourceTypes": [
+            "azurerm_mssql_virtual_machine",
+            "azurerm_resource_group",
+            "azurerm_security_center_subscription_pricing",
+            "azurerm_virtual_machine"
+        ],
+        "main-resource": "azurerm_security_center_subscription_pricing"
+    },
+    {
+        "ruleName": "securityCenterStorageAccountTest",
+        "applicableResourceTypes": [
+            "azurerm_resource_group",
+            "azurerm_security_center_subscription_pricing"
+        ],
+        "main-resource": "azurerm_security_center_subscription_pricing"
+    },
+    {
+        "ruleName": "securityCenterContainerRegistryTest",
+        "applicableResourceTypes": [
+            "azurerm_resource_group",
+            "azurerm_security_center_subscription_pricing"
+        ],
+        "main-resource": "azurerm_security_center_subscription_pricing"
+    },
+    {
+        "ruleName": "securityCenterKubernetesServiceTest",
+        "applicableResourceTypes": [
+            "azurerm_resource_group",
+            "azurerm_security_center_subscription_pricing"
+        ],
+        "main-resource": "azurerm_security_center_subscription_pricing"
+    },
+    {
+        "ruleName": "securityCenterKeyVaultsTest",
+        "applicableResourceTypes": [
+            "azurerm_resource_group",
+            "azurerm_security_center_subscription_pricing"
+        ],
+        "main-resource": "azurerm_security_center_subscription_pricing"
+    },
+    {
+        "ruleName": "noPublicSynapseFirewall",
+        "applicableResourceTypes": [
+            "azurerm_synapse_firewall_rule",
+            "azurerm_synapse_workspace"
+        ],
+        "main-resource": "azurerm_synapse_firewall_rule"
+    },
+    {
+        "ruleName": "noCrossAccountAccess",
+        "applicableResourceTypes": [
+            "azurerm_synapse_firewall_rule",
+            "azurerm_synapse_workspace"
+        ],
+        "main-resource": "azurerm_synapse_firewall_rule"
+    },
+    {
+        "ruleName": "containerRegistryResourceLock",
+        "applicableResourceTypes": [
+            "azurerm_container_registry",
+            "azurerm_management_lock"
+        ],
+        "main-resource": "azurerm_container_registry"
+    },
+    {
+        "ruleName": "noSecurityGroupAssociated",
+        "applicableResourceTypes": [
+            "azurerm_network_security_group",
+            "azurerm_subnet",
+            "azurerm_subnet_network_security_group_association",
+            "azurerm_virtual_network"
+        ],
+        "main-resource": "azurerm_virtual_network"
+    },
+    {
+        "ruleName": "ddosProtectionEnabled",
+        "applicableResourceTypes": [
+            "azurerm_network_ddos_protection_plan",
+            "azurerm_virtual_network"
+        ],
+        "main-resource": "azurerm_virtual_network"
+    },
+    {
+        "ruleName": "postgresQLADAdminConfig",
+        "applicableResourceTypes": [
+            "azurerm_postgresql_active_directory_administrator",
+            "azurerm_postgresql_server",
+            "azurerm_resource_group"
+        ],
+        "main-resource": "azurerm_postgresql_server"
+    },
+    {
+        "ruleName": "noConnectionThrottling",
+        "applicableResourceTypes": [
+            "azurerm_postgresql_configuration",
+            "azurerm_postgresql_server",
+            "azurerm_resource_group"
+        ],
+        "main-resource": "azurerm_postgresql_server"
+    },
+    {
+        "ruleName": "noLogConnectionsEnabled",
+        "applicableResourceTypes": [
+            "azurerm_postgresql_configuration",
+            "azurerm_postgresql_server",
+            "azurerm_resource_group"
+        ],
+        "main-resource": "azurerm_postgresql_server"
+    }
+]

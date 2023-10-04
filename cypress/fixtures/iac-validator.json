@@ -1,0 +1,192 @@
+{
+  "data": {
+    "THIS SPEC IS PURELY USED FOR DATA GENERATION":"MAKE SURE ALL THE REPOS ARE PUBLIC",
+    "allIaCRepos": [
+      {
+        "envs": [{ "name": "BAT-iacValidator-cft1", "provider": "aws", "botIds": [] }],
+        "repos": [
+          { "provider": "aws", "url": "https://github.com/tenable/KaiMonkey.git",
+            "name": "https://github.com/tenable/KaiMonkey.git", "engineType": "cft",
+            "config": [
+              { "key": "TERRAFORM_VERSION", "value": "0.15" },
+              { "key": "TERRASCAN", "value": "false" }],
+              "folderPath": "/cft", "autoRemediate": "none", "source": "tenable/KaiMonkey.git" },
+          { "provider": "aws", "url": "https://github.com/awslabs/aws-cloudformation-templates.git",
+            "name": "https://github.com/awslabs/aws-cloudformation-templates.git", "engineType": "cft",
+            "config": [
+              { "key": "TERRAFORM_VERSION", "value": "0.15" },
+              { "key": "TERRASCAN", "value": "false" }],
+              "folderPath": "/", "autoRemediate": "none", "source": "awslabs/aws-cloudformation-templates.git" },
+          { "provider": "aws", "url": "https://github.com/stelligent/cloudformation_templates.git",
+            "name": "https://github.com/stelligent/cloudformation_templates.git", "engineType": "cft",
+            "config": [
+              { "key": "TERRAFORM_VERSION", "value": "0.15" },
+              { "key": "TERRASCAN", "value": "false" }],
+              "folderPath": "/", "autoRemediate": "none", "source": "stelligent/cloudformation_templates.git" }
+            ],
+            "skipTest":false,
+            "skipValidations":true,
+            "expectationIs":"greaterThan",
+            "expectedPolicyFailures":50,
+            "expectedResources":30
+      },
+      {
+        "envs":[{"name":"BAT-iacValidator-arm1","provider":"azure","botIds":[]}],
+        "repos":[
+          { "provider":"azure","url":"https://github.com/tenable/KaiMonkey.git",
+            "name":"BAT-iacValidatorRepo-https://github.com/tenable/KaiMonkey.git","engineType":"arm",
+            "config":[{"key":"TERRAFORM_VERSION","value":"0.15"},{"key":"TERRASCAN","value":"true"}],
+            "folderPath":"/arm","autoRemediate":"none","source":"tenable/KaiMonkey.git"}],
+            "skipTest":false,
+            "skipValidations":true,
+            "expectationIs":"greaterThan",
+            "expectedPolicyFailures":40,
+            "expectedResources":50
+      },
+      {
+        "envs":[{"name":"BAT-iacValidator-tf-aws-linear1","provider":"aws","botIds":[]}],
+        "repos":[
+          { "provider":"aws","url":"https://github.com/tenable/KaiMonkey.git",
+            "name":"BAT-iacValidatorRepo-https://github.com/tenable/KaiMonkey.git","engineType":"terraform",
+            "config":[{"key":"TERRAFORM_VERSION","value":"0.15"},{"key":"TERRASCAN","value":"true"}],
+            "folderPath":"/terraform/aws","autoRemediate":"none","source":"tenable/KaiMonkey.git"}],
+            "skipTest":false,
+            "skipValidations":true,
+            "expectationIs":"greaterThan",
+            "expectedPolicyFailures":30,
+            "expectedResources":50
+      },
+      {
+        "envs":[{"name":"BAT-iacValidator-tf-aws-linear2","provider":"aws","botIds":[]}],
+        "repos":[
+          { "provider":"aws","url":"https://github.com/vilichaudhary/tcs-demo-resources.git",
+            "name":"BAT-iacValidatorRepo-https://github.com/vilichaudhary/tcs-demo-resources.git","engineType":"terraform",
+            "config":[{"key":"TERRAFORM_VERSION","value":"0.15"},{"key":"TERRASCAN","value":"true"}],
+            "folderPath":"/","autoRemediate":"none","source":"vilichaudhary/tcs-demo-resources.git"},
+          { "provider":"aws","url":"https://github.com/terraform-aws-modules/terraform-aws-security-group.git",
+            "name":"BAT-iacValidatorRepo-https://github.com/terraform-aws-modules/terraform-aws-security-group.git","engineType":"terraform",
+            "config":[{"key":"TERRAFORM_VERSION","value":"0.15"},{"key":"TERRASCAN","value":"true"}],
+            "folderPath":"/","autoRemediate":"none","source":"terraform-aws-modules/terraform-aws-security-group.git"}],
+            "skipTest":false,
+            "skipValidations":true,
+            "expectationIs":"greaterThan",
+            "expectedPolicyFailures":30,
+            "expectedResources":50
+      },
+      {
+        "envs":[{"name":"BAT-iacValidator-tf-aws-deep1","provider":"aws","botIds":[]}],
+        "repos":[
+          { "provider":"azure","url":"https://github.com/tenb-qa/terraform-count-foreach-huge.git",
+            "name":"BAT-iacValidatorRepo-https://github.com/tenb-qa/terraform-count-foreach-huge.git","engineType":"terraform",
+            "config":[{"key":"TERRAFORM_VERSION","value":"0.15"},{"key":"TERRASCAN","value":"false"}],
+            "folderPath":"/","autoRemediate":"none","source":"tenb-qa/terraform-count-foreach-huge.git"}],
+            "skipTest":false,
+            "skipValidations":true,
+            "expectationIs":"greaterThan",
+            "expectedPolicyFailures":5,
+            "expectedResources":5
+      },      
+      {
+        "envs":[{"name":"BAT-iacValidator-tf-azure-linear1","provider":"azure","botIds":[]}],
+        "repos":[
+          { "provider":"azure","url":"https://github.com/bridgecrewio/terragoat.git",
+            "name":"BAT-iacValidatorRepo-https://github.com/bridgecrewio/terragoat.git","engineType":"terraform",
+            "config":[{"key":"TERRAFORM_VERSION","value":"0.15"},{"key":"TERRASCAN","value":"true"}],
+            "folderPath":"/terraform/azure","autoRemediate":"none","source":"bridgecrewio/terragoat.git"},
+            { "provider":"azure","url":"https://github.com/diodonfrost/terraform-azure-examples.git",
+              "name":"BAT-iacValidatorRepo-https://github.com/diodonfrost/terraform-azure-examples.git","engineType":"terraform",
+              "config":[{"key":"TERRAFORM_VERSION","value":"0.15"},{"key":"TERRASCAN","value":"true"}],
+              "folderPath":"/","autoRemediate":"none","source":"diodonfrost/terraform-azure-examples.git"},
+            { "provider":"azure","url":"https://github.com/Azure-Samples/private-aks-cluster-terraform-devops.git",
+              "name":"BAT-iacValidatorRepo-https://github.com/Azure-Samples/private-aks-cluster-terraform-devops.git","engineType":"terraform",
+              "config":[{"key":"TERRAFORM_VERSION","value":"0.15"},{"key":"TERRASCAN","value":"true"}],
+              "folderPath":"/terraform","autoRemediate":"none","source":"Azure-Samples/private-aks-cluster-terraform-devops.git"},
+            { "provider":"azure","url":"https://github.com/tkubica12/infra-as-code-on-azure.git",
+              "name":"BAT-iacValidatorRepo-https://github.com/tkubica12/infra-as-code-on-azure.git","engineType":"terraform",
+              "config":[{"key":"TERRAFORM_VERSION","value":"0.15"},{"key":"TERRASCAN","value":"true"}],
+              "folderPath":"/terraform","autoRemediate":"none","source":"tkubica12/infra-as-code-on-azure.git"}
+          ],
+            "skipTest":false,
+            "skipValidations":true,
+            "expectationIs":"greaterThan",
+            "expectedPolicyFailures":40,
+            "expectedResources":40
+      },
+      {
+        "envs":[{"name":"BAT-iacValidator-tf-azure-deep1","provider":"azure","botIds":[]}],
+        "repos":[
+          { "provider":"azure","url":"https://github.com/bridgecrewio/terragoat.git",
+            "name":"BAT-iacValidatorRepo-https://github.com/bridgecrewio/terragoat.git","engineType":"terraform",
+            "config":[{"key":"TERRAFORM_VERSION","value":"0.15"},{"key":"TERRASCAN","value":"false"}],
+            "folderPath":"/terraform/azure","autoRemediate":"none","source":"bridgecrewio/terragoat.git"}],
+            "skipTest":false,
+            "skipValidations":true,
+            "expectationIs":"greaterThan",
+            "expectedPolicyFailures":40,
+            "expectedResources":40
+      },
+      {
+        "envs":[{"name":"BAT-iacValidator-kustomize1","provider":"aws","botIds":[]}],
+        "repos":[
+          {"provider":"aws","url":"https://github.com/codefresh-contrib/kustomize-sample-app.git",
+            "name":"BAT-iacValidatorRepo-https://github.com/codefresh-contrib/kustomize-sample-app.git","engineType":"kustomize",
+            "config":[
+              {"key":"TERRAFORM_VERSION","value":"0.12"},{"key":"TERRASCAN","value":"true"}],
+              "folderPath":"/","autoRemediate":"none","source":"codefresh-contrib/kustomize-sample-app.git"}
+            ],
+            "skipTest":false,
+            "skipValidations":true,
+            "expectationIs":"greaterThan",
+            "expectedPolicyFailures":10,
+            "expectedResources":5
+      },
+      {
+        "envs":[{"name":"BAT-iacValidator-K8s1","provider":"aws","botIds":[]}],
+        "repos":[
+        {
+          "provider":"aws","url":"https://github.com/kubernetes/examples.git",
+          "name":"BAT-iacValidatorRepo-https://github.com/kubernetes/examples.git","engineType":"k8s",
+          "config":[
+            {"key":"TERRAFORM_VERSION","value":"0.12"},{"key":"TERRASCAN","value":"true"}],
+            "folderPath":"/","autoRemediate":"none","source":"kubernetes/examples.git"}
+            ],
+            "skipTest":false,
+            "skipValidations":true,
+            "expectationIs":"greaterThan",
+            "expectedPolicyFailures":25,
+            "expectedResources":125
+      },
+      {
+        "envs":[{"name":"BAT-iacValidator-gcp-K8s1","provider":"aws","botIds":[]}],
+        "repos":[
+        {
+          "provider":"aws","url":"https://github.com/GoogleCloudPlatform/kubernetes-engine-samples.git",
+          "name":"BAT-iacValidatorRepo-https://github.com/GoogleCloudPlatform/kubernetes-engine-samples.git","engineType":"k8s",
+          "config":[
+            {"key":"TERRAFORM_VERSION","value":"0.12"},{"key":"TERRASCAN","value":"true"}],
+            "folderPath":"/","autoRemediate":"none","source":"GoogleCloudPlatform/kubernetes-engine-samples.git"}
+            ],
+            "skipTest":false,
+            "skipValidations":true,
+            "expectationIs":"greaterThan",
+            "expectedPolicyFailures":20,
+            "expectedResources":100
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]}}

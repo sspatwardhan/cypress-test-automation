@@ -1,0 +1,92 @@
+options:
+  max-time: 120
+
+definitions:
+  steps:
+    - step: &setDefaults
+        name: Setting defaults
+        image: cypress/included:3.4.0
+        artifacts:
+          - cypress/videos/**
+          - cypress/screenshots/**
+          - cypress/report/**
+    - step: &run_must_pass_batch1
+        <<: *setDefaults
+        name: run MUST tests in specs - batch1
+        script:
+          - npm install && npx cypress run --env grep=MUST,sessionToken=${sessionToken},configFile=${environment} --spec=cypress/tests/api/core_operations/aws-terraform.spec.js,cypress/tests/api/core_operations/aws-onprem-code-scanner.spec.js,cypress/tests/api/core_operations/cli-basics.spec.js
+    - step: &run_must_pass_batch2
+        <<: *setDefaults
+        name: run MUST tests in specs - batch2
+        script:
+          - npm install && npx cypress run --env grep=MUST,sessionToken=${sessionToken},configFile=${environment} --spec=cypress/tests/api/core_operations/az-terraform.spec.js,cypress/tests/api/core_operations/az-onprem-code-scanner.spec.js,cypress/tests/api/integrations/integrations.spec.js,cypress/tests/api/policies/custom-policy.spec.js,cypress/tests/api/policies/custom-policy-group.spec.js
+    - step: &run_must_pass_batch3
+        <<: *setDefaults
+        name: run MUST tests in specs - batch3
+        script:
+          - npm install && npx cypress run --env grep=MUST,sessionToken=${sessionToken},configFile=${environment} --spec=cypress/tests/api/core_operations/gcp-terraform.spec.js,cypress/tests/api/core_operations/aws-non-tf-engines.spec.js,cypress/tests/api/defects/defects-batch1.spec.js,cypress/tests/api/core_operations/external-apis.spec.js
+    - step: &run_all_batch1
+        <<: *setDefaults
+        name: run all - batch1
+        script:
+          - npm install && npx cypress run --env grep=BAT,sessionToken=${sessionToken},configFile=${environment} --spec=cypress/tests/api/core_operations/aws-terraform.spec.js,cypress/tests/api/core_operations/aws-onprem-code-scanner.spec.js
+    - step: &run_all_batch2
+        <<: *setDefaults
+        name: run all - batch2
+        script:
+          - npm install && npx cypress run --env grep=BAT,sessionToken=${sessionToken},configFile=${environment} --spec=cypress/tests/api/core_operations/az-terraform.spec.js,cypress/tests/api/core_operations/az-onprem-code-scanner.spec.js,cypress/tests/api/integrations/integrations.spec.js,cypress/tests/api/policies/custom-policy.spec.js,cypress/tests/api/policies/custom-policy-group.spec.js
+    - step: &run_all_batch3
+        <<: *setDefaults
+        name: run all - batch3
+        script:
+          - npm install && npx cypress run --env grep=BAT,sessionToken=${sessionToken},configFile=${environment} --spec=cypress/tests/api/core_operations/gcp-terraform.spec.js,cypress/tests/api/core_operations/aws-non-tf-engines.spec.js,,cypress/tests/api/defects/defects-batch1.spec.js,cypress/tests/api/core_operations/external-apis.spec.js
+    - step: &run_specs
+        <<: *setDefaults
+        name: Run all tests in selected specs
+        script:
+          - npm install && npx cypress run --env sessionToken=${sessionToken},configFile=${environment} --spec=${commaSeparatedSpecPaths}
+    - step: &run_must_tests_in_selected_specs
+        <<: *setDefaults
+        name: Run MUST tests in selected specs
+        script:
+          - npm install && npx cypress run --env grep=MUST,sessionToken=${sessionToken},configFile=${environment} --spec=${commaSeparatedSpecPaths}
+pipelines:
+  custom:
+    run_must_pass_tests_in_all_specs:
+      - variables:
+          - name: environment
+            default: "tenable-prod"
+          - name: sessionToken
+            default: "specify-only-if-captcha-is-enabled"
+      - parallel:
+          - step: *run_must_pass_batch1
+          - step: *run_must_pass_batch2
+          - step: *run_must_pass_batch3
+    run_must_tests_in_selected_specs:
+      - variables:
+          - name: environment
+            default: "devenv"
+          - name: sessionToken
+            default: "specify-only-if-captcha-is-enabled"
+          - name: commaSeparatedSpecPaths
+            default: "cypress/tests/api/integrations/integrations.spec.js,cypress/tests/api/defects/defects-batch1.spec.js"
+      - step: *run_must_tests_in_selected_specs  
+    run_specs:
+      - variables:
+          - name: environment
+            default: "devenv"
+          - name: sessionToken
+            default: "specify-only-if-captcha-is-enabled"
+          - name: commaSeparatedSpecPaths
+            default: "cypress/tests/api/integrations/integrations.spec.js,cypress/tests/api/defects/defects-batch1.spec.js"
+      - step: *run_specs
+    run_all:
+      - variables:
+          - name: environment
+            default: "devenv"
+          - name: sessionToken
+            default: "specify-only-if-captcha-is-enabled"
+      - parallel:
+          - step: *run_all_batch1
+          - step: *run_all_batch2
+          - step: *run_all_batch3
