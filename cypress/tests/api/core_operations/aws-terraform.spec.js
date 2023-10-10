@@ -387,7 +387,7 @@ describe('Core Operations - AWS - Terraform', () => {
   it('MUST - AWS - Validate helm kubescan for k8s cluster is downloaded and contents are present in it', ()=>{
     let path = Cypress.config().downloadsFolder
     let file = '/helm.zip'
-    cy.request(getHelmKubescanForProject({"env":store.envID,"target":Cypress.config().baseUrl.replace('/cns', ''),"clusterUUID":store.clusterUUID,"clusterName":"acqa-test-eks-cluster1"}))
+    cy.request(getHelmKubescanForProject({"env":store.envID,"target":Cypress.config().baseUrl.replace('/apiHandle', ''),"clusterUUID":store.clusterUUID,"clusterName":"acqa-test-eks-cluster1"}))
     .then((response) =>{
       cy.writeFile(path+file, response.body, 'binary')
     })

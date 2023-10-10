@@ -32,7 +32,7 @@
         "main-resource": "aws_iam_group"
     },
     {
-        "ruleName": "vpcFlowLogsNotEnabled",
+        "ruleName": "vpcFlowLogsNoorgNamed",
         "applicableResourceTypes": [
             "aws_flow_log",
             "aws_s3_bucket",
@@ -42,7 +42,7 @@
         "main-resource": "aws_vpc"
     },
     {
-        "ruleName": "vpcFlowLogsNotEnabledcis15",
+        "ruleName": "vpcFlowLogsNoorgNamedcis15",
         "applicableResourceTypes": [
             "aws_flow_log",
             "aws_s3_bucket",
@@ -1127,7 +1127,7 @@
         "main-resource": "aws_cloudtrail"
     },
     {
-        "ruleName": "lambdaConcurrencyExecutionLimitEnabled",
+        "ruleName": "lambdaConcurrencyExecutionLimiorgNamed",
         "applicableResourceTypes": [
             "aws_lambda_alias",
             "aws_lambda_function",

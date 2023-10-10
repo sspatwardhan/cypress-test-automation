@@ -56,7 +56,7 @@
         "main-resource": "google_compute_instance"
     },
     {
-        "ruleName": "serialPortEnabled",
+        "ruleName": "serialPororgNamed",
         "applicableResourceTypes": [
             "google_compute_instance",
             "google_compute_project_metadata"

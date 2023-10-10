@@ -1,5 +1,5 @@
 res_type,resource_name,misconfig
-aws_vpc,aws_vpc.vpc-010c26c77d0beb983,vpcFlowLogsNotEnabledcis15
+aws_vpc,aws_vpc.vpc-010c26c77d0beb983,vpcFlowLogsNoorgNamedcis15
 aws_ebs_volume,aws_ebs_volume.vol-0b7d91dcc9b9ea7c9,ebsSnapshot
 aws_efs_file_system,aws_efs_file_system.arn:aws:elasticfilesystem:us-east-1:068347883986:file-system/fs-00da25bfe2b7de11a,efsWithoutBackupPolicy
 aws_rds_cluster_instance,aws_rds_cluster_instance.terraform-20230330131400044900000014,ensureSameAccess
@@ -47,7 +47,7 @@ aws_cloudtrail,aws_cloudtrail.tcs-qe-tf-trail,awsCloudWatchLogRouteTableCheck
 aws_cloudtrail,aws_cloudtrail.tcs-qe-tf-trail,awsCloudWatchLogVpcCheck
 aws_cloudtrail,aws_cloudtrail.tcs-qe-tf-trail,awsCloudWatchLogOrgChangeCheck
 aws_cloudtrail,aws_cloudtrail.tcs-qe-tf-trail,awsCloudWatchLogGrpNatGwCheck
-aws_lambda_function,aws_lambda_function.arn:aws:lambda:us-east-1:068347883986:function:test-lambda-pbsqj,lambdaConcurrencyExecutionLimitEnabled
+aws_lambda_function,aws_lambda_function.arn:aws:lambda:us-east-1:068347883986:function:test-lambda-pbsqj,lambdaConcurrencyExecutionLimiorgNamed
 aws_security_group,aws_security_group.sg-0f6a1bee4485cacaa,port22OpenToInternet
 aws_security_group,aws_security_group.sg-0c63125d337d4ce64,port80OpenToInternet
 aws_security_group,aws_security_group.sg-048446cb12bb3cf5a,port443OpenToInternet

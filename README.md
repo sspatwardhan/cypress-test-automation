@@ -1,4 +1,4 @@
-# <a href='https://cloudbees.eng.tenable.com/teams-accurics/job/accurics/view/QE/job/Tenable-CS-API-BUILD-ACCEPTANCE-TESTS/'><img src='https://cloudbees.eng.tenable.com/teams-accurics/job/accurics/view/QE/job/Tenable-CS-API-BUILD-ACCEPTANCE-TESTS/badge/icon'></a>
+# <a href='https://cloudbees.eng.orgName.com/teams-accurics/job/accurics/view/QE/job/orgName-CS-API-BUILD-ACCEPTANCE-TESTS/'><img src='https://cloudbees.eng.orgName.com/teams-accurics/job/accurics/view/QE/job/orgName-CS-API-BUILD-ACCEPTANCE-TESTS/badge/icon'></a>
 
 ## Libraries and plugins used
 

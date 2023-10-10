@@ -60,7 +60,7 @@ describe('Core Operations - Cloud Discovery for all the Supported Providers', ()
     * Test Management ID:
    ---------------------------------------------------------*/
    it('MUST - AWS - verify user is able to onboard a non-org-root cloud account without member account discovery', () => {
-      cy.request(onboardCloudAccount([{ provider: "aws", isDiscoveryEnabled: false, credential: { rolearn: "arn:aws:iam::068347883986:role/tenableio-connector_dev", externalId: "123456" } }]))
+      cy.request(onboardCloudAccount([{ provider: "aws", isDiscoveryEnabled: false, credential: { rolearn: "arn:aws:iam::068347883986:role/orgNameio-connector_dev", externalId: "123456" } }]))
       .then((response) => {
          expect(response.status).to.eq(202)
       })

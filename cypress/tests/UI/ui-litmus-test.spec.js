@@ -17,7 +17,7 @@ describe('UI - Visual regression suite', () => {
     cy.visit(Cypress.config().baseUrl+"/newEnv/vulnerability")
     // cy.percySnapshot();
     cy.wait(10000)
-    cy.percySnapshot('cns_home_misconfigurations_on_landing');
+    cy.percySnapshot('apiHandle_home_misconfigurations_on_landing');
   })
 
 

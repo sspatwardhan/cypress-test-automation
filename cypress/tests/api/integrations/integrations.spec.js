@@ -410,7 +410,7 @@ describe('Verify integrations', () => {
     cy.request(createAlert(store.envID,
       {
         eventIDs: [store.envID],
-        notificationChannel: "[{\"type\":\"email\",\"values\":{\"subject\":\"AutoBots rolling out - Optimus Prime \",\"to\":[\"idontexist@tenable.com\"]}},{\"type\":\"slack\",\"values\":{\"name\":\"test-cs-alert\",\"token\":\"xoxb-2904190491763-4134807748903-fhp29cRqeCxmwyaUjQjUmXI4\"}}]", "frequency": 0, "accuricsTags": [], "priority": 1
+        notificationChannel: "[{\"type\":\"email\",\"values\":{\"subject\":\"AutoBots rolling out - Optimus Prime \",\"to\":[\"idontexist@orgName.com\"]}},{\"type\":\"slack\",\"values\":{\"name\":\"test-cs-alert\",\"token\":\"xoxb-2904190491763-4134807748903-fhp29cRqeCxmwyaUjQjUmXI4\"}}]", "frequency": 0, "accuricsTags": [], "priority": 1
       }
     )).then((response) => {
       expect(response.status).to.eq(204)

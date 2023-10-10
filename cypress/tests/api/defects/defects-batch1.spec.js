@@ -5,7 +5,7 @@ import { getUrlByName } from '../../../requests/apiAndNonApiUrlsMapper'
 const store = {
   envName: `${getSpecBasedNamePrefix() + Date.now()}`,
   awsProfileInjectEnv: `${getSpecBasedNamePrefix() + "AWS-PROFILE-INJECTION-" + Date.now()}`,
-  roleArn: 'arn:aws:iam::536274239938:role/tenableio-connector_dev', region: 'ca-central-1'
+  roleArn: 'arn:aws:iam::536274239938:role/orgNameio-connector_dev', region: 'ca-central-1'
 }
 
 describe('Validate bug fixes', () => {
@@ -16,7 +16,7 @@ describe('Validate bug fixes', () => {
   /**--------------------------------------------------------
    * Added by: Spat
    * Test Management ID:
-   * TODO: YET TO CREATE INFRA FOR THIS IN TENABLE INFRA
+   * TODO: YET TO CREATE INFRA FOR THIS IN orgName INFRA
    * TODO: ONCE INFRA IS CREATED MOVE THIS TEST TO TFSTATE VALIDATION SPEC
   ---------------------------------------------------------*/
   // it('MUST - APE-363: Validate IaC to cloud resource mapping by reading tfstate from s3 by assuming IaM role', () => {
@@ -172,7 +172,7 @@ describe('Validate bug fixes', () => {
   /**--------------------------------------------------------
    * Added by: Spat
    * Test Management ID:
-   * Status: CAN NOT BE TESTED AS TENABLE SRE HAS REMOVED AKEY SKEY ACCESS
+   * Status: CAN NOT BE TESTED AS orgName SRE HAS REMOVED AKEY SKEY ACCESS
    ---------------------------------------------------------*/
   //  it('MUST - AWS - BAM usecase - create onpremise terraform repository with aws profile injection', () => {
   //   cy.request(onboardRepoToProject({

@@ -1,7 +1,7 @@
 res_type,resource_name,misconfig,misconfig_description
 aws_iam_virtual_mfa_device,None reports this misconfig,noHardwareMfa,couldn't find rule
 aws_iam_group,None reports this misconfig,orphanIamGroup,Ensure that there are no orphan in AWS IAM groups
-aws_vpc,None reports this misconfig,vpcFlowLogsNotEnabled,couldn't find rule
+aws_vpc,None reports this misconfig,vpcFlowLogsNoorgNamed,couldn't find rule
 aws_securityhub_account,None reports this misconfig,enableSecurityhub,couldn't find rule
 aws_mq_broker,None reports this misconfig,awsMqCmkUsed,Ensure customer owned KMS key is used for encrypting AWS MQ Brokers
 aws_instance,None reports this misconfig,instanceWithNoVpc,Ensure virtual private cloud (VPC) is configured for AWS EC2 instances

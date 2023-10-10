@@ -20,7 +20,7 @@
     <testcase name="Core Operations - AWS - Terraform DEMO - MUST - AWS - Run cloud scan and wait until it finishes" time="0.000" classname="DEMO - MUST - AWS - Run cloud scan and wait until it finishes">
       <failure message="`cy.request()` failed on:
 
-https://qa-milestone.cloud.aws.tenablesecurity.com/cns/v1/api/cloudscan/env/8ba69802-ae5e-42d8-b1f9-e88f081974a5/status
+https://qa-milestone.cloud.aws.orgNamesecurity.com/apiHandle/v1/api/cloudscan/env/8ba69802-ae5e-42d8-b1f9-e88f081974a5/status
 
 The response we received from your web server was:
 
@@ -35,7 +35,7 @@ If you do not want status codes to cause failures pass the option: `failOnStatus
 The request we sent was:
 
 Method: GET
-URL: https://qa-milestone.cloud.aws.tenablesecurity.com/cns/v1/api/cloudscan/env/8ba69802-ae5e-42d8-b1f9-e88f081974a5/status
+URL: https://qa-milestone.cloud.aws.orgNamesecurity.com/apiHandle/v1/api/cloudscan/env/8ba69802-ae5e-42d8-b1f9-e88f081974a5/status
 Headers: {
   &quot;Connection&quot;: &quot;keep-alive&quot;,
   &quot;x-cookie&quot;: &quot;token=961837a6c832a79d343861ef4bbd18e318ce27f6cdfab0add9e44c6e49fed6ee&quot;,
@@ -68,7 +68,7 @@ Headers: {
   &quot;x-gateway-site-id&quot;: &quot;service-nginx-router-us-east-1-eng-bf9cb6c69-lvgrb&quot;,
   &quot;pragma&quot;: &quot;no-cache&quot;,
   &quot;expect-ct&quot;: &quot;enforce, max-age=86400&quot;,
-  &quot;x-path-handler&quot;: &quot;tenable-io&quot;
+  &quot;x-path-handler&quot;: &quot;orgName-io&quot;
 }
 Body: {
   &quot;statusCode&quot;: 500,
@@ -79,7 +79,7 @@ Body: {
 
 https://on.cypress.io/request" type="CypressError"><![CDATA[CypressError: `cy.request()` failed on:
 
-https://qa-milestone.cloud.aws.tenablesecurity.com/cns/v1/api/cloudscan/env/8ba69802-ae5e-42d8-b1f9-e88f081974a5/status
+https://qa-milestone.cloud.aws.orgNamesecurity.com/apiHandle/v1/api/cloudscan/env/8ba69802-ae5e-42d8-b1f9-e88f081974a5/status
 
 The response we received from your web server was:
 
@@ -94,7 +94,7 @@ If you do not want status codes to cause failures pass the option: `failOnStatus
 The request we sent was:
 
 Method: GET
-URL: https://qa-milestone.cloud.aws.tenablesecurity.com/cns/v1/api/cloudscan/env/8ba69802-ae5e-42d8-b1f9-e88f081974a5/status
+URL: https://qa-milestone.cloud.aws.orgNamesecurity.com/apiHandle/v1/api/cloudscan/env/8ba69802-ae5e-42d8-b1f9-e88f081974a5/status
 Headers: {
   "Connection": "keep-alive",
   "x-cookie": "token=961837a6c832a79d343861ef4bbd18e318ce27f6cdfab0add9e44c6e49fed6ee",
@@ -127,7 +127,7 @@ Headers: {
   "x-gateway-site-id": "service-nginx-router-us-east-1-eng-bf9cb6c69-lvgrb",
   "pragma": "no-cache",
   "expect-ct": "enforce, max-age=86400",
-  "x-path-handler": "tenable-io"
+  "x-path-handler": "orgName-io"
 }
 Body: {
   "statusCode": 500,
@@ -137,16 +137,16 @@ Body: {
 
 
 https://on.cypress.io/request
-    at <unknown> (https://qa-milestone.cloud.aws.tenablesecurity.com/__cypress/runner/cypress_runner.js:139725:80)
-    at tryCatcher (https://qa-milestone.cloud.aws.tenablesecurity.com/__cypress/runner/cypress_runner.js:8914:23)
-    at Promise._settlePromiseFromHandler (https://qa-milestone.cloud.aws.tenablesecurity.com/__cypress/runner/cypress_runner.js:6849:31)
-    at Promise._settlePromise (https://qa-milestone.cloud.aws.tenablesecurity.com/__cypress/runner/cypress_runner.js:6906:18)
-    at Promise._settlePromise0 (https://qa-milestone.cloud.aws.tenablesecurity.com/__cypress/runner/cypress_runner.js:6951:10)
-    at Promise._settlePromises (https://qa-milestone.cloud.aws.tenablesecurity.com/__cypress/runner/cypress_runner.js:7031:18)
-    at _drainQueueStep (https://qa-milestone.cloud.aws.tenablesecurity.com/__cypress/runner/cypress_runner.js:3621:12)
-    at _drainQueue (https://qa-milestone.cloud.aws.tenablesecurity.com/__cypress/runner/cypress_runner.js:3614:9)
-    at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://qa-milestone.cloud.aws.tenablesecurity.com/__cypress/runner/cypress_runner.js:3630:5)
-    at Async.drainQueues (https://qa-milestone.cloud.aws.tenablesecurity.com/__cypress/runner/cypress_runner.js:3500:14)
+    at <unknown> (https://qa-milestone.cloud.aws.orgNamesecurity.com/__cypress/runner/cypress_runner.js:139725:80)
+    at tryCatcher (https://qa-milestone.cloud.aws.orgNamesecurity.com/__cypress/runner/cypress_runner.js:8914:23)
+    at Promise._settlePromiseFromHandler (https://qa-milestone.cloud.aws.orgNamesecurity.com/__cypress/runner/cypress_runner.js:6849:31)
+    at Promise._settlePromise (https://qa-milestone.cloud.aws.orgNamesecurity.com/__cypress/runner/cypress_runner.js:6906:18)
+    at Promise._settlePromise0 (https://qa-milestone.cloud.aws.orgNamesecurity.com/__cypress/runner/cypress_runner.js:6951:10)
+    at Promise._settlePromises (https://qa-milestone.cloud.aws.orgNamesecurity.com/__cypress/runner/cypress_runner.js:7031:18)
+    at _drainQueueStep (https://qa-milestone.cloud.aws.orgNamesecurity.com/__cypress/runner/cypress_runner.js:3621:12)
+    at _drainQueue (https://qa-milestone.cloud.aws.orgNamesecurity.com/__cypress/runner/cypress_runner.js:3614:9)
+    at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://qa-milestone.cloud.aws.orgNamesecurity.com/__cypress/runner/cypress_runner.js:3630:5)
+    at Async.drainQueues (https://qa-milestone.cloud.aws.orgNamesecurity.com/__cypress/runner/cypress_runner.js:3500:14)
 From Your Spec Code:
     at Context.eval (webpack:///./cypress/tests/api/core_operations/aws-terraform.spec.js:124:8)]]></failure>
     </testcase>

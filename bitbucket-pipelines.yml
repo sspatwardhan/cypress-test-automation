@@ -55,7 +55,7 @@ pipelines:
     run_must_pass_tests_in_all_specs:
       - variables:
           - name: environment
-            default: "tenable-prod"
+            default: "orgName-prod"
           - name: sessionToken
             default: "specify-only-if-captcha-is-enabled"
       - parallel:

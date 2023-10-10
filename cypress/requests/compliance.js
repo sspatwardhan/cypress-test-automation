@@ -1,7 +1,7 @@
 import { getUrlByName } from './apiAndNonApiUrlsMapper'
 
 /**----------------------------------------------------------------
- * Description: calls related to Tenable CS compliance reports
+ * Description: calls related to orgName CS compliance reports
  ------------------------------------------------------------------*/
  //Have not used qs:qs method of cypress as it has limitation when there are duplicate params its appending ascii characters in url
  //https://github.com/cypress-io/cypress/issues/19355 => for more info

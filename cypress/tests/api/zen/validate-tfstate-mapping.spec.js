@@ -4,7 +4,7 @@ import { getGlobalResourcesData, getRepoIdsForProject, onboardRepoToProject, wai
 import { initAPISpecRoutine, letsWait, _tenSeconds, _fourtySeconds, _sixtySeconds, _threeSeconds } from '../../../support/utils'
 
 const store = {
-  // roleArn: 'arn:aws:iam::536274239938:role/tenableio-connector_dev', region: 'ca-central-1', vpcID: 'vpc-0dcfc6c7488b848c7'
+  // roleArn: 'arn:aws:iam::536274239938:role/orgNameio-connector_dev', region: 'ca-central-1', vpcID: 'vpc-0dcfc6c7488b848c7'
 }
 
 describe('Core Operations - AWS - Resource mapping via tfstate', () => {

@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage("Get resource_support.json..") {
             steps {
-                // Copy the latest resource_support data from the lib-cns-csp
-                copyArtifacts(projectName: 'lib-cns-csp/master', filter: 'resource/bucket_creation_data.json', target: 'cypress/fixtures', flatten: true)
+                // Copy the latest resource_support data from the lib-apiHandle-csp
+                copyArtifacts(projectName: 'lib-apiHandle-csp/master', filter: 'resource/bucket_creation_data.json', target: 'cypress/fixtures', flatten: true)
                 // Rename and copy resource support to cypress/fixtures
                 sh 'mv cypress/fixtures/bucket_creation_data.json cypress/fixtures/resource_support.json'
                 sh 'ls cypress/fixtures'

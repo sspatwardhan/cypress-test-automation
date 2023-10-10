@@ -1008,7 +1008,7 @@ describe('External APIs (HUMANA)', () => {
       [{
       "provider": "aws",
       "name": store.envName+"_aws_account",
-      "email": store.envName+"@tenableQE.com",
+      "email": store.envName+"@orgNameQE.com",
       "management_group": store.envName+"_aws_mgmt_group",
       "credential": awsCredentials
       }],store.apiAuthToken))
@@ -1098,7 +1098,7 @@ describe('External APIs (HUMANA)', () => {
       [{
         "provider": "azure",
         "name": store.envName+"_azure_account",
-        "email": store.envName+"@tenableQE.com",
+        "email": store.envName+"@orgNameQE.com",
         "management_group": store.envName+"_azure_mgmt_group",
         "credential": azureCredentials
       }],store.apiAuthToken))
@@ -1185,7 +1185,7 @@ describe('External APIs (HUMANA)', () => {
     [{
       "provider": "gcp",
       "name": store.envName+"_gcp_account",
-      "email": store.envName+"@tenableQE.com",
+      "email": store.envName+"@orgNameQE.com",
       "management_group": store.envName+"_gcp_mgmt_group",
       "credential": gcpCredentials
     }],store.apiAuthToken))
@@ -1273,7 +1273,7 @@ describe('External APIs (HUMANA)', () => {
     let queryString = "page=1&page_size=5"
     cy.request(publicFetchCloudAccount({
       "providers":["aws","gcp","azure"],
-      emails:[store.envName+"@tenableQE.com"],
+      emails:[store.envName+"@orgNameQE.com"],
       projects:[`${store.awsProjectID}`,`${store.azureProjectID}`,`${store.gcpProjectID}`],
       names:[`${store.envName}_aws_account`,`${store.envName}_azure_account`,`${store.envName}_gcp_account`],
       managementGroups:[`${store.envName}_aws_mgmt_group`,`${store.envName}_azure_mgmt_group`,`${store.envName}_gcp_mgmt_group`]

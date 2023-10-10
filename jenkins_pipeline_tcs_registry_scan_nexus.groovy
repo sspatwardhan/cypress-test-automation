@@ -1,9 +1,9 @@
-@Library('tenable.common') _
+@Library('orgName.common') _
 
-import com.tenable.jenkins.*
-import com.tenable.jenkins.builds.*
-import com.tenable.jenkins.common.*
-import com.tenable.jenkins.Constants
+import com.orgName.jenkins.*
+import com.orgName.jenkins.builds.*
+import com.orgName.jenkins.common.*
+import com.orgName.jenkins.Constants
 
 
 pipeline {

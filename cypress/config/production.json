@@ -1,9 +1,9 @@
 {
-  "baseUrl": "https://cloud.tenable.com/cns",
+  "baseUrl": "https://cloud.orgName.com",
   "env": {
     "captchaEnabled":false,
     "botID":"d6648870-6d8e-47fe-b15b-a8705b6927f3",
-    "botHost":"ec2-15-222-46-56.ca-central-1.compute.amazonaws.com",
+    "botHost":"ec2-XX-XXX-XX-XX.ca-central-1.compute.amazonaws.com",
     "botFEPort":9022,
     "botBEPort":9020
   }

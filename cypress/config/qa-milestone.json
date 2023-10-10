@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://qa-milestone.cloud.aws.tenablesecurity.com/cns",
+  "baseUrl": "https://qa-milestone.cloud.aws.orgNamesecurity.com/apiHandle",
   "env": {
     "captchaEnabled":false,
     "botID":"3f057a24-5fb2-4e7d-91ce-9f2ff17c7c55",

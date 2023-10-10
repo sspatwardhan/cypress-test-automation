@@ -136,10 +136,10 @@ const apiUrls = {
 
 // Non web-console, Non public but, external and thirdparty
 const nonApiUrls = {
-    NAU_001: 'https://www.tenable.com/downloads/api/v2/pages/cloud-security/files',
+    NAU_001: 'https://www.orgName.com/downloads/api/v2/pages/cloud-security/files',
     NAU_003: 'https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacksets/create',
     NAU_004: 'https://downloads.accurics.com/downloads/io/create_tcs_aws_readonly_role.sh',
-    NAU_005: 'https://s3.us-east-1.amazonaws.com/tenable-connectors/cloud-templates/aws/us-2b/tenablecs-role-aws-read-only-cft.yml',
+    NAU_005: 'https://s3.us-east-1.amazonaws.com/orgName-connectors/cloud-templates/aws/us-2b/orgNamecs-role-aws-read-only-cft.yml',
     NAU_006: '/unzip/helm/helm/cli-kubescan/data/k8s-runtime-config-file.json',
     NAU_007: 'https://bitbucket.org/tenb-qa/acqa-repo1-aws-tf12-part1.git',
     NAU_008: 'https://bitbucket.org/tenb-qa/acqa-repo1-aws-tf12-part2.git',
@@ -148,8 +148,8 @@ const nonApiUrls = {
     NAU_011: 'https://bitbucket.org/tenb-qa/acqa-repo6-aws-cft.git',
     NAU_012: 'https://github.com/tenb-qa/acqa-repo16-aws-ignoreUnignore-tester.git',
     NAU_013: 'https://bitbucket.org/tenb-qa/acqa-tfc-remote-private-module-authentication.git',
-    NAU_014: Cypress.config('baseUrl').replace("/cns", "")+'/api/v3/findings/vulnerabilities/host/analysis',
-    NAU_015: Cypress.config('baseUrl').replace("/cns", "")+'/api/v3/assets/search',
+    NAU_014: Cypress.config('baseUrl').replace("/apiHandle", "")+'/api/v3/findings/vulnerabilities/host/analysis',
+    NAU_015: Cypress.config('baseUrl').replace("/apiHandle", "")+'/api/v3/assets/search',
     NAU_016: 'https://github.com/tenb-qa/performance-test-resources.git'
 
 }

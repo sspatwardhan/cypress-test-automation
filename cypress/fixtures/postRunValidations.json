@@ -384,7 +384,7 @@
         "requestURL": "AU_031",
         "method":"GET",
         "queryStrings": ["","","","","",""],
-        "expectedKeyAndMinValuePerQS": ["count|5","failedRuns|0","totalRuns|1","repoId|1a8f617a-4d82-4cde-b5da-7106895d756b","repository|https://github.eng.tenable.com/Product/performance-test-resources.git","totalRuns|1"]
+        "expectedKeyAndMinValuePerQS": ["count|5","failedRuns|0","totalRuns|1","repoId|1a8f617a-4d82-4cde-b5da-7106895d756b","repository|https://github.eng.orgName.com/Product/performance-test-resources.git","totalRuns|1"]
       },
       {
         "testID": "ValidationTest-0043",
@@ -511,7 +511,7 @@
         "method":"POST",
         "body":{"filter":{"and":[{"property":"origin","operator":"eq","value":["CONSEC_IMAGE"]},{"property":"container_image.registry","operator":"exists"}]},"template":"group","next":null,"parameters":{"group_by":["container_image.registry"],"stats":["count","first(container_image.registry)"],"sort":[{"property":"count","order":"desc"}]}},
         "queryStrings": ["","",""],
-        "expectedKeyAndMinValuePerQS": ["value|docker.io","value|harbor-registry.service.build.aws.tenablesecurity.com","value|nexus.cloud.aws.tenablesecurity.com:8083"]
+        "expectedKeyAndMinValuePerQS": ["value|docker.io","value|harbor-registry.service.build.aws.orgNamesecurity.com","value|nexus.cloud.aws.orgNamesecurity.com:8083"]
       },
       {
         "testID": "ValidationTest-0057",
@@ -614,7 +614,7 @@
         "requestURL": "AU_035",
         "method":"GET",
         "queryStrings": ["","",""],
-        "expectedKeyAndMinValuePerQS": ["url|https://github.eng.tenable.com/Product/performance-test-resources.git","provider|aws","eventSource|terraform"]
+        "expectedKeyAndMinValuePerQS": ["url|https://github.eng.orgName.com/Product/performance-test-resources.git","provider|aws","eventSource|terraform"]
       },
       {
         "testID": "ValidationTest-0068",

@@ -5,12 +5,12 @@
       {
         "envs": [{ "name": "BAT-iacValidator-cft1", "provider": "aws", "botIds": [] }],
         "repos": [
-          { "provider": "aws", "url": "https://github.com/tenable/KaiMonkey.git",
-            "name": "https://github.com/tenable/KaiMonkey.git", "engineType": "cft",
+          { "provider": "aws", "url": "https://github.com/orgName/KaiMonkey.git",
+            "name": "https://github.com/orgName/KaiMonkey.git", "engineType": "cft",
             "config": [
               { "key": "TERRAFORM_VERSION", "value": "0.15" },
               { "key": "TERRASCAN", "value": "false" }],
-              "folderPath": "/cft", "autoRemediate": "none", "source": "tenable/KaiMonkey.git" },
+              "folderPath": "/cft", "autoRemediate": "none", "source": "orgName/KaiMonkey.git" },
           { "provider": "aws", "url": "https://github.com/awslabs/aws-cloudformation-templates.git",
             "name": "https://github.com/awslabs/aws-cloudformation-templates.git", "engineType": "cft",
             "config": [
@@ -33,10 +33,10 @@
       {
         "envs":[{"name":"BAT-iacValidator-arm1","provider":"azure","botIds":[]}],
         "repos":[
-          { "provider":"azure","url":"https://github.com/tenable/KaiMonkey.git",
-            "name":"BAT-iacValidatorRepo-https://github.com/tenable/KaiMonkey.git","engineType":"arm",
+          { "provider":"azure","url":"https://github.com/orgName/KaiMonkey.git",
+            "name":"BAT-iacValidatorRepo-https://github.com/orgName/KaiMonkey.git","engineType":"arm",
             "config":[{"key":"TERRAFORM_VERSION","value":"0.15"},{"key":"TERRASCAN","value":"true"}],
-            "folderPath":"/arm","autoRemediate":"none","source":"tenable/KaiMonkey.git"}],
+            "folderPath":"/arm","autoRemediate":"none","source":"orgName/KaiMonkey.git"}],
             "skipTest":false,
             "skipValidations":true,
             "expectationIs":"greaterThan",
@@ -46,10 +46,10 @@
       {
         "envs":[{"name":"BAT-iacValidator-tf-aws-linear1","provider":"aws","botIds":[]}],
         "repos":[
-          { "provider":"aws","url":"https://github.com/tenable/KaiMonkey.git",
-            "name":"BAT-iacValidatorRepo-https://github.com/tenable/KaiMonkey.git","engineType":"terraform",
+          { "provider":"aws","url":"https://github.com/orgName/KaiMonkey.git",
+            "name":"BAT-iacValidatorRepo-https://github.com/orgName/KaiMonkey.git","engineType":"terraform",
             "config":[{"key":"TERRAFORM_VERSION","value":"0.15"},{"key":"TERRASCAN","value":"true"}],
-            "folderPath":"/terraform/aws","autoRemediate":"none","source":"tenable/KaiMonkey.git"}],
+            "folderPath":"/terraform/aws","autoRemediate":"none","source":"orgName/KaiMonkey.git"}],
             "skipTest":false,
             "skipValidations":true,
             "expectationIs":"greaterThan",

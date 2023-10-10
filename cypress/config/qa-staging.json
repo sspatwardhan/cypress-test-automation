@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://qa-staging.cloud.aws.tenablesecurity.com/cns",
+  "baseUrl": "https://qa-staging.cloud.aws.orgNamesecurity.com/apiHandle",
   "env": {
     "captchaEnabled":false,
     "botID":"cbca672b-2970-44b2-a4d9-ae1cbe8e8d79",
