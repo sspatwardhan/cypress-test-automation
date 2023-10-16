@@ -1,9 +1,9 @@
 {
-  "baseUrl": "https://qa-staging.cloud.aws.orgNamesecurity.com/apiHandle",
+  "baseUrl": "https://staging.cloud.aws.orgNamesecurity.com/apiHandle",
   "env": {
     "captchaEnabled":false,
     "botID":"cbca672b-2970-44b2-a4d9-ae1cbe8e8d79",
-    "botHost":"http://10.254.130.64",
+    "botHost":"http://10.254.XXX.XX",
     "botFEPort":8000,
     "botBEPort":8000
   }

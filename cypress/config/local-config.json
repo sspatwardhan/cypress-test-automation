@@ -9,6 +9,5 @@
     "botHost":"<use_actual_value>",
     "botFEPort":9022,
     "botBEPort":9020
-    
   }
 }

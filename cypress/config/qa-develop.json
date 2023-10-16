@@ -1,9 +1,9 @@
 {
-  "baseUrl": "https://qa-develop.cloud.aws.orgNamesecurity.com/apiHandle",
+  "baseUrl": "https://develop.cloud.aws.orgNamesecurity.com/apiHandle",
   "env": {
     "captchaEnabled":false,
     "botID":"ee7c83ff-b52b-4b75-a42b-5733fa561657",
-    "botHost":"http://10.254.130.74",
+    "botHost":"http://10.254.XX.XXX",
     "botFEPort":8000,
     "botBEPort":8000
   }
