@@ -281,7 +281,7 @@ describe('Core Operations - AWS - Terraform', () => {
         Cypress.env('createAWSPullRequestDetails').resourceType,
         Cypress.env('createAWSPullRequestDetails').resourceName,
         Cypress.env('createAWSPullRequestDetails').violationName,
-        'tcs-qe-org1/5cecc9cc-18b9-45dc-b72b-1c3539327d59',
+        'org-qe-org1/5cecc9cc-18b9-45dc-b72b-1c3539327d59',
         Cypress.env('createAWSPullRequestDetails').iacFile)
     }
     else {

@@ -11,7 +11,7 @@ const store = {
     jiraEmail: 'jira-user1@xyz.com',
     jiraIssueAssigneeEmail: 'jira-user1@xyz.com',
     jiraActiveApiToken:'XXXXXXX',
-    jiraProjectNameToLookFor: 'tcs-use-me',
+    jiraProjectNameToLookFor: 'org-use-me',
     jiraIssueTypeNameToLookFor: "Security Issue",
     JiraRevokedApiToken: "XXXXXXX",
     jiraUsersToBeSearched: ["spat", "Anjana", "xyz", ""]

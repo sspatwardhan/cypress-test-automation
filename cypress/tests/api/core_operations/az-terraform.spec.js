@@ -61,7 +61,7 @@ describe('Core Operations - Azure', () => {
     onboardReposThroughProject({
       envs: [{ name: store.envName, provider: "azure", botIds: [] }],
       repos: [
-        { provider: "azure", url: `https://tcs-qe-org1@dev.azure.com/tcs-qe-org1/test-project1/_git/${Cypress.env("bitbucketBATRepo1az")}`, name: `acqa-repo9-azure-tf12_${new Date().getTime()}`, engineType: "terraform", config: [{ key: "TERRAFORM_VERSION", value: Cypress.env("tf_version_for_az_repos") }, { key: "TERRASCAN", value: "false" }], folderPath: "/", autoRemediate: "none", source: `tcs-qe-org1/${Cypress.env("bitbucketBATRepo1az")}-azRepo` }]
+        { provider: "azure", url: `https://org-qe-org1@dev.azure.com/org-qe-org1/test-project1/_git/${Cypress.env("bitbucketBATRepo1az")}`, name: `acqa-repo9-azure-tf12_${new Date().getTime()}`, engineType: "terraform", config: [{ key: "TERRAFORM_VERSION", value: Cypress.env("tf_version_for_az_repos") }, { key: "TERRASCAN", value: "false" }], folderPath: "/", autoRemediate: "none", source: `org-qe-org1/${Cypress.env("bitbucketBATRepo1az")}-azRepo` }]
     })
     cy.get('@envDetails')
     .then((response) => {
@@ -208,7 +208,7 @@ describe('Core Operations - Azure', () => {
     onboardReposThroughProject({
       envs: [{ name: store.envName + '-VSRepo', provider: "azure", botIds: [] }],
       repos: [
-        { provider: "azure", url: `https://tcs-qe-org1.visualstudio.com/test-project1/_git/acqa-repo3-azure-tf12`, name: `acqa-repo3-azure-tf12_${new Date().getTime()}`, engineType: "terraform", config: [{ key: "TERRAFORM_VERSION", value: Cypress.env("tf_version_for_az_repos") }, { key: "TERRASCAN", value: "false" }], folderPath: "/", autoRemediate: "none", "source": "Custom", "repoType": "custom", "webhook": false }]
+        { provider: "azure", url: `https://org-qe-org1.visualstudio.com/test-project1/_git/acqa-repo3-azure-tf12`, name: `acqa-repo3-azure-tf12_${new Date().getTime()}`, engineType: "terraform", config: [{ key: "TERRAFORM_VERSION", value: Cypress.env("tf_version_for_az_repos") }, { key: "TERRASCAN", value: "false" }], folderPath: "/", autoRemediate: "none", "source": "Custom", "repoType": "custom", "webhook": false }]
     })
     cy.get('@envDetails')
     .then((response) => {

@@ -753,7 +753,7 @@
         "requestURL": "AU_128",
         "method": "GET",
         "queryStrings": ["",""],
-        "expectedKeyAndMinValuePerQS": ["type|Microsoft","url|https://tcs-qe-org1@dev.azure.com/tcs-qe-org1/test-project1/_git/acqa-repo1-aws-tf12-part1"]
+        "expectedKeyAndMinValuePerQS": ["type|Microsoft","url|https://org-qe-org1@dev.azure.com/org-qe-org1/test-project1/_git/acqa-repo1-aws-tf12-part1"]
       },
       {
         "testID": "ValidationTest-0083",
@@ -771,7 +771,7 @@
         "requestURL": "AU_013",
         "method": "GET",
         "queryStrings": ["","",""],
-        "expectedKeyAndMinValuePerQS": ["name|tcs-use-me-to-test","key|TUMTT","displayName|Saurabh Patwardhan"]
+        "expectedKeyAndMinValuePerQS": ["name|org-use-me-to-test","key|TUMTT","displayName|Saurabh Patwardhan"]
       },
       {
         "testID": "ValidationTest-0085",

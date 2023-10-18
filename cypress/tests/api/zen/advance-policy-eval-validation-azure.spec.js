@@ -28,7 +28,7 @@ describe(`${cloudProvider} - Supported resource resource types validation`, () =
     onboardReposThroughProject({
       envs: [{ name: store.envName, provider: "azure", botIds: [] }],
       repos: [
-        { provider: "azure", url: `https://tcs-qe-org1@dev.azure.com/tcs-qe-org1/test-project1/_git/${Cypress.env("bitbucketBATRepo1az")}`, name: `acqa-repo9-azure-tf12_${new Date().getTime()}`, engineType: "terraform", config: [{ key: "TERRAFORM_VERSION", value: Cypress.env("tf_version_for_az_repos") }, { key: "TERRASCAN", value: "false" }], folderPath: "/", autoRemediate: "none", source: `tcs-qe-org1/${Cypress.env("bitbucketBATRepo1az")}-azRepo` }]
+        { provider: "azure", url: `https://org-qe-org1@dev.azure.com/org-qe-org1/test-project1/_git/${Cypress.env("bitbucketBATRepo1az")}`, name: `acqa-repo9-azure-tf12_${new Date().getTime()}`, engineType: "terraform", config: [{ key: "TERRAFORM_VERSION", value: Cypress.env("tf_version_for_az_repos") }, { key: "TERRASCAN", value: "false" }], folderPath: "/", autoRemediate: "none", source: `org-qe-org1/${Cypress.env("bitbucketBATRepo1az")}-azRepo` }]
     })
     cy.get('@envDetails').then((response) => {
       store.envID = response[0]

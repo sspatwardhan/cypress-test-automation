@@ -59,10 +59,10 @@
       {
         "envs":[{"name":"BAT-iacValidator-tf-aws-linear2","provider":"aws","botIds":[]}],
         "repos":[
-          { "provider":"aws","url":"https://github.com/vilichaudhary/tcs-demo-resources.git",
-            "name":"BAT-iacValidatorRepo-https://github.com/vilichaudhary/tcs-demo-resources.git","engineType":"terraform",
+          { "provider":"aws","url":"https://github.com/vilichaudhary/org-demo-resources.git",
+            "name":"BAT-iacValidatorRepo-https://github.com/vilichaudhary/org-demo-resources.git","engineType":"terraform",
             "config":[{"key":"TERRAFORM_VERSION","value":"0.15"},{"key":"TERRASCAN","value":"true"}],
-            "folderPath":"/","autoRemediate":"none","source":"vilichaudhary/tcs-demo-resources.git"},
+            "folderPath":"/","autoRemediate":"none","source":"vilichaudhary/org-demo-resources.git"},
           { "provider":"aws","url":"https://github.com/terraform-aws-modules/terraform-aws-security-group.git",
             "name":"BAT-iacValidatorRepo-https://github.com/terraform-aws-modules/terraform-aws-security-group.git","engineType":"terraform",
             "config":[{"key":"TERRAFORM_VERSION","value":"0.15"},{"key":"TERRASCAN","value":"true"}],

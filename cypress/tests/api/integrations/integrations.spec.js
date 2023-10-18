@@ -12,7 +12,7 @@ import { publicGetProjects } from '../../../requests/public-apis'
 import { getPipelineSummary } from '../../../requests/cli_and_downloads'
 
 const store = {
-  adoRepoOrgAndRepoIDSlug: 'tcs-qe-org1/406e4af0-f57d-46fe-9e0d-6cad3229970f',
+  adoRepoOrgAndRepoIDSlug: 'org-qe-org1/406e4af0-f57d-46fe-9e0d-6cad3229970f',
   envName: `${getSpecBasedNamePrefix() + Date.now()}`,
 }
 
@@ -298,7 +298,7 @@ describe('Verify integrations', () => {
    * Ticket ID: APE-7290 APE-7294 APE-7015
   ---------------------------------------------------------*/
   it('Verify ADO repository and branch contents (repo: special-scenarios', () => {
-    cy.request(getRepoContentsDefaultBranch('microsoft', 'tcs-qe-org1/44f7e59b-b94f-4719-945a-e88f28d5a78a', "/"))
+    cy.request(getRepoContentsDefaultBranch('microsoft', 'org-qe-org1/44f7e59b-b94f-4719-945a-e88f28d5a78a', "/"))
     .then((response) => {
       expect(response.status).to.eq(200)
       let fileDetails = response.body.find(file => file.type === "blob")
@@ -306,7 +306,7 @@ describe('Verify integrations', () => {
       // let folderDetails = response.body.find(folder => folder.type === "tree")
       // expect(folderDetails.name).to.eq("/branch2-folder1")
     })
-    cy.request(getRepoContentsForBranch('microsoft', 'tcs-qe-org1/44f7e59b-b94f-4719-945a-e88f28d5a78a', "/", "master"))
+    cy.request(getRepoContentsForBranch('microsoft', 'org-qe-org1/44f7e59b-b94f-4719-945a-e88f28d5a78a', "/", "master"))
     .then((response) => {
       expect(response.status).to.eq(200)
       let fileDetails = response.body.find(file => file.type === "blob")
@@ -363,7 +363,7 @@ describe('Verify integrations', () => {
   // ---------------------------------------------------------*/
   // it('MUST - Verify ADO orgs and org-repos', () => {
   //   const targetSCM = 'microsoft'
-  //   const targetOrgName = "tcs-qe-org1"
+  //   const targetOrgName = "org-qe-org1"
   //   cy.request(getSCMOrgs(targetSCM)).then(orgResp => {
   //     expect(orgResp.status).to.eq(200)
   //     store.targetOrgID = orgResp.body.find(orgs => orgs.name === targetOrgName).id

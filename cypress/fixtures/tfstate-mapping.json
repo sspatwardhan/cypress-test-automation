@@ -15,7 +15,7 @@
                         "config": [
                             { "key": "TERRAFORM_VERSION","value": "0.15" },
                             { "key": "TERRASCAN","value": "false" },
-                            { "key": "TFSTATE_URL", "value": "s3://tcs-engineering-tfstatestore-bucket-5362/tfstates/acqa-repo1-aws-tf12-part1-no-name.tfstate" },
+                            { "key": "TFSTATE_URL", "value": "s3://org-engineering-tfstatestore-bucket-5362/tfstates/acqa-repo1-aws-tf12-part1-no-name.tfstate" },
                             { "key": "BUCKET_REGION", "value": "ca-central-1" }
                         ],
                         "folderPath": "/", "autoRemediate": "none", "source": "tenb-qa/acqa-repo1-aws-tf12-part1-no-name-tags.git"
@@ -38,7 +38,7 @@
                         "config": [
                             { "key": "TERRAFORM_VERSION","value": "0.15" },
                             { "key": "TERRASCAN","value": "false" },
-                            { "key": "TFSTATE_URL", "value": "s3://tcs-engineering-tfstatestore-bucket-5362/tfstates/acqa-repo1-aws-tf12-part1.tfstate" },
+                            { "key": "TFSTATE_URL", "value": "s3://org-engineering-tfstatestore-bucket-5362/tfstates/acqa-repo1-aws-tf12-part1.tfstate" },
                             { "key": "BUCKET_REGION", "value": "ca-central-1" }
                         ],
                         "folderPath": "/", "autoRemediate": "none", "source": "tenb-qa/acqa-repo1-aws-tf12-part1.git"
@@ -61,7 +61,7 @@
                         "config": [
                             { "key": "TERRAFORM_VERSION","value": "0.15" },
                             { "key": "TERRASCAN","value": "false" },
-                            { "key": "TFSTATE_URL", "value": "s3://tcs-engineering-tfstatestore-bucket-5362/tfstates/aws-terraform-foreach.tfstate" },
+                            { "key": "TFSTATE_URL", "value": "s3://org-engineering-tfstatestore-bucket-5362/tfstates/aws-terraform-foreach.tfstate" },
                             { "key": "BUCKET_REGION", "value": "ca-central-1" }
                         ],
                         "folderPath": "/", "autoRemediate": "none", "source": "tenb-qa/aws-terraform-foreach.git"

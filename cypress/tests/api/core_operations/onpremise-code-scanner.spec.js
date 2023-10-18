@@ -22,8 +22,8 @@ describe('Onpremise Code Scanner', () => {
     cy.request(onboardRepoToProject({
       envs: [{ name: getSpecBasedNamePrefix() + "aws-" + Date.now(), provider: "aws", botIds: [Cypress.env('botID')] }],
       repos: [
-        { provider: "aws", url: `https://tcs-megatron.westus2.cloudapp.azure.com/engineering/acqa-repo1-aws-tf12-part1.git`, name: `acqa-repo1-aws-tf12-part1.git_${new Date().getTime()}`, engineType: "terraform", config: [{ key: "ON_PREM", value: "true" }, { key: "REPO_TYPE", value: "github" }, { key: "TERRAFORM_VERSION", value: Cypress.env("tf_version_for_aws_repos") }, { key: "TERRASCAN", value: "false" }], folderPath: "/", autoRemediate: "auto-remediate", source: `engineering/acqa-repo1-aws-tf12-part1.git` },
-        { provider: "aws", url: `https://tcs-megatron.westus2.cloudapp.azure.com/engineering/acqa-repo1-aws-tf12-part2.git`, name: `acqa-repo1-aws-tf12-part2.git_${new Date().getTime()}`, engineType: "terraform", config: [{ key: "ON_PREM", value: "true" }, { key: "REPO_TYPE", value: "github" }, { key: "TERRAFORM_VERSION", value: Cypress.env("tf_version_for_aws_repos") }, { key: "TERRASCAN", value: "false" }], folderPath: "/", autoRemediate: "auto-remediate", source: `engineering/acqa-repo1-aws-tf12-part2.git` }
+        { provider: "aws", url: `https://org-megatron.westus2.cloudapp.azure.com/engineering/acqa-repo1-aws-tf12-part1.git`, name: `acqa-repo1-aws-tf12-part1.git_${new Date().getTime()}`, engineType: "terraform", config: [{ key: "ON_PREM", value: "true" }, { key: "REPO_TYPE", value: "github" }, { key: "TERRAFORM_VERSION", value: Cypress.env("tf_version_for_aws_repos") }, { key: "TERRASCAN", value: "false" }], folderPath: "/", autoRemediate: "auto-remediate", source: `engineering/acqa-repo1-aws-tf12-part1.git` },
+        { provider: "aws", url: `https://org-megatron.westus2.cloudapp.azure.com/engineering/acqa-repo1-aws-tf12-part2.git`, name: `acqa-repo1-aws-tf12-part2.git_${new Date().getTime()}`, engineType: "terraform", config: [{ key: "ON_PREM", value: "true" }, { key: "REPO_TYPE", value: "github" }, { key: "TERRAFORM_VERSION", value: Cypress.env("tf_version_for_aws_repos") }, { key: "TERRASCAN", value: "false" }], folderPath: "/", autoRemediate: "auto-remediate", source: `engineering/acqa-repo1-aws-tf12-part2.git` }
       ]
     })).then(response => {
       expect(response.status).to.eq(202)
@@ -120,7 +120,7 @@ describe('Onpremise Code Scanner', () => {
       envs: [{ name: getSpecBasedNamePrefix() + "cft-" + Date.now(), provider: "aws", botIds: [Cypress.env('botID')] }],
       repos: [
         {
-          provider: "aws", url: "https://tcs-megatron.westus2.cloudapp.azure.com/engineering/acqa-repo6-aws-cft.git", name: `repo6-bot.git_${new Date().getTime()}`, engineType: "cft",
+          provider: "aws", url: "https://org-megatron.westus2.cloudapp.azure.com/engineering/acqa-repo6-aws-cft.git", name: `repo6-bot.git_${new Date().getTime()}`, engineType: "cft",
           config: [{ key: "USE_TERRASCAN", value: "true" }, { key: "ON_PREM", value: "true" }, { key: "REPO_TYPE", value: "github" }, { key: "TERRAFORM_VERSION", value: Cypress.env("tf_version_for_aws_repos") }, { key: "TERRASCAN", value: "true" }], folderPath: "/", autoRemediate: "none", source: `unused/15`
         }]
     })).then(response => {
@@ -171,7 +171,7 @@ describe('Onpremise Code Scanner', () => {
       envs: [{ name: getSpecBasedNamePrefix() + "k8s-" + Date.now(), provider: "aws", botIds: [Cypress.env('botID')] }],
       repos: [
         {
-          provider: "aws", url: "https://tcs-bumblebee.westus2.cloudapp.azure.com/scm/eng/k8s-sample-app.git", name: `k8s-bot.git_${new Date().getTime()}`, engineType: "terraform",
+          provider: "aws", url: "https://org-bumblebee.westus2.cloudapp.azure.com/scm/eng/k8s-sample-app.git", name: `k8s-bot.git_${new Date().getTime()}`, engineType: "terraform",
           config: [{ key: "ON_PREM", value: "true" }, { key: "REPO_TYPE", value: "bitbucket-server" }, { key: "TERRAFORM_VERSION", value: Cypress.env("tf_version_for_aws_repos") }, { key: "TERRASCAN", value: "true" }], folderPath: "/", autoRemediate: "none", source: `ENG/k8s-sample-app.git`
         }]
     })).then(response => {
@@ -221,8 +221,8 @@ describe('Onpremise Code Scanner', () => {
     cy.request(onboardRepoToProject({
       envs: [{ name: getSpecBasedNamePrefix() + "az-" + Date.now(), provider: "azure", botIds: [Cypress.env('botID')] }],
       repos: [
-        { provider: "azure", url: `https://tcs-megatron.westus2.cloudapp.azure.com/engineering/acqa-repo9-azure-tf12.git`, name: `acqa-repo9-azure-tf12.git_${new Date().getTime()}`, engineType: "terraform", config: [{ key: "ON_PREM", value: "true" }, { key: "REPO_TYPE", value: "github" }, { key: "TERRAFORM_VERSION", value: Cypress.env("tf_version_for_aws_repos") }, { key: "TERRASCAN", value: "true" }], folderPath: "/", autoRemediate: "auto-remediate", source: `engineering/acqa-repo9-azure-tf12.git` },
-        { provider: "azure", url: `https://tcs-megatron.westus2.cloudapp.azure.com/engineering/terragoat.git`, name: `terragoat.git_${new Date().getTime()}`, engineType: "terraform", config: [{ key: "ON_PREM", value: "true" }, { key: "REPO_TYPE", value: "github" }, { key: "TERRAFORM_VERSION", value: Cypress.env("tf_version_for_aws_repos") }, { key: "TERRASCAN", value: "true" }], folderPath: "/terraform/azure", autoRemediate: "auto-remediate", source: `engineering/terragoat.git` }
+        { provider: "azure", url: `https://org-megatron.westus2.cloudapp.azure.com/engineering/acqa-repo9-azure-tf12.git`, name: `acqa-repo9-azure-tf12.git_${new Date().getTime()}`, engineType: "terraform", config: [{ key: "ON_PREM", value: "true" }, { key: "REPO_TYPE", value: "github" }, { key: "TERRAFORM_VERSION", value: Cypress.env("tf_version_for_aws_repos") }, { key: "TERRASCAN", value: "true" }], folderPath: "/", autoRemediate: "auto-remediate", source: `engineering/acqa-repo9-azure-tf12.git` },
+        { provider: "azure", url: `https://org-megatron.westus2.cloudapp.azure.com/engineering/terragoat.git`, name: `terragoat.git_${new Date().getTime()}`, engineType: "terraform", config: [{ key: "ON_PREM", value: "true" }, { key: "REPO_TYPE", value: "github" }, { key: "TERRAFORM_VERSION", value: Cypress.env("tf_version_for_aws_repos") }, { key: "TERRASCAN", value: "true" }], folderPath: "/terraform/azure", autoRemediate: "auto-remediate", source: `engineering/terragoat.git` }
       ]
     })).then(response => {
       expect(response.status).to.eq(202)
